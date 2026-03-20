@@ -12,251 +12,368 @@
     }
 
     body {
-      font-family: 'Georgia', 'Times New Roman', 'Palatino', serif;
-      background: #fcf9f5;
-      color: #2e3b4e;
+      font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+      background: #0a0f1a;
+      color: #e8eef2;
+      overflow-x: hidden;
+    }
+
+    /* ===== HEADER HERO - ẤN TƯỢNG MẠNH ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #03070f;
+    }
+
+    /* Background động với hiệu ứng chuyển động nhẹ */
+    .hero-bg {
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      width: 120%;
+      height: 120%;
+      background: 
+        radial-gradient(circle at 20% 40%, rgba(200, 160, 100, 0.25) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(180, 100, 50, 0.2) 0%, transparent 60%),
+        url('Background5.png') center/cover;
+      filter: brightness(0.7) contrast(1.2);
+      animation: slowZoom 25s ease-in-out infinite alternate;
+      z-index: 0;
+    }
+
+    @keyframes slowZoom {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.08); }
+    }
+
+    /* Lớp phủ gradient mạnh mẽ */
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, 
+        rgba(5, 15, 25, 0.92) 0%,
+        rgba(15, 25, 40, 0.85) 50%,
+        rgba(80, 45, 25, 0.75) 100%);
+      z-index: 1;
+    }
+
+    /* Hiệu ứng ánh sáng vàng */
+    .hero-glow {
+      position: absolute;
+      top: 30%;
+      left: -20%;
+      width: 80%;
+      height: 60%;
+      background: radial-gradient(ellipse, rgba(210, 170, 80, 0.3) 0%, transparent 70%);
+      filter: blur(70px);
+      animation: glowMove 12s ease-in-out infinite alternate;
+      z-index: 1;
+    }
+
+    @keyframes glowMove {
+      0% { transform: translateX(0) translateY(0); opacity: 0.5; }
+      100% { transform: translateX(10%) translateY(5%); opacity: 1; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 60px;
+      width: 100%;
+    }
+
+    /* Logo và tiêu đề chính */
+    .hero-logo-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 80px;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .logo-wrapper {
+      background: rgba(255, 255, 245, 0.08);
+      backdrop-filter: blur(12px);
+      padding: 20px 35px;
+      border-radius: 30px;
+      border: 1px solid rgba(210, 170, 80, 0.5);
+      box-shadow: 0 25px 40px -20px rgba(0,0,0,0.5);
+      transition: 0.3s;
+    }
+
+    .logo-wrapper:hover {
+      border-color: #d4aa5c;
+      box-shadow: 0 30px 50px -20px #d4aa5c40;
+    }
+
+    .logo-wrapper img {
+      width: 202px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.3));
+    }
+
+    .date-badge {
+      background: rgba(212, 170, 92, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 15px 30px;
+      border-radius: 60px;
+      border: 1px solid #d4aa5c;
+      text-align: center;
+    }
+
+    .date-badge .year {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #e5bc7c;
+      letter-spacing: 4px;
+    }
+
+    .date-badge .desc {
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      color: #c9b38c;
+    }
+
+    /* Tiêu đề chính - Ấn tượng nhất */
+    .main-title {
+      text-align: center;
+      margin: 60px 0 40px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .main-title .pre-title {
+      font-size: 1.1rem;
+      letter-spacing: 8px;
+      color: #e5bc7c;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      font-weight: 400;
+    }
+
+    .main-title h1 {
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 800;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #fff8e8 0%, #e5bc7c 40%, #c48a3a 80%, #f5e2b0 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+      letter-spacing: 2px;
+    }
+
+    .main-title h1 span {
+      display: block;
+      font-size: 0.55em;
+      background: linear-gradient(135deg, #e5bc7c, #c48a3a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 500;
+      letter-spacing: 4px;
+    }
+
+    .main-title .slogan {
+      font-size: 1.4rem;
+      color: #b8aa92;
+      margin-top: 25px;
+      font-style: italic;
+      letter-spacing: 1px;
+    }
+
+    /* Thông điệp và nút bấm */
+    .hero-message {
+      max-width: 800px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+
+    .hero-message p {
+      font-size: 1.3rem;
       line-height: 1.7;
+      color: #dfd5c2;
+      border-left: 3px solid #e5bc7c;
+      border-right: 3px solid #e5bc7c;
+      padding: 20px 30px;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(5px);
+      border-radius: 50px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 45px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #e5bc7c, #c48a3a);
+      color: #1e1a14;
+      box-shadow: 0 15px 35px -8px #c48a3a;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 25px 45px -8px #e5bc7c;
+      background: linear-gradient(135deg, #f0ca90, #d89d4a);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #e5bc7c;
+      color: #e5bc7c;
+      backdrop-filter: blur(5px);
+    }
+
+    .btn-outline:hover {
+      background: rgba(229, 188, 124, 0.15);
+      transform: translateY(-5px);
+      border-color: #f0ca90;
+      color: #f0ca90;
+    }
+
+    /* Thống kê ấn tượng */
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-top: 80px;
+      flex-wrap: wrap;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 20px 40px;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+      border-radius: 60px;
+      border: 1px solid rgba(229, 188, 124, 0.4);
+      min-width: 160px;
+      transition: 0.3s;
+    }
+
+    .stat-card:hover {
+      border-color: #e5bc7c;
+      transform: translateY(-5px);
+      background: rgba(0,0,0,0.5);
+    }
+
+    .stat-number {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #e5bc7c;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #c9bda8;
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: sticky;
+      top: 20px;
+      z-index: 100;
+      margin: 0 20px;
+      background: rgba(10, 15, 25, 0.85);
+      backdrop-filter: blur(20px);
+      border-radius: 70px;
+      border: 1px solid rgba(229, 188, 124, 0.3);
+      padding: 0 20px;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 45px;
+      padding: 15px 0;
+      flex-wrap: wrap;
+    }
+
+    .nav-inner a {
+      text-decoration: none;
+      color: #e2d9cd;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      padding: 8px 5px;
+      transition: 0.2s;
+      position: relative;
+    }
+
+    .nav-inner a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #e5bc7c;
+      transition: 0.3s;
+    }
+
+    .nav-inner a:hover::before {
+      width: 100%;
+    }
+
+    .nav-inner a:hover {
+      color: #e5bc7c;
+    }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      padding: 100px 0;
+      background: #0f141f;
+    }
+
+    .section:nth-child(even) {
+      background: #0a0f18;
     }
 
     .container {
       max-width: 1300px;
       margin: 0 auto;
       padding: 0 40px;
-    }
-
-    /* ===== HEADER - TÂM HUYẾT, SANG TRỌNG ===== */
-    header {
-      background: #fbf7f0;
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      border-bottom: 2px solid #e0cfb5;
-      box-shadow: 0 20px 40px -20px rgba(100, 60, 30, 0.2);
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('Background5.png') center 20% / cover no-repeat fixed;
-      opacity: 0.2;
-      pointer-events: none;
-    }
-
-    header::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 80% 20%, rgba(218, 175, 100, 0.15) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .header-content {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      gap: 50px;
-    }
-
-    .logo-section {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      padding: 30px 0;
-      border-bottom: 2px solid #e0cfb5;
-    }
-
-    .logo-section img {
-      width: 202px;
-      height: auto;
-      filter: drop-shadow(0 10px 15px rgba(150, 90, 30, 0.2));
-      transition: transform 0.3s ease;
-    }
-
-    .logo-section img:hover {
-      transform: scale(1.02);
-    }
-
-    .logo-section h1 {
-      font-size: 3.5rem;
-      font-weight: 400;
-      color: #7a5c3a;
-      letter-spacing: 4px;
-      line-height: 1.3;
-      border-left: 3px solid #c4a26b;
-      padding-left: 40px;
-    }
-
-    .logo-section h1 strong {
-      display: block;
-      font-size: 5rem;
-      font-weight: 700;
-      color: #a65526;
-      letter-spacing: 6px;
-      margin-top: 5px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.9fr;
-      gap: 60px;
-      align-items: start;
-      padding: 20px 0 60px;
-    }
-
-    .hero-left {
-      background: rgba(255, 255, 250, 0.7);
-      backdrop-filter: blur(8px);
-      padding: 50px 45px;
-      border-radius: 80px 20px 80px 20px;
-      border: 1px solid #e7d7be;
-      box-shadow: 0 35px 50px -25px #ac8f67;
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 6px;
-      color: #b48a50;
-      margin-bottom: 20px;
-      font-weight: 500;
-    }
-
-    .hero-left h2 {
-      font-size: 3.8rem;
-      line-height: 1.2;
-      color: #2b3f54;
-      margin-bottom: 25px;
-      font-weight: 500;
-    }
-
-    .hero-left h2 span {
-      display: block;
-      color: #b45732;
-      font-size: 2.8rem;
-      font-style: italic;
-      margin-top: 10px;
-      font-weight: 400;
-    }
-
-    .hero-description {
-      font-size: 1.2rem;
-      color: #4d6279;
-      margin: 30px 0 40px;
-      padding-left: 20px;
-      border-left: 4px solid #c4a26b;
-      font-style: italic;
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 30px;
-      margin: 45px 0 25px;
-    }
-
-    .stat {
-      text-align: center;
-      flex: 1;
-      background: rgba(255, 255, 255, 0.8);
-      padding: 20px 10px;
-      border-radius: 40px;
-      border: 1px solid #dfcbb0;
-    }
-
-    .stat-number {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #b25f36;
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      color: #6d5e4b;
-      letter-spacing: 1px;
-    }
-
-    .hero-right {
-      background: rgba(255, 255, 245, 0.6);
-      backdrop-filter: blur(5px);
-      border-radius: 30px;
-      padding: 40px;
-      border: 1px solid #eadac0;
-    }
-
-    .hero-right h3 {
-      font-size: 1.8rem;
-      font-weight: 400;
-      color: #7a5c3a;
-      border-bottom: 1px dashed #c9b18b;
-      padding-bottom: 20px;
-      margin-bottom: 25px;
-    }
-
-    .quote {
-      font-size: 1.4rem;
-      font-style: italic;
-      color: #4a5f78;
-      line-height: 1.6;
-    }
-
-    .quote-author {
-      margin-top: 20px;
-      text-align: right;
-      color: #b48a50;
-      font-weight: 600;
-    }
-
-    /* ===== NAVIGATION ===== */
-    nav {
-      background: #fffcf7;
-      border-bottom: 1px solid #e6d7c4;
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 5px 20px -8px #bb9f7e;
-    }
-
-    .nav-inner {
-      display: flex;
-      justify-content: center;
-      gap: 50px;
-    }
-
-    .nav-inner a {
-      text-decoration: none;
-      color: #4e5c6e;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
-      padding: 5px 0;
-      border-bottom: 2px solid transparent;
-      transition: 0.2s;
-      font-weight: 500;
-    }
-
-    .nav-inner a:hover {
-      border-bottom-color: #c4a26b;
-      color: #a65526;
-    }
-
-    /* ===== SECTIONS ===== */
-    .section {
-      padding: 80px 0;
-      position: relative;
-    }
-
-    .section:nth-child(even) {
-      background: #faf4ea;
     }
 
     .section-title {
@@ -266,60 +383,60 @@
 
     .section-title small {
       display: inline-block;
-      background: #e6d7c4;
-      padding: 8px 24px;
-      border-radius: 50px;
-      color: #5c4b34;
-      font-size: 0.85rem;
+      background: linear-gradient(135deg, #2a2f3a, #1e232f);
+      padding: 8px 28px;
+      border-radius: 40px;
+      color: #e5bc7c;
+      font-size: 0.8rem;
       letter-spacing: 2px;
       margin-bottom: 20px;
+      border: 1px solid rgba(229,188,124,0.3);
     }
 
     .section-title h2 {
       font-size: 3rem;
-      font-weight: 400;
-      color: #31516d;
-      margin-bottom: 15px;
+      font-weight: 600;
+      color: #f0e6d8;
+      margin-bottom: 20px;
     }
 
     .section-title p {
       font-size: 1.2rem;
-      color: #6d7d91;
-      max-width: 700px;
-      margin: 0 auto;
+      color: #9eaaae;
     }
 
-    /* TIMELINE */
+    /* Timeline */
     .timeline {
       display: flex;
-      justify-content: space-between;
-      gap: 20px;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
     }
 
     .milestone {
-      flex: 1;
-      background: #fffcf5;
-      padding: 30px 20px;
+      background: #181e2c;
+      padding: 35px 25px;
       border-radius: 30px;
-      border: 1px solid #e0cfb5;
+      flex: 1;
+      min-width: 180px;
       text-align: center;
-      transition: 0.2s;
+      border: 1px solid #2f3748;
+      transition: 0.3s;
     }
 
     .milestone:hover {
-      transform: translateY(-10px);
-      border-color: #c4a26b;
-      box-shadow: 0 20px 30px -15px #b48a50;
+      border-color: #e5bc7c;
+      transform: translateY(-8px);
     }
 
-    .year {
-      font-size: 2.5rem;
+    .milestone .year {
+      font-size: 2.2rem;
       font-weight: 700;
-      color: #b25f36;
+      color: #e5bc7c;
       margin-bottom: 15px;
     }
 
-    /* 3 cột hoạt động */
+    /* Activity grid */
     .activity-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -327,73 +444,58 @@
     }
 
     .activity-card {
-      background: white;
+      background: #181e2c;
       border-radius: 30px;
       overflow: hidden;
-      box-shadow: 0 15px 30px -12px #c0a27e;
-      border: 1px solid #ecdbba;
+      border: 1px solid #2f3748;
+      transition: 0.3s;
+    }
+
+    .activity-card:hover {
+      transform: translateY(-8px);
+      border-color: #e5bc7c;
     }
 
     .activity-img {
-      height: 240px;
-      background: linear-gradient(145deg, #1b3147, #8b5a3a), url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1400&q=80') center/cover;
-      background-blend-mode: overlay;
+      height: 220px;
+      background-size: cover;
+      background-position: center;
     }
 
-    .activity-img2 {
-      background: linear-gradient(145deg, #1b3147, #8b5a3a), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=80') center/cover;
-    }
-
-    .activity-img3 {
-      background: linear-gradient(145deg, #1b3147, #8b5a3a), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80') center/cover;
-    }
+    .activity-img1 { background: linear-gradient(0deg, #181e2c80, #181e2c80), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=80') center/cover; }
+    .activity-img2 { background: linear-gradient(0deg, #181e2c80, #181e2c80), url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1400&q=80') center/cover; }
+    .activity-img3 { background: linear-gradient(0deg, #181e2c80, #181e2c80), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=80') center/cover; }
 
     .activity-content {
       padding: 25px;
     }
 
     .activity-content h3 {
-      font-size: 1.5rem;
-      color: #31516d;
-      margin-bottom: 10px;
+      color: #e5bc7c;
+      margin-bottom: 12px;
     }
 
-    /* thư viện ảnh */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .gallery-item {
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid #e0cfb5;
-    }
-
-    .gallery-img {
-      height: 180px;
-      background: #c0a27e;
-    }
-
-    .g1 { background: linear-gradient(145deg, #1b3147, #8b5a3a), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80') center/cover; }
-    .g2 { background: linear-gradient(145deg, #1b3147, #8b5a3a), url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80') center/cover; }
-    .g3 { background: linear-gradient(145deg, #1b3147, #8b5a3a), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80') center/cover; }
-    .g4 { background: linear-gradient(145deg, #1b3147, #8b5a3a), url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80') center/cover; }
-
-    .gallery-caption {
-      padding: 15px;
+    /* Quote */
+    .quote-block {
+      background: linear-gradient(135deg, #1a212f, #11161f);
+      padding: 60px;
+      border-radius: 60px;
       text-align: center;
-      color: #5c4b34;
+      border: 1px solid #2f3748;
     }
 
-    /* FOOTER */
+    .quote-block q {
+      font-size: 2rem;
+      font-style: italic;
+      color: #e0d6c8;
+      line-height: 1.5;
+    }
+
+    /* Footer */
     footer {
-      background: #1b2b3c;
-      color: #e9ddcf;
-      padding: 60px 0 20px;
-      margin-top: 40px;
+      background: #06090f;
+      padding: 60px 0 30px;
+      border-top: 1px solid #2a2f3a;
     }
 
     .footer-grid {
@@ -403,19 +505,17 @@
     }
 
     .footer-logo img {
-      width: 150px;
-      opacity: 0.9;
+      width: 140px;
       margin-bottom: 15px;
     }
 
     .footer-links h4 {
-      color: #d4b185;
+      color: #e5bc7c;
       margin-bottom: 20px;
-      font-size: 1.2rem;
     }
 
     .footer-links p {
-      color: #b3c2d4;
+      color: #9eaaae;
       margin-bottom: 8px;
     }
 
@@ -423,72 +523,82 @@
       text-align: center;
       padding-top: 40px;
       margin-top: 40px;
-      border-top: 1px solid #40566e;
-      color: #99aec9;
+      border-top: 1px solid #2a2f3a;
+      color: #6e7b8c;
     }
 
-    @media (max-width: 1100px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .logo-section { flex-direction: column; text-align: center; }
-      .logo-section h1 { border-left: none; padding-left: 0; border-top: 3px solid #c4a26b; padding-top: 20px; }
-      .timeline { flex-wrap: wrap; }
-      .milestone { flex: auto; width: 45%; }
-      .activity-grid, .gallery { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 900px) {
+      .hero-logo-area { justify-content: center; text-align: center; }
+      .activity-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero-content { padding: 0 30px; }
+      .hero-stats { gap: 20px; }
+      .stat-card { padding: 15px 25px; min-width: 120px; }
     }
 
-    @media (max-width: 700px) {
-      .milestone { width: 100%; }
-      .activity-grid, .gallery, .footer-grid { grid-template-columns: 1fr; }
-      .nav-inner { flex-wrap: wrap; gap: 20px; }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .quote-block q { font-size: 1.3rem; }
+      .btn-group { gap: 15px; }
+      .btn { padding: 12px 28px; font-size: 0.9rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="header-content">
-        <div class="logo-section">
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-glow"></div>
+    
+    <div class="hero-content">
+      <div class="hero-logo-area">
+        <div class="logo-wrapper">
           <img src="logo_hoc vien trong suot.png" alt="Học viện Quốc phòng">
-          <h1>HỌC VIỆN<br><strong>QUỐC PHÒNG</strong></h1>
         </div>
+        <div class="date-badge">
+          <div class="year">1976 - 2026</div>
+          <div class="desc">50 NĂM XÂY DỰNG & PHÁT TRIỂN</div>
+        </div>
+      </div>
 
-        <div class="hero-grid">
-          <div class="hero-left">
-            <div class="hero-subtitle">KỶ NIỆM 50 NĂM</div>
-            <h2>Hành trình<br><span>nửa thế kỷ vẻ vang</span></h2>
-            <p class="hero-description">1976 - 2026: Năm mươi năm xây dựng, trưởng thành và cống hiến của Học viện Quốc phòng. Hội Phụ nữ trân trọng giới thiệu không gian tri ân truyền thống.</p>
-            
-            <div class="hero-stats">
-              <div class="stat">
-                <div class="stat-number">50</div>
-                <div class="stat-label">NĂM XÂY DỰNG</div>
-              </div>
-              <div class="stat">
-                <div class="stat-number">5</div>
-                <div class="stat-label">THẾ HỆ</div>
-              </div>
-              <div class="stat">
-                <div class="stat-number">20+</div>
-                <div class="stat-label">ĐƠN VỊ</div>
-              </div>
-            </div>
-          </div>
+      <div class="main-title">
+        <div class="pre-title">HỘI PHỤ NỮ HỌC VIỆN QUỐC PHÒNG</div>
+        <h1>KỶ NIỆM 50 NĂM<br><span>NGÀY TRUYỀN THỐNG</span></h1>
+        <div class="slogan">"Tự hào truyền thống - Vững bước tương lai"</div>
+      </div>
 
-          <div class="hero-right">
-            <h3>Phụ nữ Học viện</h3>
-            <div class="quote">
-              "Tự hào tiếp bước truyền thống, xứng danh Bộ đội Cụ Hồ thời kỳ mới"
-            </div>
-            <div class="quote-author">— Hội Phụ nữ Học viện Quốc phòng</div>
-          </div>
+      <div class="hero-message">
+        <p>Nửa thế kỷ - Một hành trình vẻ vang của Học viện Quốc phòng. Hội Phụ nữ trân trọng tri ân các thế hệ, gìn giữ và phát huy những giá trị truyền thống cao đẹp.</p>
+      </div>
+
+      <div class="btn-group">
+        <a href="#lichsu" class="btn btn-primary">Khám phá hành trình</a>
+        <a href="#thuvien" class="btn btn-outline">Thư viện tư liệu</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-number">50</div>
+          <div class="stat-label">NĂM XÂY DỰNG</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">THẾ HỆ</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1000+</div>
+          <div class="stat-label">CÁN BỘ, HỌC VIÊN</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">2026</div>
+          <div class="stat-label">KỶ NIỆM SON SẮT</div>
         </div>
       </div>
     </div>
-  </header>
+  </section>
 
   <nav>
-    <div class="container nav-inner">
+    <div class="nav-inner">
       <a href="#">TRANG CHỦ</a>
       <a href="#lichsu">LỊCH SỬ</a>
       <a href="#hoatdong">HOẠT ĐỘNG</a>
@@ -501,32 +611,16 @@
   <section class="section" id="lichsu">
     <div class="container">
       <div class="section-title">
-        <small>CHẶNG ĐƯỜNG LỊCH SỬ</small>
+        <small>CHẶNG ĐƯỜNG VẺ VANG</small>
         <h2>Những dấu mốc 50 năm</h2>
         <p>Hành trình phát triển của Học viện Quốc phòng qua các thời kỳ</p>
       </div>
-
       <div class="timeline">
-        <div class="milestone">
-          <div class="year">1976</div>
-          <p>Thành lập Trường Cao cấp Quân sự - tiền thân của Học viện Quốc phòng</p>
-        </div>
-        <div class="milestone">
-          <div class="year">1986</div>
-          <p>Đổi tên thành Học viện Quốc phòng, mở rộng quy mô đào tạo</p>
-        </div>
-        <div class="milestone">
-          <div class="year">2000</div>
-          <p>Hiện đại hóa chương trình, hợp tác quốc tế sâu rộng</p>
-        </div>
-        <div class="milestone">
-          <div class="year">2015</div>
-          <p>Đạt nhiều thành tựu trong nghiên cứu khoa học quân sự</p>
-        </div>
-        <div class="milestone">
-          <div class="year">2026</div>
-          <p>Kỷ niệm 50 năm ngày truyền thống Học viện Quốc phòng</p>
-        </div>
+        <div class="milestone"><div class="year">1976</div><p>Thành lập Trường Cao cấp Quân sự</p></div>
+        <div class="milestone"><div class="year">1986</div><p>Đổi tên thành Học viện Quốc phòng</p></div>
+        <div class="milestone"><div class="year">2000</div><p>Hiện đại hóa & Hội nhập quốc tế</p></div>
+        <div class="milestone"><div class="year">2015</div><p>Đào tạo chiến lược toàn diện</p></div>
+        <div class="milestone"><div class="year">2026</div><p>Kỷ niệm 50 năm truyền thống</p></div>
       </div>
     </div>
   </section>
@@ -534,32 +628,22 @@
   <section class="section" id="hoatdong">
     <div class="container">
       <div class="section-title">
-        <small>HOẠT ĐỘNG TIÊU BIỂU</small>
+        <small>HOẠT ĐỘNG NỔI BẬT</small>
         <h2>Dấu ấn từ các thế hệ</h2>
-        <p>Những hoạt động ý nghĩa của cán bộ, giảng viên, học viên qua 50 năm</p>
+        <p>Những hoạt động tiêu biểu của cán bộ, giảng viên, học viên qua 50 năm</p>
       </div>
-
       <div class="activity-grid">
         <div class="activity-card">
-          <div class="activity-img"></div>
-          <div class="activity-content">
-            <h3>Lễ tốt nghiệp các khóa học</h3>
-            <p>Những khoảnh khắc tri ân và trưởng thành qua từng thế hệ học viên</p>
-          </div>
+          <div class="activity-img activity-img1"></div>
+          <div class="activity-content"><h3>Lễ tốt nghiệp các khóa</h3><p>Khoảnh khắc tri ân và trưởng thành qua từng thế hệ</p></div>
         </div>
         <div class="activity-card">
           <div class="activity-img activity-img2"></div>
-          <div class="activity-content">
-            <h3>Hội thảo khoa học quốc gia</h3>
-            <p>Nơi hội tụ trí tuệ và những công trình nghiên cứu chiến lược</p>
-          </div>
+          <div class="activity-content"><h3>Hội thảo khoa học</h3><p>Nơi hội tụ trí tuệ và công trình nghiên cứu chiến lược</p></div>
         </div>
         <div class="activity-card">
           <div class="activity-img activity-img3"></div>
-          <div class="activity-content">
-            <h3>Giao lưu văn hóa - thể thao</h3>
-            <p>Sân chơi đoàn kết, gắn bó giữa các thế hệ cán bộ, học viên</p>
-          </div>
+          <div class="activity-content"><h3>Giao lưu văn hóa - thể thao</h3><p>Sân chơi đoàn kết, gắn bó các thế hệ</p></div>
         </div>
       </div>
     </div>
@@ -572,14 +656,9 @@
         <h2>Nét son truyền thống</h2>
         <p>Vai trò và đóng góp của phụ nữ trong 50 năm xây dựng và phát triển</p>
       </div>
-
-      <div style="background: #fff9f2; padding: 50px; border-radius: 60px; border: 2px solid #e0cfb5;">
-        <div style="font-size: 2rem; color: #a65526; margin-bottom: 30px;">❝</div>
-        <p style="font-size: 1.5rem; font-style: italic; color: #2f4765; max-width: 900px; margin: 0 auto; text-align: center;">
-          Phụ nữ Học viện Quốc phòng luôn phát huy phẩm chất "Anh hùng - Bất khuất - Trung hậu - Đảm đang", 
-          xứng đáng là những bông hoa thép trong lực lượng quân đội cách mạng.
-        </p>
-        <div style="text-align: right; margin-top: 30px; color: #b48a50;">— Ban Chấp hành Hội Phụ nữ</div>
+      <div class="quote-block">
+        <q>Phụ nữ Học viện Quốc phòng luôn phát huy phẩm chất "Anh hùng - Bất khuất - Trung hậu - Đảm đang", xứng đáng là những bông hoa thép trong lực lượng quân đội cách mạng.</q>
+        <div style="margin-top: 25px; color: #e5bc7c;">— Ban Chấp hành Hội Phụ nữ Học viện</div>
       </div>
     </div>
   </section>
@@ -591,24 +670,11 @@
         <h2>Khoảnh khắc 50 năm</h2>
         <p>Những hình ảnh tư liệu quý giá về Học viện qua các thời kỳ</p>
       </div>
-
-      <div class="gallery">
-        <div class="gallery-item">
-          <div class="gallery-img g1"></div>
-          <div class="gallery-caption">Học viện những năm đầu</div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-img g2"></div>
-          <div class="gallery-caption">Lễ kỷ niệm 30 năm</div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-img g3"></div>
-          <div class="gallery-caption">Nữ học viên ôn luyện</div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-img g4"></div>
-          <div class="gallery-caption">Hội nghị quốc tế</div>
-        </div>
+      <div style="display: grid; grid-template-columns: repeat(4,1fr); gap: 20px;">
+        <div style="background:#181e2c; border-radius:20px; overflow:hidden;"><div style="height:160px; background: linear-gradient(0deg,#181e2c80,#181e2c80), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80') center/cover;"></div><div style="padding:15px; text-align:center;">Học viện những năm đầu</div></div>
+        <div style="background:#181e2c; border-radius:20px; overflow:hidden;"><div style="height:160px; background: linear-gradient(0deg,#181e2c80,#181e2c80), url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80') center/cover;"></div><div style="padding:15px; text-align:center;">Lễ kỷ niệm 30 năm</div></div>
+        <div style="background:#181e2c; border-radius:20px; overflow:hidden;"><div style="height:160px; background: linear-gradient(0deg,#181e2c80,#181e2c80), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80') center/cover;"></div><div style="padding:15px; text-align:center;">Nữ học viên ôn luyện</div></div>
+        <div style="background:#181e2c; border-radius:20px; overflow:hidden;"><div style="height:160px; background: linear-gradient(0deg,#181e2c80,#181e2c80), url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80') center/cover;"></div><div style="padding:15px; text-align:center;">Hội nghị quốc tế</div></div>
       </div>
     </div>
   </section>
@@ -620,30 +686,11 @@
           <img src="logo_hoc vien trong suot.png" alt="Học viện Quốc phòng">
           <p>Học viện Quốc phòng<br>50 năm xây dựng và phát triển</p>
         </div>
-        <div class="footer-links">
-          <h4>Chuyên mục</h4>
-          <p>Lịch sử</p>
-          <p>Hoạt động</p>
-          <p>Phụ nữ</p>
-          <p>Thư viện</p>
-        </div>
-        <div class="footer-links">
-          <h4>Liên kết</h4>
-          <p>Trang chủ</p>
-          <p>Giới thiệu</p>
-          <p>Tin tức</p>
-          <p>Tuyên truyền</p>
-        </div>
-        <div class="footer-links">
-          <h4>Liên hệ</h4>
-          <p>hoiphunu@hocviendefence.vn</p>
-          <p>024.1234.5678</p>
-          <p>Số 1, Đường X, Quận Y</p>
-        </div>
+        <div class="footer-links"><h4>Chuyên mục</h4><p>Lịch sử</p><p>Hoạt động</p><p>Phụ nữ</p><p>Thư viện</p></div>
+        <div class="footer-links"><h4>Liên kết</h4><p>Trang chủ</p><p>Giới thiệu</p><p>Tin tức</p><p>Tuyên truyền</p></div>
+        <div class="footer-links"><h4>Liên hệ</h4><p>hoiphunu@hocviendefence.vn</p><p>024.1234.5678</p><p>Số 1, Đường X, Quận Y</p></div>
       </div>
-      <div class="copyright">
-        © 2026 Hội Phụ nữ Học viện Quốc phòng. Thiết kế dành riêng cho Lễ kỷ niệm 50 năm.
-      </div>
+      <div class="copyright">© 2026 Hội Phụ nữ Học viện Quốc phòng. Thiết kế dành riêng cho Lễ kỷ niệm 50 năm.</div>
     </div>
   </footer>
 </body>
