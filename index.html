@@ -84,213 +84,203 @@
       pointer-events: none;
     }
 
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(90deg, rgba(124,10,10,0.96) 0%, rgba(166,21,21,0.98) 45%, rgba(129,12,12,0.96) 100%);
-      border-bottom: 1px solid rgba(240,201,103,0.45);
-      box-shadow: 0 8px 24px rgba(86,8,8,0.18);
-    }
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(90deg, rgba(244,247,252,0.96) 0%, rgba(255,252,245,0.98) 50%, rgba(242,247,255,0.96) 100%);
+  border-bottom: 1px solid rgba(212,184,113,0.35);
+  box-shadow: 0 8px 20px rgba(25,56,108,0.08);
+}
 
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 14px 0;
-    }
+.brand-badge {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 30% 30%, #fff4bf 0%, #e7c25e 55%, #c69228 100%);
+  color: #a51919;
+  font-weight: 900;
+  font-size: 27px;
+  box-shadow: 0 6px 16px rgba(210,170,74,0.22);
+  flex: 0 0 auto;
+  border: 2px solid rgba(255,255,255,0.9);
+}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-    }
+.brand-text {
+  font-weight: 800;
+  color: #183b82;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+}
 
-    .brand-badge {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: radial-gradient(circle at 30% 30%, #fff1b8 0%, #f2cc62 50%, #bb861b 100%);
-      color: #a31313;
-      font-weight: 900;
-      font-size: 28px;
-      box-shadow: 0 6px 18px rgba(242,204,98,0.28);
-      flex: 0 0 auto;
-      border: 2px solid rgba(255,245,214,0.78);
-    }
+.menu {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  font-weight: 800;
+  color: #183b82;
+  font-size: 18px;
+}
 
-    .brand-text {
-      font-weight: 800;
-      color: #fff7e2;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      font-size: 18px;
-      letter-spacing: 0.2px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.18);
-    }
+.menu a {
+  position: relative;
+  padding: 8px 0;
+  color: #183b82;
+}
 
-    .menu {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      font-weight: 800;
-      color: #fff7e2;
-      font-size: 18px;
-    }
-
-    .menu a {
-      position: relative;
-      padding: 8px 0;
-      color: #fff7e2;
-      text-shadow: 0 1px 6px rgba(0,0,0,0.18);
-    }
-
-    .menu a::after {
-      content: "";
-      position: absolute;
-      left: 0; bottom: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #ffe08a, #f6c84e);
-      transition: width .25s ease;
-    }
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #d9b55a, #f0d68b);
+  transition: width .25s ease;
+}
 
     .menu a:hover::after { width: 100%; }
 
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-      padding: 34px 0 38px;
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 22px;
-      align-items: start;
-    }
+  .hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(23,57,124,0.88) 0%, rgba(17,69,150,0.78) 58%, rgba(39,58,120,0.68) 100%),
+    radial-gradient(circle at 25% 22%, rgba(255,230,160,0.10), transparent 24%),
+    radial-gradient(circle at 80% 20%, rgba(255,230,160,0.08), transparent 20%),
+    url('Background5.png') center center/900px auto no-repeat;
+  color: white;
+  min-height: 390px;
+}
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.07);
-      color: rgba(255,255,255,0.96);
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 58%, rgba(255,221,140,0.10), transparent 24%),
+    linear-gradient(180deg, rgba(12,35,86,0.10), rgba(10,30,72,0.24));
+  pointer-events: none;
+}
 
-    .hero h1 {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(22px, 3.4vw, 38px);
-      line-height: 1.18;
-      letter-spacing: 0.3px;
-    }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10,34,86,0.70) 0%, rgba(17,57,132,0.48) 42%, rgba(20,44,94,0.22) 100%);
+  pointer-events: none;
+}
 
-    .hero h1 span {
-      color: #ffe08a;
-      text-shadow: 0 3px 14px rgba(0,0,0,0.28);
-      font-size: 0.88em;
-      letter-spacing: 0.3px;
-    }
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 26px 0 28px;
+  display: grid;
+  grid-template-columns: 1.06fr 0.94fr;
+  gap: 20px;
+  align-items: start;
+}
 
-    .hero p {
-      margin: 12px 0 18px;
-      max-width: 640px;
-      color: rgba(255,248,232,0.96);
-      font-size: 16px;
-      line-height: 1.55;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.22);
-    }
+.hero h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(21px, 3vw, 34px);
+  line-height: 1.16;
+  color: #ffffff;
+  text-shadow: 0 3px 14px rgba(0,0,0,0.22);
+}
 
-    .cta-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
+.hero h1 span {
+  color: #ffe08a;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.22);
+  font-size: 0.84em;
+  letter-spacing: 0.2px;
+}
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 11px 18px;
-      border-radius: 999px;
-      font-weight: 700;
-      border: 1px solid transparent;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-    }
+.hero p {
+  margin: 10px 0 14px;
+  max-width: 620px;
+  color: rgba(255,255,255,0.94);
+  font-size: 15px;
+  line-height: 1.5;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.20);
+}
 
-    .btn:hover { transform: translateY(-2px); }
+.cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
 
-    .btn-primary {
-      background: linear-gradient(135deg, #c92525, var(--primary));
-      color: #fff;
-      box-shadow: 0 12px 28px rgba(163,23,23,0.34);
-    }
+.btn-primary {
+  background: linear-gradient(135deg, #c92525, #a31717);
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(163,23,23,0.22);
+}
 
-    .btn-secondary {
-      background: rgba(255,255,255,0.10);
-      color: #fff;
-      border-color: rgba(255,255,255,0.24);
-    }
+.btn-secondary {
+  background: rgba(255,255,255,0.10);
+  color: #fff;
+  border-color: rgba(255,255,255,0.22);
+}
 
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 8px;
+}
 
-    .stat {
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,244,214,0.16);
-      border-radius: 18px;
-      padding: 14px;
-      backdrop-filter: blur(10px);
-    }
+.stat {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 12px;
+}
 
-    .stat strong {
-      display: block;
-      font-size: 24px;
-      color: #ffd978;
-      margin-bottom: 6px;
-    }
+.stat strong {
+  display: block;
+  font-size: 22px;
+  color: #ffe08a;
+  margin-bottom: 4px;
+}
 
-    .hero-panel {
-      position: relative;
-      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
-      border: 1px solid rgba(255,245,214,0.14);
-      border-radius: 24px;
-      padding: 16px;
-      box-shadow: 0 24px 70px rgba(3,12,35,0.30);
-      backdrop-filter: blur(16px);
-    }
+.hero-panel {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 22px;
+  padding: 14px;
+}
 
-    .hero-panel::before {
-      content: "";
-      position: absolute;
-      inset: 10px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.10);
-      pointer-events: none;
-    }
+.panel-card {
+  background: rgba(255,255,255,0.97);
+  color: var(--text);
+  border-radius: 18px;
+  padding: 14px 16px;
+  box-shadow: 0 12px 26px rgba(16,47,108,0.12);
+}
 
-    .panel-card {
-      background: rgba(255,255,255,0.96);
-      color: var(--text);
-      border-radius: 18px;
-      padding: 14px 16px;
-      box-shadow: 0 14px 30px rgba(65,10,10,0.16);
-    }
+.panel-card h3 {
+  margin: 0 0 6px;
+  color: #183b82;
+  font-size: 17px;
+}
+
+.panel-card p {
+  color: #66758b;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
 
     .panel-card + .panel-card { margin-top: 12px; }
 
@@ -720,8 +710,8 @@
   <header class="hero">
     <div class="container hero-inner">
       <div class="reveal">
-        <h1>HỌC VIỆN QUỐC PHÒNG<br/><span>Chuyên trang kỷ niệm 70 năm</span></h1>
-        <p>Chuyên trang giới thiệu lịch sử hình thành và phát triển, các dấu mốc nổi bật, hoạt động tiêu biểu, tư liệu hình ảnh - video và những nội dung tương tác ý nghĩa hướng tới kỷ niệm 70 năm Ngày truyền thống.</p>
+        <h1>HỌC VIỆN QUỐC PHÒNG<br><span>Chuyên trang kỷ niệm 70 năm</span></h1>
+<p>Chuyên trang giới thiệu lịch sử hình thành và phát triển, các dấu mốc nổi bật, hoạt động tiêu biểu, tư liệu hình ảnh - video và những nội dung tương tác ý nghĩa hướng tới kỷ niệm 70 năm Ngày truyền thống.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#timeline">Khám phá lịch sử</a>
           <a class="btn btn-secondary" href="#tro-choi">Chơi thử quiz</a>
