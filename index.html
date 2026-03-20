@@ -16,9 +16,10 @@
       background: #fefaf5;
       color: #2c3e2f;
       line-height: 1.5;
+      overflow-x: hidden;
     }
 
-    /* ===== HEADER BANNER VỪA PHẢI NHƯ TRANG TIN TỨC ===== */
+    /* ===== HEADER BANNER ===== */
     .top-header {
       background: #2c5a4a;
     }
@@ -33,7 +34,7 @@
     .banner-container {
       position: relative;
       border-radius: 20px 20px 0 0;
-      overflow: hidden;
+      overflow: visible;
     }
 
     .banner-image {
@@ -42,26 +43,33 @@
       object-fit: cover;
       object-position: center 30%;
       display: block;
+      border-radius: 16px 16px 0 0;
     }
 
-    /* Logo ghép trên banner nhỏ gọn */
+    /* Logo - sửa vị trí không bị tụt */
     .logo-overlay {
       position: absolute;
-      bottom: -25px;
-      left: 30px;
-      z-index: 10;
+      bottom: -28px;
+      left: 35px;
+      z-index: 20;
       background: white;
-      padding: 10px 24px;
-      border-radius: 50px;
+      padding: 10px 28px;
+      border-radius: 60px;
       display: flex;
       align-items: center;
-      gap: 14px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      gap: 16px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
       border: 1px solid #f0e4d6;
+      transition: all 0.3s ease;
+    }
+
+    .logo-overlay:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.18);
     }
 
     .logo-overlay img {
-      height: 48px;
+      height: 52px;
       width: auto;
     }
 
@@ -70,19 +78,19 @@
       color: #5a6e62;
       font-size: 0.85rem;
       border-left: 2px solid #c99a6b;
-      padding-left: 14px;
+      padding-left: 16px;
     }
 
     .logo-overlay .logo-text strong {
       display: block;
-      font-size: 1rem;
+      font-size: 1.05rem;
       color: #b86b2c;
     }
 
-    /* ===== MENU NGANG NỔI BẬT ===== */
+    /* ===== MENU NỔI BẬT ===== */
     .nav-bar {
       background: #b86b2c;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -97,7 +105,7 @@
     .nav-menu {
       display: flex;
       justify-content: center;
-      gap: 48px;
+      gap: 52px;
       padding: 14px 0;
       flex-wrap: wrap;
     }
@@ -107,37 +115,82 @@
       color: white;
       font-weight: 600;
       font-size: 1rem;
-      transition: 0.2s;
+      transition: 0.25s;
       padding: 6px 0;
       letter-spacing: 0.5px;
+      position: relative;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #ffdd99;
+      transition: 0.25s;
+      transform: translateX(-50%);
+    }
+
+    .nav-menu a:hover::after {
+      width: 80%;
     }
 
     .nav-menu a:hover {
       color: #ffdd99;
-      transform: translateY(-1px);
     }
 
-    /* ===== SECTION KỶ NIỆM 50 NĂM ===== */
+    /* ===== SECTION KỶ NIỆM ===== */
     .anniversary-section {
       background: linear-gradient(135deg, #fffaf2 0%, #fffef8 100%);
-      padding: 50px 0 40px;
+      padding: 55px 0 45px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Hoa văn trang trí nền */
+    .anniversary-section::before {
+      content: '❦';
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 80px;
+      color: #e5d5be;
+      opacity: 0.3;
+      font-family: serif;
+      transform: rotate(-15deg);
+    }
+
+    .anniversary-section::after {
+      content: '★';
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 70px;
+      color: #e5d5be;
+      opacity: 0.25;
     }
 
     .container {
       max-width: 1300px;
       margin: 0 auto;
       padding: 0 40px;
+      position: relative;
+      z-index: 2;
     }
 
     .anniversary-badge {
       display: inline-flex;
       align-items: baseline;
-      gap: 15px;
-      background: #f5ede0;
-      padding: 8px 28px;
-      border-radius: 60px;
-      margin-bottom: 25px;
+      gap: 18px;
+      background: linear-gradient(135deg, #fff5e8, #fffaf2);
+      padding: 10px 32px;
+      border-radius: 80px;
+      margin-bottom: 28px;
+      border: 1px solid #e5d5be;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
     }
 
     .anniversary-badge .year-label {
@@ -148,7 +201,7 @@
     }
 
     .anniversary-badge .year-number {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: 800;
       color: #b86b2c;
     }
@@ -172,41 +225,40 @@
       font-size: 1.1rem;
       color: #7c8c80;
       font-style: italic;
-      margin-top: 20px;
-      padding: 12px 24px;
+      margin-top: 22px;
+      padding: 12px 28px;
       display: inline-block;
-      border-top: 1px solid #f0e4d6;
-      border-bottom: 1px solid #f0e4d6;
+      border-top: 2px solid #e5d5be;
+      border-bottom: 2px solid #e5d5be;
     }
 
-    /* 4 nút chức năng */
     .action-buttons {
       display: flex;
       justify-content: center;
-      gap: 18px;
+      gap: 20px;
       flex-wrap: wrap;
-      margin: 40px 0 30px;
+      margin: 42px 0 32px;
     }
 
     .btn-action {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 28px;
+      padding: 12px 30px;
       border-radius: 50px;
       font-weight: 600;
       font-size: 0.9rem;
       text-decoration: none;
-      transition: all 0.25s ease;
+      transition: all 0.3s ease;
       background: white;
       border: 1px solid #e5d5be;
       color: #2c5a4a;
     }
 
     .btn-action:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
       border-color: #b86b2c;
-      box-shadow: 0 6px 14px rgba(184, 107, 44, 0.12);
+      box-shadow: 0 8px 20px rgba(184, 107, 44, 0.15);
       color: #b86b2c;
     }
 
@@ -224,10 +276,10 @@
     .stats-row {
       display: flex;
       justify-content: center;
-      gap: 50px;
+      gap: 55px;
       flex-wrap: wrap;
-      margin-top: 25px;
-      padding-top: 25px;
+      margin-top: 28px;
+      padding-top: 28px;
       border-top: 1px solid #f0e4d6;
     }
 
@@ -236,7 +288,7 @@
     }
 
     .stat-number {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 800;
       color: #b86b2c;
       line-height: 1;
@@ -245,12 +297,20 @@
     .stat-label {
       font-size: 0.75rem;
       color: #9ab0a4;
-      margin-top: 5px;
+      margin-top: 6px;
     }
 
-    /* ===== SECTIONS ===== */
+    /* ===== SECTIONS CHUNG ===== */
     .section {
-      padding: 70px 0;
+      padding: 75px 0;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .section:nth-child(even) {
@@ -260,26 +320,49 @@
     .section-header {
       text-align: center;
       max-width: 750px;
-      margin: 0 auto 45px;
+      margin: 0 auto 50px;
+      position: relative;
+    }
+
+    .section-header::before {
+      content: '✦';
+      position: absolute;
+      left: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      color: #c99a6b;
+      opacity: 0.5;
+    }
+
+    .section-header::after {
+      content: '✦';
+      position: absolute;
+      right: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      color: #c99a6b;
+      opacity: 0.5;
     }
 
     .section-tag {
       display: inline-block;
       background: #f5ede0;
-      padding: 5px 22px;
+      padding: 6px 24px;
       border-radius: 40px;
       font-size: 0.7rem;
       letter-spacing: 1.5px;
       color: #b86b2c;
       font-weight: 600;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .section-header h2 {
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       font-weight: 600;
       color: #2c5a4a;
-      margin-bottom: 14px;
+      margin-bottom: 15px;
     }
 
     .section-header p {
@@ -291,97 +374,84 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 22px;
+      gap: 24px;
     }
 
     .timeline-card {
       background: white;
-      padding: 24px 20px;
-      border-radius: 24px;
+      padding: 26px 22px;
+      border-radius: 26px;
       flex: 1;
       min-width: 150px;
       text-align: center;
       border: 1px solid #f0e4d6;
-      transition: 0.25s;
+      transition: all 0.3s ease;
+      cursor: pointer;
     }
 
     .timeline-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
       border-color: #c99a6b;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
     }
 
     .year {
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       font-weight: 700;
       color: #b86b2c;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .content-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
+      gap: 26px;
     }
 
     .content-card {
       background: white;
-      padding: 26px 18px;
-      border-radius: 24px;
+      padding: 28px 20px;
+      border-radius: 26px;
       border: 1px solid #f0e4d6;
       text-align: center;
-      transition: 0.25s;
+      transition: all 0.3s ease;
     }
 
     .content-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
       border-color: #c99a6b;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
     }
 
     .card-icon {
-      font-size: 2.2rem;
-      margin-bottom: 14px;
-    }
-
-    .content-card h3 {
-      color: #2c5a4a;
-      margin-bottom: 8px;
-      font-size: 1.1rem;
+      font-size: 2.4rem;
+      margin-bottom: 16px;
     }
 
     .special-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
+      gap: 32px;
     }
 
     .special-card {
       background: white;
-      border-radius: 28px;
-      padding: 32px 28px;
+      border-radius: 30px;
+      padding: 34px 30px;
       border: 1px solid #f0e4d6;
-      transition: 0.25s;
+      transition: all 0.3s ease;
     }
 
     .special-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
       border-color: #c99a6b;
-    }
-
-    .special-icon {
-      font-size: 2.3rem;
-      margin-bottom: 16px;
-    }
-
-    .special-card h3 {
-      font-size: 1.4rem;
-      color: #2c5a4a;
-      margin-bottom: 10px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
     }
 
     .btn-special {
       display: inline-block;
-      margin-top: 18px;
-      padding: 8px 24px;
+      margin-top: 20px;
+      padding: 9px 26px;
       background: #f5ede0;
       color: #b86b2c;
       border-radius: 50px;
@@ -396,21 +466,62 @@
       color: white;
     }
 
+    /* Lãnh đạo qua các thời kỳ */
+    .leader-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .leader-card {
+      background: white;
+      border-radius: 24px;
+      padding: 20px 15px;
+      text-align: center;
+      border: 1px solid #f0e4d6;
+      transition: 0.3s;
+    }
+
+    .leader-card:hover {
+      transform: translateY(-5px);
+      border-color: #c99a6b;
+    }
+
+    .leader-avatar {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #e5d5be, #d4c0a3);
+      border-radius: 50%;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #b86b2c;
+    }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 22px;
     }
 
     .gallery-card {
       background: white;
-      border-radius: 20px;
+      border-radius: 22px;
       overflow: hidden;
       border: 1px solid #f0e4d6;
+      transition: 0.3s;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      border-color: #c99a6b;
     }
 
     .gallery-img {
-      height: 160px;
+      height: 170px;
       background-size: cover;
       background-position: center;
     }
@@ -427,42 +538,67 @@
       color: #7c8c80;
     }
 
+    /* Footer với mạng xã hội */
     footer {
       background: #2c5a4a;
       color: #f0e8dc;
-      padding: 45px 0 20px;
+      padding: 50px 0 20px;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 45px;
     }
 
     .footer-logo img {
-      width: 65px;
+      width: 70px;
       filter: brightness(0) invert(1);
       opacity: 0.85;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: 0.2s;
+      font-size: 1.2rem;
+    }
+
+    .social-links a:hover {
+      background: #b86b2c;
+      transform: translateY(-3px);
     }
 
     .footer-links h4 {
       color: #e5cfaa;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       font-weight: 600;
-      font-size: 1rem;
     }
 
     .footer-links p {
-      margin-bottom: 6px;
-      font-size: 0.8rem;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
       opacity: 0.85;
     }
 
     .copyright {
       text-align: center;
-      padding-top: 30px;
-      margin-top: 30px;
+      padding-top: 35px;
+      margin-top: 35px;
       border-top: 1px solid rgba(255, 245, 220, 0.2);
       font-size: 0.7rem;
     }
@@ -471,29 +607,28 @@
       .content-grid { grid-template-columns: repeat(2, 1fr); }
       .special-grid { grid-template-columns: 1fr; }
       .gallery { grid-template-columns: repeat(2, 1fr); }
+      .leader-grid { grid-template-columns: repeat(3, 1fr); }
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
-      .container { padding: 0 32px; }
       .banner-wrapper { padding: 15px 32px 0; }
-      .banner-image { height: 140px; }
-      .logo-overlay { bottom: -20px; left: 20px; padding: 6px 18px; }
-      .logo-overlay img { height: 38px; }
-      .logo-overlay .logo-text { font-size: 0.7rem; }
-      .logo-overlay .logo-text strong { font-size: 0.85rem; }
+      .banner-image { height: 150px; }
+      .logo-overlay { bottom: -24px; left: 25px; padding: 8px 22px; }
+      .logo-overlay img { height: 44px; }
       .nav-menu { gap: 32px; }
     }
 
     @media (max-width: 700px) {
       .content-grid { grid-template-columns: 1fr; }
       .gallery { grid-template-columns: 1fr; }
+      .leader-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr; }
       .nav-menu { gap: 20px; }
       .nav-menu a { font-size: 0.85rem; }
-      .action-buttons { gap: 12px; }
-      .btn-action { padding: 8px 18px; font-size: 0.8rem; }
-      .banner-image { height: 110px; }
-      .logo-overlay { bottom: -15px; left: 15px; padding: 5px 14px; }
-      .logo-overlay img { height: 30px; }
-      .stats-row { gap: 30px; }
+      .banner-image { height: 120px; }
+      .logo-overlay { bottom: -20px; left: 15px; padding: 6px 16px; }
+      .logo-overlay img { height: 36px; }
+      .logo-overlay .logo-text { font-size: 0.7rem; }
+      .logo-overlay .logo-text strong { font-size: 0.85rem; }
+      .section-header::before, .section-header::after { display: none; }
     }
   </style>
 </head>
@@ -513,7 +648,6 @@
     </div>
   </div>
 
-  <!-- Menu ngang nổi bật màu cam -->
   <div class="nav-bar">
     <div class="nav-container">
       <div class="nav-menu">
@@ -527,7 +661,6 @@
     </div>
   </div>
 
-  <!-- Section Kỷ niệm 50 năm -->
   <div class="anniversary-section">
     <div class="container">
       <div class="anniversary-badge">
@@ -536,31 +669,25 @@
         <span style="color:#b86b2c;">—</span>
         <span class="year-number">2027</span>
       </div>
-      
       <div class="main-title">
         <h1>50 NĂM NGÀY TRUYỀN THỐNG<br><span>HỌC VIỆN QUỐC PHÒNG</span></h1>
-        <div class="slogan">
-          "Phát huy truyền thống, cống hiến tài năng, xứng danh Bộ đội Cụ Hồ"
-        </div>
+        <div class="slogan">"Phát huy truyền thống, cống hiến tài năng, xứng danh Bộ đội Cụ Hồ"</div>
       </div>
-
       <div class="action-buttons">
         <a href="#timeline" class="btn-action btn-primary-action">📅 Hành trình 50 năm</a>
         <a href="#bai-viet" class="btn-action">✍️ Bài viết cảm nhận</a>
         <a href="#tro-choi" class="btn-action">🎮 Trò chơi trí tuệ</a>
         <a href="#gallery" class="btn-action">📸 Thư viện ảnh</a>
       </div>
-
-      <div class="stats-row">
-        <div class="stat-block"><div class="stat-number">1977</div><div class="stat-label">Năm thành lập</div></div>
-        <div class="stat-block"><div class="stat-number">50</div><div class="stat-label">Năm phát triển</div></div>
-        <div class="stat-block"><div class="stat-number">2027</div><div class="stat-label">Kỷ niệm son sắt</div></div>
-        <div class="stat-block"><div class="stat-number">15+</div><div class="stat-label">Thế hệ cán bộ</div></div>
+      <div class="stats-row" id="stats-container">
+        <div class="stat-block"><div class="stat-number" data-target="1977">0</div><div class="stat-label">Năm thành lập</div></div>
+        <div class="stat-block"><div class="stat-number" data-target="50">0</div><div class="stat-label">Năm phát triển</div></div>
+        <div class="stat-block"><div class="stat-number" data-target="2027">0</div><div class="stat-label">Kỷ niệm son sắt</div></div>
+        <div class="stat-block"><div class="stat-number" data-target="15">0</div><div class="stat-label">Thế hệ cán bộ</div></div>
       </div>
     </div>
   </div>
 
-  <!-- Timeline -->
   <section class="section" id="timeline">
     <div class="container">
       <div class="section-header">
@@ -578,7 +705,6 @@
     </div>
   </section>
 
-  <!-- Hoạt động -->
   <section class="section" id="hoatdong">
     <div class="container">
       <div class="section-header">
@@ -595,7 +721,23 @@
     </div>
   </section>
 
-  <!-- Bài viết cảm nhận -->
+  <section class="section" id="leaders">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">LÃNH ĐẠO QUA CÁC THỜI KỲ</div>
+        <h2>Những người đặt nền móng</h2>
+        <p>Các thế hệ lãnh đạo đã xây dựng và phát triển Học viện</p>
+      </div>
+      <div class="leader-grid">
+        <div class="leader-card"><div class="leader-avatar">⭐</div><h4>Trung tướng A</h4><p>1977-1985</p></div>
+        <div class="leader-card"><div class="leader-avatar">⭐</div><h4>Thượng tướng B</h4><p>1985-1995</p></div>
+        <div class="leader-card"><div class="leader-avatar">⭐</div><h4>Đại tướng C</h4><p>1995-2005</p></div>
+        <div class="leader-card"><div class="leader-avatar">⭐</div><h4>Thượng tướng D</h4><p>2005-2015</p></div>
+        <div class="leader-card"><div class="leader-avatar">⭐</div><h4>Trung tướng E</h4><p>2015-2027</p></div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="bai-viet">
     <div class="container">
       <div class="section-header">
@@ -604,13 +746,12 @@
         <p>Những cảm nhận sâu sắc về truyền thống Học viện</p>
       </div>
       <div class="special-grid">
-        <div class="special-card"><div class="special-icon">✍️</div><h3>Ký ức người lính</h3><p>"50 năm - Một chặng đường dài với biết bao kỷ niệm. Tôi tự hào được là một phần của Học viện Quốc phòng, nơi đã rèn luyện và trưởng thành biết bao thế hệ cán bộ..."</p><a href="#" class="btn-special">Đọc tiếp →</a></div>
-        <div class="special-card"><div class="special-icon">💬</div><h3>Phụ nữ với truyền thống</h3><p>"Phát huy phẩm chất 'Anh hùng - Bất khuất - Trung hậu - Đảm đang', phụ nữ Học viện luôn là những bông hoa thép, góp phần viết tiếp trang sử vẻ vang..."</p><a href="#" class="btn-special">Đọc tiếp →</a></div>
+        <div class="special-card"><div class="special-icon">✍️</div><h3>Ký ức người lính</h3><p>"50 năm - Một chặng đường dài với biết bao kỷ niệm. Tôi tự hào được là một phần của Học viện Quốc phòng..."</p><a href="#" class="btn-special">Đọc tiếp →</a></div>
+        <div class="special-card"><div class="special-icon">💬</div><h3>Phụ nữ với truyền thống</h3><p>"Phát huy phẩm chất 'Anh hùng - Bất khuất - Trung hậu - Đảm đang', phụ nữ Học viện là những bông hoa thép..."</p><a href="#" class="btn-special">Đọc tiếp →</a></div>
       </div>
     </div>
   </section>
 
-  <!-- Trò chơi trí tuệ -->
   <section class="section" id="tro-choi">
     <div class="container">
       <div class="section-header">
@@ -625,7 +766,6 @@
     </div>
   </section>
 
-  <!-- Thư viện ảnh -->
   <section class="section" id="gallery">
     <div class="container">
       <div class="section-header">
@@ -645,13 +785,63 @@
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-logo"><img src="logo_hoc vien trong suot.png" alt="Học viện Quốc phòng"><p>Học viện Quốc phòng<br>50 năm xây dựng và phát triển</p></div>
+        <div class="footer-logo">
+          <img src="logo_hoc vien trong suot.png" alt="Học viện Quốc phòng">
+          <p>Học viện Quốc phòng<br>50 năm xây dựng và phát triển</p>
+          <div class="social-links">
+            <a href="#">📘</a>
+            <a href="#">📷</a>
+            <a href="#">▶️</a>
+            <a href="#">💬</a>
+          </div>
+        </div>
         <div class="footer-links"><h4>Về chúng tôi</h4><p>Lịch sử hình thành</p><p>Sứ mệnh & Tầm nhìn</p><p>Thành tựu nổi bật</p></div>
         <div class="footer-links"><h4>Chuyên mục</h4><p>Dấu mốc 50 năm</p><p>Bài viết cảm nhận</p><p>Trò chơi trí tuệ</p><p>Thư viện ảnh</p></div>
-        <div class="footer-links"><h4>Liên hệ</h4><p>Học viện Quốc phòng</p><p>Email: info@hvqp.edu.vn</p><p>Điện thoại: 024.1234.5678</p></div>
+        <div class="footer-links"><h4>Liên hệ</h4><p>Học viện Quốc phòng</p><p>Email: info@hvqp.edu.vn</p><p>Điện thoại: 024.1234.5678</p><p>📍 Số 1, Đường X, Quận Y</p></div>
       </div>
       <div class="copyright">© 2027 Học viện Quốc phòng - Kỷ niệm 50 năm ngày truyền thống (1977-2027)</div>
     </div>
   </footer>
+
+  <script>
+    // Hiệu ứng xuất hiện khi scroll
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+    sections.forEach(section => observer.observe(section));
+
+    // Hiệu ứng đếm số
+    const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+    const statsContainer = document.getElementById('stats-container');
+    let counted = false;
+
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !counted) {
+          counted = true;
+          statNumbers.forEach(el => {
+            const target = parseInt(el.getAttribute('data-target'));
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                el.innerText = target;
+                clearInterval(timer);
+              } else {
+                el.innerText = Math.floor(current);
+              }
+            }, 25);
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+    if (statsContainer) countObserver.observe(statsContainer);
+  </script>
 </body>
 </html>
