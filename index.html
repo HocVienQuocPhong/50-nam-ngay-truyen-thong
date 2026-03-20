@@ -1,420 +1,394 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Hội Phụ nữ - 50 năm Học viện Quốc phòng</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <img src="images/logo_hoc_vien_trong_suat.png" alt="Logo Học viện Quốc phòng">
-                    <div class="logo-text">
-                        <h2>HỘI PHỤ NỮ</h2>
-                        <p>Học viện Quốc phòng</p>
-                    </div>
-                </div>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <nav class="nav-menu" id="navMenu">
-                    <ul>
-                        <li><a href="#home" class="active">Trang chủ</a></li>
-                        <li><a href="#about">Giới thiệu</a></li>
-                        <li><a href="#news">Tin tức</a></li>
-                        <li><a href="#contest">Bài dự thi</a></li>
-                        <li><a href="#game">Trò chơi</a></li>
-                        <li><a href="#gallery">Thư viện</a></li>
-                        <li><a href="#contact">Liên hệ</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+// Mobile Menu
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navMenu = document.getElementById('navMenu');
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-bg" style="background-image: url('images/anh1.jpg');"></div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="anniversary-badge">50 NĂM</div>
-                <h1>KỶ NIỆM 50 NĂM<br>NGÀY TRUYỀN THỐNG</h1>
-                <p class="hero-subtitle">Học viện Quốc phòng (1976 - 2026)</p>
-                <div class="hero-date">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>Tháng 4, 2026</span>
-                </div>
-                <div class="countdown" id="countdown">
-                    <div class="countdown-item">
-                        <span id="days">00</span>
-                        <label>Ngày</label>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="hours">00</span>
-                        <label>Giờ</label>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="minutes">00</span>
-                        <label>Phút</label>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="seconds">00</span>
-                        <label>Giây</label>
-                    </div>
-                </div>
-                <a href="#contest" class="btn-primary">GỬI BÀI DỰ THI <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-    </section>
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+}
 
-    <!-- Giới thiệu -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>GIỚI THIỆU</h2>
-                <div class="section-divider"></div>
-                <p>50 năm - Một chặng đường vẻ vang</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Hội Phụ nữ Học viện Quốc phòng</h3>
-                    <p>Trải qua 50 năm xây dựng và trưởng thành, Hội Phụ nữ Học viện Quốc phòng đã không ngừng phát triển, khẳng định vai trò, vị trí quan trọng trong sự nghiệp đào tạo cán bộ quân sự cao cấp của Đảng, Nhà nước và Quân đội.</p>
-                    <p>Với tinh thần "Tự tin, tự trọng, trung hậu, đảm đang", các thế hệ nữ cán bộ, giảng viên, nhân viên Học viện đã đóng góp xứng đáng vào thành tích chung của đơn vị, xứng danh "Phụ nữ Việt Nam anh hùng".</p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <span class="stat-number">50</span>
-                            <span class="stat-label">Năm truyền thống</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">500+</span>
-                            <span class="stat-label">Hội viên</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">100+</span>
-                            <span class="stat-label">Phần thưởng cao quý</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="images/anh1.jpg" alt="Học viện Quốc phòng">
-                </div>
-            </div>
-        </div>
-    </section>
+// Close menu when clicking on a link
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+    });
+});
 
-    <!-- Tin tức -->
-    <section id="news" class="news">
-        <div class="container">
-            <div class="section-header">
-                <h2>TIN TỨC & SỰ KIỆN</h2>
-                <div class="section-divider"></div>
-                <p>Những hoạt động nổi bật chào mừng 50 năm thành lập</p>
-            </div>
-            <div class="news-grid">
-                <article class="news-card">
-                    <div class="news-image">
-                        <img src="images/anh1.jpg" alt="Phát động thi đua">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-date">15/03/2026</div>
-                        <h3>Phát động đợt thi đua đặc biệt chào mừng 50 năm</h3>
-                        <p>Hội Phụ nữ Học viện tổ chức lễ phát động đợt thi đua cao điểm với chủ đề "50 năm - Vững bước tương lai"...</p>
-                        <a href="#" class="read-more">Đọc tiếp <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                </article>
-                <article class="news-card">
-                    <div class="news-image">
-                        <img src="images/anh1.jpg" alt="Hội thảo khoa học">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-date">10/03/2026</div>
-                        <h3>Hội thảo "Phụ nữ với sự nghiệp bảo vệ Tổ quốc"</h3>
-                        <p>Hội thảo khoa học nhằm ôn lại truyền thống vẻ vang và đề ra phương hướng hoạt động trong giai đoạn mới...</p>
-                        <a href="#" class="read-more">Đọc tiếp <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                </article>
-                <article class="news-card">
-                    <div class="news-image">
-                        <img src="images/anh1.jpg" alt="Gặp mặt truyền thống">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-date">05/03/2026</div>
-                        <h3>Gặp mặt các thế hệ phụ nữ Học viện qua các thời kỳ</h3>
-                        <p>Chương trình gặp mặt ấm cúng, ôn lại những kỷ niệm sâu sắc trong quá trình xây dựng và phát triển Học viện...</p>
-                        <a href="#" class="read-more">Đọc tiếp <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
+// Active menu on scroll
+window.addEventListener('scroll', () => {
+    let sections = document.querySelectorAll('section');
+    let navLinks = document.querySelectorAll('.nav-menu a');
+    
+    sections.forEach(section => {
+        let top = window.scrollY;
+        let offset = section.offsetTop - 150;
+        let height = section.offsetHeight;
+        let id = section.getAttribute('id');
+        
+        if (top >= offset && top < offset + height) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${id}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+});
 
-    <!-- Bài viết dự thi -->
-    <section id="contest" class="contest">
-        <div class="container">
-            <div class="section-header">
-                <h2>BÀI VIẾT DỰ THI</h2>
-                <div class="section-divider"></div>
-                <p>Chia sẻ cảm xúc, kỷ niệm và niềm tự hào về Học viện</p>
-            </div>
-            <div class="contest-intro">
-                <div class="contest-info">
-                    <h3>Chủ đề: "Phụ nữ Học viện Quốc phòng – 50 năm xây đắp truyền thống"</h3>
-                    <p>Các bài viết dự thi gửi về Ban tổ chức từ ngày 15/03 đến ngày 15/04/2026. Hình thức: Bài viết cảm nhận, thơ, truyện ngắn, kỷ niệm sâu sắc về Học viện.</p>
-                    <a href="#submit-contest" class="btn-submit" id="showSubmitForm">GỬI BÀI DỰ THI <i class="fas fa-pen-fancy"></i></a>
-                </div>
-            </div>
+// Countdown Timer
+function updateCountdown() {
+    const targetDate = new Date('April 1, 2026 00:00:00').getTime();
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+    
+    if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+        document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+    }
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Show/Hide Contest Form
+const showSubmitBtn = document.getElementById('showSubmitForm');
+const contestForm = document.getElementById('contestForm');
+
+if (showSubmitBtn) {
+    showSubmitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (contestForm.style.display === 'none') {
+            contestForm.style.display = 'block';
+            contestForm.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            contestForm.style.display = 'none';
+        }
+    });
+}
+
+// Submit Contest Form
+const submitForm = document.getElementById('submitContestForm');
+if (submitForm) {
+    submitForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('authorName').value;
+        const unit = document.getElementById('authorUnit').value;
+        const title = document.getElementById('articleTitle').value;
+        
+        if (name && unit && title) {
+            alert(`Cảm ơn ${name} đã gửi bài dự thi "${title}". Bài viết của bạn sẽ được xét duyệt và đăng tải trong thời gian sớm nhất!`);
+            submitForm.reset();
+            contestForm.style.display = 'none';
+        } else {
+            alert('Vui lòng điền đầy đủ thông tin bắt buộc!');
+        }
+    });
+}
+
+// Contact Form
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Cảm ơn bạn đã liên hệ. Chúng tôi sẽ phản hồi trong thời gian sớm nhất!');
+        contactForm.reset();
+    });
+}
+
+// Quiz Game
+const quizData = [
+    {
+        question: "Học viện Quốc phòng được thành lập vào năm nào?",
+        options: ["1975", "1976", "1977", "1978"],
+        correct: 1
+    },
+    {
+        question: "Phụ nữ Việt Nam được phong tặng danh hiệu gì?",
+        options: ["Anh hùng Lao động", "Bà mẹ Việt Nam anh hùng", "Anh hùng Lực lượng vũ trang", "Anh hùng Phụ nữ"],
+        correct: 1
+    },
+    {
+        question: "Chủ đề kỷ niệm 50 năm Học viện Quốc phòng là gì?",
+        options: ["50 năm vững bước", "Tự hào truyền thống", "Vững bước tương lai", "Tự hào 50 năm"],
+        correct: 2
+    },
+    {
+        question: "Học viện Quốc phòng đóng tại tỉnh/thành phố nào?",
+        options: ["Hà Nội", "Hải Phòng", "Đà Nẵng", "TP Hồ Chí Minh"],
+        correct: 0
+    },
+    {
+        question: "Phẩm chất cao quý của phụ nữ Việt Nam là gì?",
+        options: ["Trung hậu, đảm đang", "Mạnh mẽ, quyết đoán", "Thông minh, sáng tạo", "Năng động, nhiệt tình"],
+        correct: 0
+    }
+];
+
+let currentQuiz = 0;
+let quizScore = 0;
+let selectedOption = null;
+
+function loadQuiz() {
+    if (currentQuiz < quizData.length) {
+        const quiz = quizData[currentQuiz];
+        document.getElementById('quizQuestion').innerHTML = quiz.question;
+        document.getElementById('currentQuestion').innerHTML = currentQuiz + 1;
+        document.getElementById('totalQuestions').innerHTML = quizData.length;
+        
+        const optionsHtml = quiz.options.map((option, index) => {
+            return `<div class="quiz-option" data-index="${index}">${option}</div>`;
+        }).join('');
+        
+        document.getElementById('quizOptions').innerHTML = optionsHtml;
+        
+        // Add click event to options
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                selectedOption = parseInt(option.dataset.index);
+            });
+        });
+        
+        document.getElementById('quizResult').style.display = 'none';
+        document.getElementById('nextQuestion').style.display = 'block';
+    } else {
+        showQuizResult();
+    }
+}
+
+function showQuizResult() {
+    document.getElementById('quizQuestion').innerHTML = '';
+    document.getElementById('quizOptions').innerHTML = '';
+    document.getElementById('nextQuestion').style.display = 'none';
+    document.getElementById('quizResult').style.display = 'block';
+    document.getElementById('quizResult').innerHTML = `
+        <h3>Kết quả của bạn</h3>
+        <p>Bạn trả lời đúng ${quizScore}/${quizData.length} câu hỏi</p>
+        <p>Điểm số: ${quizScore * 20} điểm</p>
+        <button class="btn-primary" onclick="resetQuiz()">Chơi lại</button>
+    `;
+}
+
+function resetQuiz() {
+    currentQuiz = 0;
+    quizScore = 0;
+    selectedOption = null;
+    loadQuiz();
+}
+
+document.getElementById('nextQuestion').addEventListener('click', () => {
+    if (selectedOption !== null) {
+        if (selectedOption === quizData[currentQuiz].correct) {
+            quizScore++;
+        }
+        currentQuiz++;
+        selectedOption = null;
+        loadQuiz();
+    } else {
+        alert('Vui lòng chọn đáp án!');
+    }
+});
+
+// Initialize quiz
+loadQuiz();
+
+// Game Tabs
+const gameTabs = document.querySelectorAll('.game-tab');
+const gameContents = document.querySelectorAll('.game-content');
+
+gameTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const gameId = tab.dataset.game;
+        
+        gameTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        gameContents.forEach(content => content.classList.remove('active'));
+        document.getElementById(`${gameId}Game`).classList.add('active');
+        
+        if (gameId === 'puzzle') {
+            initPuzzle();
+        } else if (gameId === 'crossword') {
+            initCrossword();
+        }
+    });
+});
+
+// Crossword Game
+function initCrossword() {
+    const grid = document.getElementById('crosswordGrid');
+    if (grid && grid.children.length === 0) {
+        const crosswordData = [
+            ['', '1', '', '2', ''],
+            ['', '', '', '', ''],
+            ['3', '', '4', '', ''],
+            ['', '', '', '', ''],
+            ['', '', '', '', '']
+        ];
+        
+        grid.innerHTML = '';
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                const cell = document.createElement('div');
+                cell.className = 'crossword-cell';
+                if (crosswordData[i][j] && typeof crosswordData[i][j] === 'string' && !isNaN(crosswordData[i][j])) {
+                    const number = document.createElement('span');
+                    number.style.position = 'absolute';
+                    number.style.top = '2px';
+                    number.style.left = '2px';
+                    number.style.fontSize = '10px';
+                    number.textContent = crosswordData[i][j];
+                    cell.appendChild(number);
+                }
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.maxLength = 1;
+                cell.appendChild(input);
+                grid.appendChild(cell);
+            }
+        }
+    }
+}
+
+document.getElementById('checkCrossword')?.addEventListener('click', () => {
+    alert('Chức năng kiểm tra ô chữ đang được phát triển. Hãy thử thách bạn bè nhé!');
+});
+
+// Puzzle Game
+let puzzlePieces = [];
+let puzzleSolved = false;
+
+function initPuzzle() {
+    const puzzleGrid = document.getElementById('puzzleGrid');
+    if (puzzleGrid && puzzleGrid.children.length === 0) {
+        const puzzleImage = document.getElementById('puzzleImage');
+        if (puzzleImage) {
+            puzzlePieces = Array.from({ length: 9 }, (_, i) => i);
+            shuffleArray(puzzlePieces);
+            renderPuzzle();
+        }
+    }
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+function renderPuzzle() {
+    const puzzleGrid = document.getElementById('puzzleGrid');
+    if (puzzleGrid) {
+        puzzleGrid.innerHTML = '';
+        puzzlePieces.forEach((piece, index) => {
+            const pieceDiv = document.createElement('div');
+            pieceDiv.className = 'puzzle-piece';
+            const row = Math.floor(piece / 3);
+            const col = piece % 3;
+            pieceDiv.style.backgroundImage = `url('images/anh1.jpg')`;
+            pieceDiv.style.backgroundPosition = `${-col * 100}% ${-row * 100}%`;
+            pieceDiv.style.backgroundSize = '300% 300%';
+            pieceDiv.addEventListener('click', () => movePiece(index));
+            puzzleGrid.appendChild(pieceDiv);
+        });
+    }
+}
+
+function movePiece(index) {
+    if (puzzleSolved) return;
+    
+    const emptyIndex = puzzlePieces.indexOf(8);
+    const validMoves = [emptyIndex - 1, emptyIndex + 1, emptyIndex - 3, emptyIndex + 3];
+    
+    if (validMoves.includes(index) && 
+        !(Math.floor(emptyIndex / 3) !== Math.floor(index / 3) && Math.abs(emptyIndex - index) !== 3)) {
+        [puzzlePieces[emptyIndex], puzzlePieces[index]] = [puzzlePieces[index], puzzlePieces[emptyIndex]];
+        renderPuzzle();
+        
+        // Check if solved
+        if (puzzlePieces.every((piece, i) => piece === i)) {
+            puzzleSolved = true;
+            setTimeout(() => alert('Chúc mừng! Bạn đã ghép hình thành công!'), 100);
+        }
+    }
+}
+
+document.getElementById('shufflePuzzle')?.addEventListener('click', () => {
+    shuffleArray(puzzlePieces);
+    renderPuzzle();
+    puzzleSolved = false;
+});
+
+document.getElementById('checkPuzzle')?.addEventListener('click', () => {
+    if (puzzlePieces.every((piece, i) => piece === i)) {
+        alert('Chúc mừng! Bạn đã hoàn thành trò chơi!');
+    } else {
+        alert('Hình chưa đúng. Hãy tiếp tục ghép nhé!');
+    }
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Gallery lightbox
+document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        if (img) {
+            const modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.backgroundColor = 'rgba(0,0,0,0.9)';
+            modal.style.zIndex = '9999';
+            modal.style.display = 'flex';
+            modal.style.alignItems = 'center';
+            modal.style.justifyContent = 'center';
+            modal.style.cursor = 'pointer';
             
-            <!-- Form gửi bài dự thi -->
-            <div class="contest-form" id="contestForm" style="display: none;">
-                <h3><i class="fas fa-edit"></i> Đăng ký dự thi</h3>
-                <form id="submitContestForm">
-                    <div class="form-group">
-                        <label>Họ và tên *</label>
-                        <input type="text" id="authorName" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Đơn vị công tác *</label>
-                        <input type="text" id="authorUnit" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Số điện thoại</label>
-                        <input type="tel" id="authorPhone">
-                    </div>
-                    <div class="form-group">
-                        <label>Email *</label>
-                        <input type="email" id="authorEmail" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Thể loại *</label>
-                        <select id="articleType">
-                            <option value="cam-nhan">Bài cảm nhận</option>
-                            <option value="tho">Thơ</option>
-                            <option value="truyen">Truyện ngắn</option>
-                            <option value="ky-niem">Kỷ niệm</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Tên bài viết *</label>
-                        <input type="text" id="articleTitle" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Nội dung bài viết *</label>
-                        <textarea id="articleContent" rows="8" required placeholder="Viết bài dự thi của bạn tại đây..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary">GỬI BÀI DỰ THI</button>
-                </form>
-            </div>
+            const modalImg = document.createElement('img');
+            modalImg.src = img.src;
+            modalImg.style.maxWidth = '90%';
+            modalImg.style.maxHeight = '90%';
+            modalImg.style.objectFit = 'contain';
             
-            <!-- Danh sách bài dự thi -->
-            <div class="contest-list">
-                <h3><i class="fas fa-star"></i> Các bài dự thi tiêu biểu</h3>
-                <div class="contest-entries" id="contestEntries">
-                    <div class="contest-entry">
-                        <div class="entry-title">Tự hào phụ nữ Học viện Quốc phòng</div>
-                        <div class="entry-meta">Tác giả: Nguyễn Thị Hương - Khoa Chiến lược | Ngày gửi: 16/03/2026</div>
-                        <div class="entry-excerpt">50 năm - một chặng đường dài với biết bao thế hệ phụ nữ đã cống hiến hết mình cho sự nghiệp đào tạo...</div>
-                        <a href="#" class="read-more">Đọc tiếp</a>
-                    </div>
-                    <div class="contest-entry">
-                        <div class="entry-title">Mùa xuân và những kỷ niệm</div>
-                        <div class="entry-meta">Tác giả: Trần Thị Lan - Phòng Đào tạo | Ngày gửi: 15/03/2026</div>
-                        <div class="entry-excerpt">Những ngày tháng 4 lịch sử, lòng tôi lại nao nức nhớ về những kỷ niệm khó quên khi lần đầu đặt chân đến Học viện...</div>
-                        <a href="#" class="read-more">Đọc tiếp</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trò chơi -->
-    <section id="game" class="game">
-        <div class="container">
-            <div class="section-header">
-                <h2>TRÒ CHƠI TRUYỀN THỐNG</h2>
-                <div class="section-divider"></div>
-                <p>Vui học - Hiểu biết về Học viện Quốc phòng</p>
-            </div>
-            <div class="game-tabs">
-                <button class="game-tab active" data-game="quiz">TRẮC NGHIỆM</button>
-                <button class="game-tab" data-game="crossword">Ô CHỮ</button>
-                <button class="game-tab" data-game="puzzle">GHÉP HÌNH</button>
-            </div>
+            modal.appendChild(modalImg);
+            document.body.appendChild(modal);
             
-            <!-- Quiz Game -->
-            <div class="game-content active" id="quizGame">
-                <div class="quiz-container">
-                    <div class="quiz-header">
-                        <div class="quiz-score">Điểm: <span id="quizScore">0</span></div>
-                        <div class="quiz-question-count">Câu <span id="currentQuestion">1</span>/<span id="totalQuestions">5</span></div>
-                    </div>
-                    <div class="quiz-question" id="quizQuestion"></div>
-                    <div class="quiz-options" id="quizOptions"></div>
-                    <button class="btn-next" id="nextQuestion">Câu tiếp theo</button>
-                    <div class="quiz-result" id="quizResult" style="display: none;"></div>
-                </div>
-            </div>
-            
-            <!-- Crossword Game -->
-            <div class="game-content" id="crosswordGame">
-                <div class="crossword-container">
-                    <div class="crossword-grid" id="crosswordGrid"></div>
-                    <div class="crossword-clues">
-                        <div class="clues-horizontal">
-                            <h4>Hàng ngang</h4>
-                            <div class="clue">1. Năm thành lập Học viện Quốc phòng? (4 chữ)</div>
-                            <div class="clue">3. Tên gọi khác của Học viện Quốc phòng? (3 chữ)</div>
-                        </div>
-                        <div class="clues-vertical">
-                            <h4>Hàng dọc</h4>
-                            <div class="clue">2. Phẩm chất cao quý của phụ nữ Việt Nam? (4 chữ)</div>
-                            <div class="clue">4. Chủ tịch Hồ Chí Minh từng nói: "Phụ nữ ... anh hùng"? (4 chữ)</div>
-                        </div>
-                    </div>
-                    <button class="btn-check-crossword" id="checkCrossword">Kiểm tra</button>
-                </div>
-            </div>
-            
-            <!-- Puzzle Game -->
-            <div class="game-content" id="puzzleGame">
-                <div class="puzzle-container">
-                    <div class="puzzle-image">
-                        <img src="images/anh1.jpg" alt="Puzzle image" id="puzzleImage">
-                    </div>
-                    <div class="puzzle-controls">
-                        <button class="btn-puzzle" id="shufflePuzzle">Xáo trộn</button>
-                        <button class="btn-puzzle" id="checkPuzzle">Kiểm tra</button>
-                    </div>
-                    <div class="puzzle-grid" id="puzzleGrid"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+            modal.addEventListener('click', () => {
+                document.body.removeChild(modal);
+            });
+        }
+    });
+});
 
-    <!-- Thư viện ảnh -->
-    <section id="gallery" class="gallery">
-        <div class="container">
-            <div class="section-header">
-                <h2>THƯ VIỆN HÌNH ẢNH</h2>
-                <div class="section-divider"></div>
-                <p>Những khoảnh khắc đẹp qua 50 năm xây dựng và phát triển</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/anh1.jpg" alt="Học viện Quốc phòng">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                        <p>Học viện Quốc phòng hôm nay</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/anh1.jpg" alt="Hoạt động Hội Phụ nữ">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                        <p>Hoạt động Hội Phụ nữ</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/anh1.jpg" alt="Lễ kỷ niệm">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                        <p>Lễ kỷ niệm các thế hệ</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/anh1.jpg" alt="Phụ nữ học viện">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                        <p>Phụ nữ Học viện hôm nay</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Liên hệ -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>LIÊN HỆ</h2>
-                <div class="section-divider"></div>
-                <p>Mọi thông tin chi tiết xin vui lòng liên hệ</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Địa chỉ</h4>
-                            <p>Học viện Quốc phòng, Xuân Mai, Chương Mỹ, Hà Nội</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <h4>Điện thoại</h4>
-                            <p>024.1234.5678</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>hoiphunu@hvqp.edu.vn</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h3>Gửi thông tin liên hệ</h3>
-                    <form id="contactForm">
-                        <input type="text" placeholder="Họ tên" required>
-                        <input type="email" placeholder="Email" required>
-                        <textarea rows="4" placeholder="Nội dung"></textarea>
-                        <button type="submit" class="btn-primary">GỬI</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="images/logo_hoc_vien_trong_suat.png" alt="Logo">
-                    <p>HỘI PHỤ NỮ HỌC VIỆN QUỐC PHÒNG</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Liên kết nhanh</h4>
-                    <ul>
-                        <li><a href="#home">Trang chủ</a></li>
-                        <li><a href="#contest">Bài dự thi</a></li>
-                        <li><a href="#game">Trò chơi</a></li>
-                        <li><a href="#gallery">Thư viện</a></li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <h4>Kết nối</h4>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Hội Phụ nữ Học viện Quốc phòng - 50 năm tự hào truyền thống</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-</body>
-</html>
+// Initialize on load
+window.addEventListener('load', () => {
+    initPuzzle();
+    initCrossword();
+});
