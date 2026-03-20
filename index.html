@@ -58,10 +58,12 @@
       position: relative;
       overflow: hidden;
       background:
-        linear-gradient(180deg, rgba(9,30,78,0.35), rgba(15,45,104,0.55)),
+        linear-gradient(135deg, rgba(88,8,8,0.82) 0%, rgba(134,16,16,0.72) 52%, rgba(168,28,28,0.58) 100%),
+        radial-gradient(circle at 22% 30%, rgba(255,221,140,0.16), transparent 24%),
+        radial-gradient(circle at 78% 18%, rgba(255,221,140,0.12), transparent 22%),
         url('Hoc vien Quoc phong F2.jpg') center/cover no-repeat;
       color: white;
-      min-height: 520px;
+      min-height: 430px;
     }
 
     .hero::before {
@@ -69,9 +71,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 50% 50%, rgba(255,215,120,0.18), transparent 24%),
-        radial-gradient(circle at 10% 15%, rgba(255,255,255,0.08), transparent 20%),
-        radial-gradient(circle at 85% 15%, rgba(255,255,255,0.08), transparent 20%);
+        radial-gradient(circle at 50% 50%, rgba(255,215,120,0.14), transparent 26%),
+        linear-gradient(180deg, rgba(70,7,7,0.10), rgba(70,7,7,0.24));
       pointer-events: none;
     }
 
@@ -79,7 +80,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(8,28,74,0.78) 0%, rgba(12,41,103,0.62) 45%, rgba(163,23,23,0.25) 100%);
+      background: linear-gradient(90deg, rgba(67,7,7,0.82) 0%, rgba(114,14,14,0.68) 40%, rgba(125,12,12,0.36) 100%);
       pointer-events: none;
     }
 
@@ -87,9 +88,10 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(12px);
-      background: rgba(255,250,244,0.86);
-      border-bottom: 1px solid rgba(221,177,74,0.35);
+      backdrop-filter: blur(10px);
+      background: linear-gradient(90deg, rgba(124,10,10,0.96) 0%, rgba(166,21,21,0.98) 45%, rgba(129,12,12,0.96) 100%);
+      border-bottom: 1px solid rgba(240,201,103,0.45);
+      box-shadow: 0 8px 24px rgba(86,8,8,0.18);
     }
 
     .nav-inner {
@@ -97,7 +99,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      padding: 12px 0;
+      padding: 14px 0;
     }
 
     .brand {
@@ -108,38 +110,46 @@
     }
 
     .brand-badge {
-      width: 46px;
-      height: 46px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      background: radial-gradient(circle, #ffd978 0%, var(--gold) 55%, #b67f1f 100%);
-      color: var(--primary);
-      font-weight: 800;
-      box-shadow: 0 0 24px rgba(221,177,74,0.4);
+      background: radial-gradient(circle at 30% 30%, #fff1b8 0%, #f2cc62 50%, #bb861b 100%);
+      color: #a31313;
+      font-weight: 900;
+      font-size: 28px;
+      box-shadow: 0 6px 18px rgba(242,204,98,0.28);
       flex: 0 0 auto;
+      border: 2px solid rgba(255,245,214,0.78);
     }
 
     .brand-text {
-      font-weight: 700;
-      color: var(--navy);
+      font-weight: 800;
+      color: #fff7e2;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      font-size: 18px;
+      letter-spacing: 0.2px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.18);
     }
 
     .menu {
       display: flex;
-      gap: 22px;
+      gap: 24px;
       flex-wrap: wrap;
       justify-content: flex-end;
-      font-weight: 600;
-      color: var(--navy);
+      font-weight: 800;
+      color: #fff7e2;
+      font-size: 18px;
     }
 
     .menu a {
       position: relative;
-      padding: 6px 0;
+      padding: 8px 0;
+      color: #fff7e2;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.18);
     }
 
     .menu a::after {
@@ -148,7 +158,7 @@
       left: 0; bottom: 0;
       width: 0;
       height: 2px;
-      background: linear-gradient(90deg, var(--primary), var(--gold));
+      background: linear-gradient(90deg, #ffe08a, #f6c84e);
       transition: width .25s ease;
     }
 
@@ -157,11 +167,11 @@
     .hero-inner {
       position: relative;
       z-index: 1;
-      padding: 56px 0 64px;
+      padding: 34px 0 38px;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 34px;
-      align-items: center;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 22px;
+      align-items: start;
     }
 
     .eyebrow {
@@ -180,26 +190,32 @@
     .hero h1 {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(26px, 4.2vw, 44px);
-      line-height: 1.2;
+      font-size: clamp(22px, 3.4vw, 38px);
+      line-height: 1.18;
       letter-spacing: 0.3px;
     }
 
-    .hero h1 span { color: #ffe08a; text-shadow: 0 3px 14px rgba(0,0,0,0.28); }
+    .hero h1 span {
+      color: #ffe08a;
+      text-shadow: 0 3px 14px rgba(0,0,0,0.28);
+      font-size: 0.88em;
+      letter-spacing: 0.3px;
+    }
 
     .hero p {
-      margin: 16px 0 24px;
-      max-width: 680px;
-      color: rgba(255,255,255,0.94);
-      font-size: 18px;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.24);
+      margin: 12px 0 18px;
+      max-width: 640px;
+      color: rgba(255,248,232,0.96);
+      font-size: 16px;
+      line-height: 1.55;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.22);
     }
 
     .cta-row {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 30px;
+      margin-bottom: 18px;
     }
 
     .btn {
@@ -207,7 +223,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 14px 22px;
+      padding: 11px 18px;
       border-radius: 999px;
       font-weight: 700;
       border: 1px solid transparent;
@@ -231,20 +247,20 @@
     .hero-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      gap: 10px;
     }
 
     .stat {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 20px;
-      padding: 18px;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,244,214,0.16);
+      border-radius: 18px;
+      padding: 14px;
       backdrop-filter: blur(10px);
     }
 
     .stat strong {
       display: block;
-      font-size: 30px;
+      font-size: 24px;
       color: #ffd978;
       margin-bottom: 6px;
     }
@@ -252,9 +268,9 @@
     .hero-panel {
       position: relative;
       background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
-      border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 30px;
-      padding: 24px;
+      border: 1px solid rgba(255,245,214,0.14);
+      border-radius: 24px;
+      padding: 16px;
       box-shadow: 0 24px 70px rgba(3,12,35,0.30);
       backdrop-filter: blur(16px);
     }
@@ -262,8 +278,8 @@
     .hero-panel::before {
       content: "";
       position: absolute;
-      inset: 14px;
-      border-radius: 22px;
+      inset: 10px;
+      border-radius: 18px;
       border: 1px solid rgba(255,255,255,0.10);
       pointer-events: none;
     }
@@ -271,28 +287,28 @@
     .panel-card {
       background: rgba(255,255,255,0.96);
       color: var(--text);
-      border-radius: 22px;
-      padding: 18px;
-      box-shadow: var(--shadow);
+      border-radius: 18px;
+      padding: 14px 16px;
+      box-shadow: 0 14px 30px rgba(65,10,10,0.16);
     }
 
-    .panel-card + .panel-card { margin-top: 16px; }
+    .panel-card + .panel-card { margin-top: 12px; }
 
     .panel-label {
       display: inline-block;
-      padding: 6px 10px;
-      background: var(--gold-soft);
+      padding: 5px 10px;
+      background: #f8ecd0;
       color: var(--primary);
-      font-weight: 700;
+      font-weight: 800;
       border-radius: 999px;
-      font-size: 13px;
-      margin-bottom: 12px;
+      font-size: 12px;
+      margin-bottom: 10px;
     }
 
     .panel-card h3 {
-      margin: 0 0 8px;
+      margin: 0 0 6px;
       color: var(--navy);
-      font-size: 21px;
+      font-size: 18px;
     }
 
     .section {
@@ -686,13 +702,13 @@
   <nav>
     <div class="container nav-inner">
       <div class="brand">
-        <div class="brand-badge">80</div>
+        <div class="brand-badge">70</div>
         <div class="brand-text">Học viện Quốc phòng</div>
       </div>
       <div class="menu">
         <a href="#">Trang chủ</a>
         <a href="#gioi-thieu">Giới thiệu</a>
-        <a href="#timeline">Dấu mốc 80 năm</a>
+        <a href="#timeline">Dấu mốc 70 năm</a>
         <a href="#hoat-dong">Hoạt động</a>
         <a href="#bai-viet">Bài viết</a>
         <a href="#tro-choi">Trò chơi</a>
@@ -704,16 +720,16 @@
   <header class="hero">
     <div class="container hero-inner">
       <div class="reveal">
-        <h1>HỌC VIỆN QUỐC PHÒNG<br/><span>Chuyên trang kỷ niệm 80 năm</span></h1>
-        <p>Chuyên trang giới thiệu lịch sử hình thành và phát triển, các dấu mốc nổi bật, hoạt động tiêu biểu, tư liệu hình ảnh - video và những nội dung tương tác ý nghĩa hướng tới kỷ niệm 80 năm Ngày thành lập Học viện Quốc phòng.</p>
+        <h1>HỌC VIỆN QUỐC PHÒNG<br/><span>Chuyên trang kỷ niệm 70 năm</span></h1>
+        <p>Chuyên trang giới thiệu lịch sử hình thành và phát triển, các dấu mốc nổi bật, hoạt động tiêu biểu, tư liệu hình ảnh - video và những nội dung tương tác ý nghĩa hướng tới kỷ niệm 70 năm Ngày truyền thống.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#timeline">Khám phá lịch sử</a>
           <a class="btn btn-secondary" href="#tro-choi">Chơi thử quiz</a>
         </div>
         <div class="hero-stats">
           <div class="stat">
-            <strong>80 năm</strong>
-            <span>Truyền thống vẻ vang và phát triển</span>
+            <strong>70 năm</strong>
+            <span>Ngày truyền thống và hành trình phát triển</span>
           </div>
           <div class="stat">
             <strong>5 chuyên mục</strong>
@@ -729,13 +745,13 @@
       <div class="hero-panel reveal">
         <div class="panel-card">
           <div class="panel-label">Điểm nhấn nổi bật</div>
-          <h3>Dấu mốc 80 năm truyền thống</h3>
-          <p>Thiết kế timeline sang trọng, dễ đọc, giúp người xem theo dõi hành trình hình thành và phát triển của Học viện qua các giai đoạn.</p>
+          <h3>Dấu mốc 70 năm truyền thống</h3>
+          <p>Thiết kế timeline ngắn gọn, dễ đọc, giúp người xem theo dõi hành trình hình thành và phát triển qua các giai đoạn nổi bật.</p>
         </div>
         <div class="panel-card">
           <div class="panel-label">Không gian thông tin số</div>
           <h3>Thư viện tư liệu và nội dung tương tác</h3>
-          <p>Kết hợp bài viết, thư viện ảnh - video và các chuyên mục tương tác phù hợp để tăng trải nghiệm mà vẫn giữ tinh thần trang trọng của chuyên trang kỷ niệm.</p>
+          <p>Kết hợp bài viết, thư viện ảnh - video và nội dung tương tác phù hợp để tăng trải nghiệm mà vẫn giữ tinh thần trang trọng, lịch sự.</p>
         </div>
       </div>
     </div>
