@@ -1,1645 +1,420 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>50 năm Ngày truyền thống Học viện Quốc phòng</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --red-1: #7b1018;
-      --red-2: #a31621;
-      --red-3: #c62828;
-      --gold-1: #f3d27a;
-      --gold-2: #e7bd55;
-      --gold-3: #fff2c9;
-      --navy-1: #102331;
-      --navy-2: #163447;
-      --navy-3: #244b63;
-      --ink: #1d2d3a;
-      --muted: #667784;
-      --white: #ffffff;
-      --cream: #fffaf2;
-      --line: rgba(18, 35, 49, 0.08);
-      --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.15);
-      --shadow-md: 0 16px 35px rgba(0, 0, 0, 0.10);
-      --shadow-sm: 0 10px 22px rgba(0, 0, 0, 0.07);
-      --radius-xl: 36px;
-      --radius-lg: 26px;
-      --radius-md: 20px;
-      --radius-sm: 14px;
-      --max: 1320px;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Poppins", "Segoe UI", "Inter", system-ui, sans-serif;
-      background: linear-gradient(180deg, #fffdf9 0%, #fff9f1 100%);
-      color: var(--ink);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      overflow: hidden;
-      color: white;
-      background: #111;
-      isolation: isolate;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(120deg, rgba(70, 8, 15, 0.88) 0%, rgba(123, 16, 24, 0.82) 34%, rgba(16, 35, 49, 0.80) 100%),
-        url('anh 1.jpg') center/cover no-repeat;
-      transform: scale(1.04);
-      z-index: -3;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 82% 16%, rgba(243, 210, 122, 0.18), transparent 22%),
-        radial-gradient(circle at 12% 82%, rgba(255, 255, 255, 0.08), transparent 20%),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.24));
-      z-index: -2;
-    }
-
-    .hero-glow {
-      position: absolute;
-      width: 520px;
-      height: 520px;
-      border-radius: 50%;
-      top: -120px;
-      right: -120px;
-      background: radial-gradient(circle, rgba(243, 210, 122, 0.22), transparent 62%);
-      filter: blur(24px);
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .hero-topbar {
-      padding: 26px 0 0;
-      position: relative;
-      z-index: 5;
-    }
-
-    .hero-topbar-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-      padding: 14px 18px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.07);
-      backdrop-filter: blur(12px);
-      border-radius: 999px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-width: 0;
-    }
-
-    .brand-logo {
-      width: 62px;
-      height: 62px;
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.20);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.14);
-      padding: 8px;
-      flex-shrink: 0;
-    }
-
-    .brand-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.20));
-      opacity: 1;
-    }
-
-    .brand-text {
-      min-width: 0;
-    }
-
-    .brand-text strong {
-      display: block;
-      font-size: 1rem;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      color: #fff2c6;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .brand-text span {
-      display: block;
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.82);
-      letter-spacing: 0.7px;
-    }
-
-    .hero-menu {
-      display: flex;
-      gap: 10px 22px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .hero-menu a {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.88);
-      position: relative;
-    }
-
-    .hero-menu a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      width: 0;
-      height: 2px;
-      background: var(--gold-1);
-      border-radius: 999px;
-      transition: 0.25s ease;
-    }
-
-    .hero-menu a:hover::after {
-      width: 100%;
-    }
-
-    .hero-body {
-      padding: 56px 0 82px;
-      min-height: calc(100vh - 110px);
-      display: grid;
-      align-items: center;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 38px;
-      align-items: center;
-    }
-
-    .hero-left {
-      max-width: 780px;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.18);
-      backdrop-filter: blur(12px);
-      color: #fff3ca;
-      font-size: 0.84rem;
-      font-weight: 700;
-      letter-spacing: 1.4px;
-      margin-bottom: 22px;
-      box-shadow: 0 12px 26px rgba(0,0,0,0.10);
-    }
-
-    .hero-badge::before {
-      content: "✦";
-      color: var(--gold-1);
-    }
-
-    .hero-title {
-      font-size: clamp(3rem, 7vw, 6rem);
-      line-height: 0.98;
-      letter-spacing: -2px;
-      font-weight: 800;
-      margin-bottom: 18px;
-      text-shadow: 0 10px 36px rgba(0,0,0,0.18);
-    }
-
-    .hero-title span {
-      display: block;
-      font-size: 0.36em;
-      line-height: 1.28;
-      font-weight: 500;
-      letter-spacing: 1px;
-      color: #fff2cc;
-      margin-top: 16px;
-    }
-
-    .hero-desc {
-      font-size: 1.10rem;
-      color: rgba(255,255,255,0.92);
-      max-width: 700px;
-      margin-bottom: 30px;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 34px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px 26px;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      transition: 0.28s ease;
-      min-width: 170px;
-      border: 1px solid transparent;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--gold-2), #f6d98f);
-      color: #5b3504;
-      box-shadow: 0 16px 28px rgba(0,0,0,0.14);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 22px 36px rgba(0,0,0,0.18);
-    }
-
-    .btn-glass {
-      background: rgba(255,255,255,0.08);
-      color: #fff;
-      border-color: rgba(255,255,255,0.20);
-      backdrop-filter: blur(10px);
-    }
-
-    .btn-glass:hover {
-      transform: translateY(-3px);
-      background: rgba(255,255,255,0.14);
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      max-width: 720px;
-    }
-
-    .hero-stat {
-      padding: 18px 18px;
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 24px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.10);
-    }
-
-    .hero-stat strong {
-      display: block;
-      font-size: 2rem;
-      line-height: 1;
-      color: #fff2c8;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .hero-stat span {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.82);
-    }
-
-    .hero-right {
-      display: grid;
-      gap: 18px;
-    }
-
-    .floating-card,
-    .mini-card,
-    .quote-card {
-      border-radius: 30px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.16);
-      backdrop-filter: blur(14px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .floating-card {
-      padding: 24px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .floating-card::before {
-      content: "";
-      position: absolute;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      top: -60px;
-      right: -30px;
-      background: radial-gradient(circle, rgba(243,210,122,0.32), transparent 66%);
-    }
-
-    .floating-card small {
-      display: inline-block;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.14);
-      color: #ffe8aa;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      margin-bottom: 14px;
-    }
-
-    .floating-card h3 {
-      font-size: 1.5rem;
-      line-height: 1.25;
-      margin-bottom: 10px;
-      color: #fff9e8;
-    }
-
-    .floating-card p {
-      color: rgba(255,255,255,0.84);
-      font-size: 0.96rem;
-      margin-bottom: 18px;
-    }
-
-    .card-line {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 0;
-      border-top: 1px solid rgba(255,255,255,0.10);
-      font-size: 0.92rem;
-      color: rgba(255,255,255,0.86);
-    }
-
-    .card-line strong {
-      color: #fff2c8;
-    }
-
-    .hero-bottom-cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .mini-card, .quote-card {
-      padding: 22px;
-    }
-
-    .mini-card h4,
-    .quote-card h4 {
-      font-size: 0.86rem;
-      letter-spacing: 1.5px;
-      color: #ffe8aa;
-      margin-bottom: 10px;
-    }
-
-    .mini-card p,
-    .quote-card p {
-      color: rgba(255,255,255,0.88);
-      font-size: 0.95rem;
-    }
-
-    .quote-card p {
-      line-height: 1.8;
-      font-style: italic;
-    }
-
-    .scroll-indicator {
-      position: absolute;
-      left: 50%;
-      bottom: 26px;
-      transform: translateX(-50%);
-      z-index: 5;
-      animation: floatY 2s infinite;
-    }
-
-    .scroll-indicator span {
-      display: block;
-      width: 28px;
-      height: 44px;
-      border: 2px solid rgba(255,255,255,0.48);
-      border-radius: 999px;
-      position: relative;
-    }
-
-    .scroll-indicator span::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 7px;
-      transform: translateX(-50%);
-      width: 4px;
-      height: 9px;
-      border-radius: 999px;
-      background: white;
-      animation: wheel 1.4s infinite;
-    }
-
-    @keyframes floatY {
-      0%,100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(8px); }
-    }
-
-    @keyframes wheel {
-      0% { opacity: 1; transform: translateX(-50%) translateY(0); }
-      100% { opacity: 0; transform: translateX(-50%) translateY(15px); }
-    }
-
-    /* ===== STICKY NAV ===== */
-    .sticky-nav-wrap {
-      margin-top: -34px;
-      position: sticky;
-      top: 14px;
-      z-index: 50;
-      padding: 0 12px;
-    }
-
-    .sticky-nav {
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 12px 18px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.88);
-      border: 1px solid rgba(18,35,49,0.07);
-      backdrop-filter: blur(15px);
-      box-shadow: 0 16px 34px rgba(0,0,0,0.08);
-    }
-
-    .sticky-nav ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px 28px;
-    }
-
-    .sticky-nav a {
-      font-size: 0.93rem;
-      font-weight: 700;
-      color: #536673;
-      position: relative;
-      padding: 4px 0;
-    }
-
-    .sticky-nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--red-2), var(--gold-2));
-      transition: 0.25s ease;
-    }
-
-    .sticky-nav a:hover {
-      color: var(--red-2);
-    }
-
-    .sticky-nav a:hover::after {
-      width: 100%;
-    }
-
-    /* ===== GENERAL SECTIONS ===== */
-    .section {
-      padding: 96px 0;
-      position: relative;
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 840px;
-      margin: 0 auto 52px;
-    }
-
-    .section-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      border-radius: 999px;
-      background: rgba(163, 22, 33, 0.08);
-      color: var(--red-2);
-      border: 1px solid rgba(163, 22, 33, 0.08);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 1.6px;
-      margin-bottom: 16px;
-    }
-
-    .section-chip::before {
-      content: "✦";
-      color: var(--gold-2);
-    }
-
-    .section-title {
-      font-size: clamp(2.1rem, 4vw, 3.4rem);
-      line-height: 1.12;
-      font-weight: 800;
-      letter-spacing: -1px;
-      color: #162c3a;
-      margin-bottom: 14px;
-    }
-
-    .section-desc {
-      font-size: 1.03rem;
-      color: var(--muted);
-    }
-
-    .bg-soft-red {
-      background: linear-gradient(180deg, #fff8f7 0%, #fff2ef 100%);
-    }
-
-    .bg-soft-gold {
-      background: linear-gradient(180deg, #fffdf7 0%, #fff7e6 100%);
-    }
-
-    .bg-soft-blue {
-      background: linear-gradient(180deg, #f8fbff 0%, #eef6ff 100%);
-    }
-
-    .bg-soft-cream {
-      background: linear-gradient(180deg, #fffefb 0%, #fffaf2 100%);
-    }
-
-    /* ===== TIMELINE ===== */
-    .timeline-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 20px;
-    }
-
-    .timeline-card {
-      background: rgba(255,255,255,0.96);
-      border-radius: 28px;
-      padding: 28px 22px;
-      border: 1px solid rgba(18,35,49,0.06);
-      box-shadow: var(--shadow-sm);
-      position: relative;
-      overflow: hidden;
-      transition: 0.28s ease;
-    }
-
-    .timeline-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 5px;
-      background: linear-gradient(90deg, var(--red-2), var(--gold-2));
-    }
-
-    .timeline-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .timeline-card .year {
-      font-size: 2rem;
-      font-weight: 800;
-      line-height: 1;
-      color: var(--red-2);
-      margin-bottom: 12px;
-    }
-
-    .timeline-card h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #193040;
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
-
-    .timeline-card p {
-      font-size: 0.95rem;
-      color: #647480;
-    }
-
-    /* ===== HIGHLIGHTS ===== */
-    .highlight-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-    }
-
-    .highlight-card {
-      border-radius: 30px;
-      padding: 28px 24px;
-      background: white;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-sm);
-      transition: 0.28s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .highlight-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .highlight-card:nth-child(1) {
-      background: linear-gradient(180deg, #fff8f5 0%, #ffffff 100%);
-    }
-    .highlight-card:nth-child(2) {
-      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
-    }
-    .highlight-card:nth-child(3) {
-      background: linear-gradient(180deg, #fffdf4 0%, #ffffff 100%);
-    }
-    .highlight-card:nth-child(4) {
-      background: linear-gradient(180deg, #f8fff9 0%, #ffffff 100%);
-    }
-
-    .highlight-icon {
-      width: 68px;
-      height: 68px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 22px;
-      font-size: 2rem;
-      background: linear-gradient(135deg, rgba(163,22,33,0.10), rgba(243,210,122,0.18));
-      border: 1px solid rgba(163,22,33,0.08);
-      margin-bottom: 18px;
-    }
-
-    .highlight-card h3 {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: #1b3242;
-      margin-bottom: 10px;
-    }
-
-    .highlight-card p {
-      font-size: 0.96rem;
-      color: #62727d;
-    }
-
-    /* ===== BAI DU THI ===== */
-    .contest-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    .contest-main,
-    .contest-side {
-      display: grid;
-      gap: 20px;
-    }
-
-    .contest-feature {
-      background: linear-gradient(135deg, #8d131d 0%, #b51e28 100%);
-      color: white;
-      border-radius: 34px;
-      padding: 34px 30px;
-      box-shadow: var(--shadow-lg);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contest-feature::before {
-      content: "";
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      right: -70px;
-      top: -80px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 65%);
-    }
-
-    .contest-label {
-      display: inline-block;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.12);
-      color: #ffe9aa;
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 1.3px;
-      margin-bottom: 16px;
-    }
-
-    .contest-feature h3 {
-      font-size: 2rem;
-      line-height: 1.2;
-      margin-bottom: 12px;
-      color: #fff8e7;
-    }
-
-    .contest-feature p {
-      color: rgba(255,255,255,0.90);
-      margin-bottom: 20px;
-    }
-
-    .contest-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .contest-meta span {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.12);
-      font-size: 0.87rem;
-      color: #fff6da;
-    }
-
-    .contest-card {
-      background: white;
-      border-radius: 28px;
-      padding: 24px 22px;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-sm);
-      transition: 0.28s ease;
-    }
-
-    .contest-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .contest-card h4 {
-      font-size: 1.12rem;
-      color: #1c3343;
-      margin-bottom: 8px;
-      font-weight: 800;
-    }
-
-    .contest-card p {
-      color: #657580;
-      font-size: 0.95rem;
-      margin-bottom: 12px;
-    }
-
-    .contest-card .tagline {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--red-2);
-      letter-spacing: 0.5px;
-    }
-
-    /* ===== TRO CHOI TRI TUE ===== */
-    .game-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .game-card {
-      background: white;
-      border-radius: 30px;
-      padding: 28px 24px;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-sm);
-      transition: 0.28s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .game-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(243,210,122,0.08), transparent 36%);
-      pointer-events: none;
-    }
-
-    .game-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .game-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .game-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.9rem;
-      background: linear-gradient(135deg, rgba(163,22,33,0.10), rgba(243,210,122,0.20));
-      border: 1px solid rgba(163,22,33,0.08);
-    }
-
-    .level-badge {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: #fff6de;
-      color: #9d6a00;
-      font-size: 0.76rem;
-      font-weight: 800;
-      border: 1px solid rgba(231,189,85,0.25);
-    }
-
-    .game-card h3 {
-      font-size: 1.18rem;
-      font-weight: 800;
-      color: #1a3141;
-      margin-bottom: 10px;
-    }
-
-    .game-card p {
-      color: #657580;
-      font-size: 0.96rem;
-      margin-bottom: 16px;
-    }
-
-    .game-card ul {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-    }
-
-    .game-card li {
-      padding-left: 22px;
-      position: relative;
-      color: #50616d;
-      font-size: 0.93rem;
-    }
-
-    .game-card li::before {
-      content: "•";
-      position: absolute;
-      left: 8px;
-      top: -1px;
-      color: var(--red-2);
-      font-size: 1.1rem;
-    }
-
-    /* ===== GALLERY ===== */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 1fr 1fr;
-      grid-template-rows: 240px 240px;
-      gap: 20px;
-    }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 30px;
-      box-shadow: var(--shadow-sm);
-      background: #ddd;
-      border: 1px solid rgba(255,255,255,0.45);
-    }
-
-    .gallery-item.large {
-      grid-row: 1 / span 2;
-    }
-
-    .gallery-item::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to top, rgba(8, 18, 26, 0.55), rgba(8, 18, 26, 0.10)),
-        url('anh 1.jpg') center/cover no-repeat;
-      transition: transform 0.45s ease;
-    }
-
-    .gallery-item:hover::before {
-      transform: scale(1.06);
-    }
-
-    .gallery-caption {
-      position: absolute;
-      left: 22px;
-      right: 22px;
-      bottom: 20px;
-      color: white;
-      z-index: 2;
-    }
-
-    .gallery-caption strong {
-      display: block;
-      font-size: 1.1rem;
-      margin-bottom: 6px;
-      color: #fff4cf;
-    }
-
-    .gallery-caption span {
-      display: block;
-      font-size: 0.92rem;
-      color: rgba(255,255,255,0.84);
-    }
-
-    /* ===== CTA ===== */
-    .final-cta {
-      background: linear-gradient(135deg, #152b39 0%, #21455b 100%);
-      color: white;
-      border-radius: 40px;
-      padding: 46px 36px;
-      box-shadow: var(--shadow-lg);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .final-cta::before {
-      content: "";
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      right: -70px;
-      bottom: -100px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(243,210,122,0.18), transparent 65%);
-    }
-
-    .final-cta-grid {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .final-cta h3 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      line-height: 1.2;
-      margin-bottom: 12px;
-      color: #fff5d7;
-    }
-
-    .final-cta p {
-      color: rgba(255,255,255,0.86);
-      max-width: 760px;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      padding: 70px 0 24px;
-      background: linear-gradient(180deg, #fff9f0 0%, #fff5e9 100%);
-    }
-
-    .footer-box {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 34px;
-      padding: 34px 28px 24px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.35fr 1fr 1fr 1fr;
-      gap: 24px;
-    }
-
-    .footer-brand {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-
-    .footer-brand-logo {
-      width: 72px;
-      height: 72px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #fff8ea, #fff0cf);
-      border: 1px solid rgba(231,189,85,0.28);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px;
-      flex-shrink: 0;
-    }
-
-    .footer-brand-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.12));
-    }
-
-    .footer-brand h4,
-    .footer-col h4 {
-      font-size: 1rem;
-      color: #173040;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .footer-brand p,
-    .footer-col p {
-      color: #687985;
-      font-size: 0.94rem;
-      margin-bottom: 8px;
-    }
-
-    .copyright {
-      text-align: center;
-      color: #82929d;
-      font-size: 0.84rem;
-      margin-top: 18px;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1180px) {
-      .hero-grid,
-      .contest-grid,
-      .final-cta-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .highlight-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .timeline-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .game-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 240px 240px 240px;
-      }
-
-      .gallery-item.large {
-        grid-row: auto;
-      }
-
-      .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 860px) {
-      .hero-topbar-inner {
-        border-radius: 28px;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .hero-menu {
-        justify-content: flex-start;
-      }
-
-      .hero-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-bottom-cards,
-      .timeline-grid,
-      .highlight-grid,
-      .game-grid,
-      .gallery-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contest-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-grid {
-        grid-template-rows: repeat(4, 240px);
-      }
-
-      .sticky-nav-wrap {
-        padding: 0 8px;
-      }
-
-      .section,
-      footer {
-        padding-top: 82px;
-        padding-bottom: 82px;
-      }
-
-      .final-cta {
-        padding: 38px 22px;
-        border-radius: 28px;
-      }
-    }
-
-    @media (max-width: 620px) {
-      .container {
-        width: min(var(--max), calc(100% - 24px));
-      }
-
-      .hero-body {
-        padding-top: 40px;
-      }
-
-      .hero-title {
-        font-size: 2.8rem;
-        letter-spacing: -1.2px;
-      }
-
-      .hero-desc {
-        font-size: 1rem;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .hero-menu {
-        gap: 10px 16px;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
-
-      .contest-feature h3 {
-        font-size: 1.6rem;
-      }
-
-      .footer-box {
-        padding: 26px 18px 20px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Hội Phụ nữ - 50 năm Học viện Quốc phòng</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header class="hero" id="top">
-    <div class="hero-glow"></div>
-
-    <div class="hero-topbar">
-      <div class="container">
-        <div class="hero-topbar-inner">
-          <div class="brand">
-            <div class="brand-logo">
-              <img src="logo_hoc vien trong suot.png" alt="Logo Học viện Quốc phòng">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/logo_hoc_vien_trong_suat.png" alt="Logo Học viện Quốc phòng">
+                    <div class="logo-text">
+                        <h2>HỘI PHỤ NỮ</h2>
+                        <p>Học viện Quốc phòng</p>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav class="nav-menu" id="navMenu">
+                    <ul>
+                        <li><a href="#home" class="active">Trang chủ</a></li>
+                        <li><a href="#about">Giới thiệu</a></li>
+                        <li><a href="#news">Tin tức</a></li>
+                        <li><a href="#contest">Bài dự thi</a></li>
+                        <li><a href="#game">Trò chơi</a></li>
+                        <li><a href="#gallery">Thư viện</a></li>
+                        <li><a href="#contact">Liên hệ</a></li>
+                    </ul>
+                </nav>
             </div>
-            <div class="brand-text">
-              <strong>HỌC VIỆN QUỐC PHÒNG</strong>
-              <span>Kỷ niệm 50 năm Ngày truyền thống • 1977 - 2027</span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-bg" style="background-image: url('images/anh1.jpg');"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="anniversary-badge">50 NĂM</div>
+                <h1>KỶ NIỆM 50 NĂM<br>NGÀY TRUYỀN THỐNG</h1>
+                <p class="hero-subtitle">Học viện Quốc phòng (1976 - 2026)</p>
+                <div class="hero-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Tháng 4, 2026</span>
+                </div>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span id="days">00</span>
+                        <label>Ngày</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <label>Giờ</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <label>Phút</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <label>Giây</label>
+                    </div>
+                </div>
+                <a href="#contest" class="btn-primary">GỬI BÀI DỰ THI <i class="fas fa-arrow-right"></i></a>
             </div>
-          </div>
-
-          <nav class="hero-menu">
-            <a href="#timeline">Lịch sử</a>
-            <a href="#highlights">Dấu ấn</a>
-            <a href="#contest">Bài dự thi</a>
-            <a href="#games">Trò chơi trí tuệ</a>
-            <a href="#gallery">Thư viện</a>
-          </nav>
         </div>
-      </div>
-    </div>
+    </section>
 
-    <div class="hero-body">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-left">
-            <div class="hero-badge">50 NĂM NGÀY TRUYỀN THỐNG • 1977 - 2027</div>
-
-            <h1 class="hero-title">
-              50 năm
-              <span>Học viện Quốc phòng • Truyền thống vẻ vang • Bản lĩnh • Trí tuệ • Phát triển</span>
-            </h1>
-
-            <p class="hero-desc">
-              Hành trình nửa thế kỷ là bản hòa ca của truyền thống, trí tuệ và trách nhiệm.
-              Đây không chỉ là trang thông tin kỷ niệm, mà còn là không gian lan tỏa niềm tự hào,
-              dấu ấn lịch sử, bài dự thi sáng tạo và những hoạt động trí tuệ đầy cảm hứng.
-            </p>
-
-            <div class="hero-cta">
-              <a href="#contest" class="btn btn-primary">Khám phá bài dự thi</a>
-              <a href="#games" class="btn btn-glass">Tham gia trò chơi trí tuệ</a>
+    <!-- Giới thiệu -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>GIỚI THIỆU</h2>
+                <div class="section-divider"></div>
+                <p>50 năm - Một chặng đường vẻ vang</p>
             </div>
-
-            <div class="hero-stats">
-              <div class="hero-stat">
-                <strong>1977</strong>
-                <span>Mốc mở đầu hành trình truyền thống</span>
-              </div>
-              <div class="hero-stat">
-                <strong>50</strong>
-                <span>Năm bồi đắp bản lĩnh và trí tuệ</span>
-              </div>
-              <div class="hero-stat">
-                <strong>2027</strong>
-                <span>Dấu son kỷ niệm đầy tự hào</span>
-              </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Hội Phụ nữ Học viện Quốc phòng</h3>
+                    <p>Trải qua 50 năm xây dựng và trưởng thành, Hội Phụ nữ Học viện Quốc phòng đã không ngừng phát triển, khẳng định vai trò, vị trí quan trọng trong sự nghiệp đào tạo cán bộ quân sự cao cấp của Đảng, Nhà nước và Quân đội.</p>
+                    <p>Với tinh thần "Tự tin, tự trọng, trung hậu, đảm đang", các thế hệ nữ cán bộ, giảng viên, nhân viên Học viện đã đóng góp xứng đáng vào thành tích chung của đơn vị, xứng danh "Phụ nữ Việt Nam anh hùng".</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">50</span>
+                            <span class="stat-label">Năm truyền thống</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Hội viên</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Phần thưởng cao quý</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/anh1.jpg" alt="Học viện Quốc phòng">
+                </div>
             </div>
-          </div>
+        </div>
+    </section>
 
-          <div class="hero-right">
-            <div class="floating-card">
-              <small>THÔNG ĐIỆP KỶ NIỆM</small>
-              <h3>Giữ vững truyền thống, tiếp bước tương lai</h3>
-              <p>
-                Tự hào quá khứ, trân trọng hiện tại và khơi mở khát vọng phát triển.
-                Mỗi thế hệ hôm nay là một mắt xích quan trọng trong hành trình viết tiếp trang vàng truyền thống.
-              </p>
-
-              <div class="card-line">
-                <span>Chủ đề chính</span>
-                <strong>Truyền thống - Trí tuệ - Phát triển</strong>
-              </div>
-              <div class="card-line">
-                <span>Điểm nhấn</span>
-                <strong>Bài dự thi & Trò chơi trí tuệ</strong>
-              </div>
-              <div class="card-line">
-                <span>Không khí</span>
-                <strong>Trang trọng nhưng hiện đại</strong>
-              </div>
+    <!-- Tin tức -->
+    <section id="news" class="news">
+        <div class="container">
+            <div class="section-header">
+                <h2>TIN TỨC & SỰ KIỆN</h2>
+                <div class="section-divider"></div>
+                <p>Những hoạt động nổi bật chào mừng 50 năm thành lập</p>
             </div>
-
-            <div class="hero-bottom-cards">
-              <div class="mini-card">
-                <h4>CÂU NÓI ĐIỂM NHẤN</h4>
-                <p>“Truyền thống là nền tảng, trí tuệ là sức mạnh, đổi mới là con đường đi tới.”</p>
-              </div>
-
-              <div class="quote-card">
-                <h4>GỢI NHỚ</h4>
-                <p>“Nửa thế kỷ xây dựng và trưởng thành là niềm tự hào, cũng là lời nhắc nhở về trách nhiệm với tương lai.”</p>
-              </div>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="images/anh1.jpg" alt="Phát động thi đua">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">15/03/2026</div>
+                        <h3>Phát động đợt thi đua đặc biệt chào mừng 50 năm</h3>
+                        <p>Hội Phụ nữ Học viện tổ chức lễ phát động đợt thi đua cao điểm với chủ đề "50 năm - Vững bước tương lai"...</p>
+                        <a href="#" class="read-more">Đọc tiếp <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="images/anh1.jpg" alt="Hội thảo khoa học">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">10/03/2026</div>
+                        <h3>Hội thảo "Phụ nữ với sự nghiệp bảo vệ Tổ quốc"</h3>
+                        <p>Hội thảo khoa học nhằm ôn lại truyền thống vẻ vang và đề ra phương hướng hoạt động trong giai đoạn mới...</p>
+                        <a href="#" class="read-more">Đọc tiếp <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="images/anh1.jpg" alt="Gặp mặt truyền thống">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">05/03/2026</div>
+                        <h3>Gặp mặt các thế hệ phụ nữ Học viện qua các thời kỳ</h3>
+                        <p>Chương trình gặp mặt ấm cúng, ôn lại những kỷ niệm sâu sắc trong quá trình xây dựng và phát triển Học viện...</p>
+                        <a href="#" class="read-more">Đọc tiếp <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </article>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
+    </section>
 
-    <div class="scroll-indicator">
-      <span></span>
-    </div>
-  </header>
-
-  <div class="sticky-nav-wrap">
-    <nav class="sticky-nav">
-      <ul>
-        <li><a href="#timeline">Dấu mốc lịch sử</a></li>
-        <li><a href="#highlights">Dấu ấn nổi bật</a></li>
-        <li><a href="#contest">Bài dự thi</a></li>
-        <li><a href="#games">Trò chơi trí tuệ</a></li>
-        <li><a href="#gallery">Thư viện ảnh</a></li>
-      </ul>
-    </nav>
-  </div>
-
-  <section class="section bg-soft-red" id="timeline">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-chip">DẤU MỐC LỊCH SỬ</div>
-        <h2 class="section-title">1977 - 2027 • Hành trình 50 năm đầy tự hào</h2>
-        <p class="section-desc">
-          Những chặng đường tiêu biểu góp phần hình thành bản sắc, vị thế và giá trị truyền thống của Học viện Quốc phòng.
-        </p>
-      </div>
-
-      <div class="timeline-grid">
-        <article class="timeline-card">
-          <div class="year">1977</div>
-          <h3>Mở đầu hành trình</h3>
-          <p>Đánh dấu cột mốc khởi đầu cho quá trình xây dựng nền tảng, xác lập định hướng và giá trị truyền thống.</p>
-        </article>
-
-        <article class="timeline-card">
-          <div class="year">1987</div>
-          <h3>Củng cố và phát triển</h3>
-          <p>Tăng cường chất lượng tổ chức, đào tạo và từng bước khẳng định vai trò trong hệ thống giáo dục quân sự.</p>
-        </article>
-
-        <article class="timeline-card">
-          <div class="year">1997</div>
-          <h3>Nâng tầm trí tuệ</h3>
-          <p>Đẩy mạnh nghiên cứu khoa học, tư duy chiến lược và đóng góp thiết thực cho nhiệm vụ quốc phòng.</p>
-        </article>
-
-        <article class="timeline-card">
-          <div class="year">2017</div>
-          <h3>Đổi mới mạnh mẽ</h3>
-          <p>Hiện đại hóa phương pháp đào tạo, phát huy tính chủ động, sáng tạo và khả năng thích ứng với yêu cầu mới.</p>
-        </article>
-
-        <article class="timeline-card">
-          <div class="year">2027</div>
-          <h3>Dấu son 50 năm</h3>
-          <p>Kỷ niệm 50 năm Ngày truyền thống, tiếp nối khát vọng phát triển với bản lĩnh, trí tuệ và trách nhiệm.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section bg-soft-gold" id="highlights">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-chip">DẤU ẤN NỔI BẬT</div>
-        <h2 class="section-title">Những giá trị làm nên bản sắc Học viện</h2>
-        <p class="section-desc">
-          Không chỉ là truyền thống, đó còn là năng lực đào tạo, chiều sâu học thuật, tinh thần đổi mới và sự lan tỏa trong cộng đồng.
-        </p>
-      </div>
-
-      <div class="highlight-grid">
-        <article class="highlight-card">
-          <div class="highlight-icon">🎓</div>
-          <h3>Đào tạo cán bộ chiến lược</h3>
-          <p>Bồi dưỡng đội ngũ cán bộ có tư duy chiến lược, bản lĩnh chính trị và năng lực lãnh đạo trong tình hình mới.</p>
-        </article>
-
-        <article class="highlight-card">
-          <div class="highlight-icon">📘</div>
-          <h3>Nghiên cứu khoa học</h3>
-          <p>Đóng góp nhiều công trình có giá trị về nghệ thuật quân sự, chiến lược quốc phòng và quản trị quốc phòng hiện đại.</p>
-        </article>
-
-        <article class="highlight-card">
-          <div class="highlight-icon">🌍</div>
-          <h3>Hợp tác và hội nhập</h3>
-          <p>Mở rộng trao đổi học thuật, nâng cao vị thế và chất lượng đào tạo, nghiên cứu trong bối cảnh hội nhập.</p>
-        </article>
-
-        <article class="highlight-card">
-          <div class="highlight-icon">🏛️</div>
-          <h3>Bản sắc truyền thống</h3>
-          <p>Gìn giữ giá trị cốt lõi qua nhiều thế hệ, tạo nên nền tảng tinh thần vững chắc cho chặng đường phát triển tiếp theo.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section bg-soft-blue" id="contest">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-chip">BÀI DỰ THI</div>
-        <h2 class="section-title">Không gian tôn vinh sáng tạo và cảm xúc</h2>
-        <p class="section-desc">
-          Nơi tập hợp các bài viết, tác phẩm truyền thông, cảm nhận và ý tưởng sáng tạo hướng tới kỷ niệm 50 năm Ngày truyền thống.
-        </p>
-      </div>
-
-      <div class="contest-grid">
-        <div class="contest-main">
-          <div class="contest-feature">
-            <div class="contest-label">CHỦ ĐỀ NỔI BẬT</div>
-            <h3>Tự hào truyền thống • Viết tiếp tương lai</h3>
-            <p>
-              Mỗi bài dự thi là một cách kể chuyện riêng về Học viện Quốc phòng:
-              từ ký ức, tình cảm, góc nhìn thế hệ trẻ đến khát vọng đổi mới trong thời đại số.
-            </p>
-            <div class="contest-meta">
-              <span>Bài viết cảm nhận</span>
-              <span>Video ngắn</span>
-              <span>Thiết kế truyền thông</span>
-              <span>Sáng kiến ý tưởng</span>
+    <!-- Bài viết dự thi -->
+    <section id="contest" class="contest">
+        <div class="container">
+            <div class="section-header">
+                <h2>BÀI VIẾT DỰ THI</h2>
+                <div class="section-divider"></div>
+                <p>Chia sẻ cảm xúc, kỷ niệm và niềm tự hào về Học viện</p>
             </div>
-          </div>
-
-          <div class="contest-card">
-            <h4>Gợi ý trưng bày bài dự thi đẹp mắt</h4>
-            <p>
-              Bạn có thể gắn mỗi bài dự thi thành một thẻ riêng gồm: ảnh đại diện, tiêu đề, tác giả, đơn vị, mô tả ngắn và nút “Xem chi tiết”.
-            </p>
-            <div class="tagline">Hiển thị đẹp nhất khi làm dạng card 3 cột hoặc slider nổi bật.</div>
-          </div>
-        </div>
-
-        <div class="contest-side">
-          <div class="contest-card">
-            <h4>Nhóm bài viết cảm xúc</h4>
-            <p>Những chia sẻ về ký ức, niềm tự hào và dấu ấn cá nhân gắn với Học viện qua các thời kỳ.</p>
-            <div class="tagline">Cảm xúc • Ký ức • Tự hào</div>
-          </div>
-
-          <div class="contest-card">
-            <h4>Nhóm bài truyền thông sáng tạo</h4>
-            <p>Poster, infographic, video ngắn, thiết kế số hoặc các ý tưởng trực quan về hành trình 50 năm.</p>
-            <div class="tagline">Đổi mới • Hiện đại • Lan tỏa</div>
-          </div>
-
-          <div class="contest-card">
-            <h4>Nhóm sáng kiến hướng tới tương lai</h4>
-            <p>Đề xuất, mô hình và ý tưởng phát triển hình ảnh, hoạt động, phong trào của Học viện trong giai đoạn mới.</p>
-            <div class="tagline">Sáng kiến • Trí tuệ • Phát triển</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section bg-soft-cream" id="games">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-chip">TRÒ CHƠI TRÍ TUỆ</div>
-        <h2 class="section-title">Học mà vui • Chơi mà nhớ • Tương tác mà cuốn hút</h2>
-        <p class="section-desc">
-          Biến website kỷ niệm thành một không gian tương tác hấp dẫn với các hoạt động khám phá kiến thức và ghi nhớ dấu mốc truyền thống.
-        </p>
-      </div>
-
-      <div class="game-grid">
-        <article class="game-card">
-          <div class="game-top">
-            <div class="game-icon">🧠</div>
-            <div class="level-badge">DỄ THAM GIA</div>
-          </div>
-          <h3>Đố vui lịch sử 50 năm</h3>
-          <p>Chuỗi câu hỏi nhanh về các dấu mốc, truyền thống, thành tựu và hình ảnh gắn với Học viện Quốc phòng.</p>
-          <ul>
-            <li>Phù hợp hiển thị dạng trắc nghiệm</li>
-            <li>Có thể tính điểm ngay sau mỗi câu</li>
-            <li>Rất hợp để tạo tương tác đầu trang</li>
-          </ul>
-        </article>
-
-        <article class="game-card">
-          <div class="game-top">
-            <div class="game-icon">🧩</div>
-            <div class="level-badge">CUỐN HÚT</div>
-          </div>
-          <h3>Ghép mốc thời gian</h3>
-          <p>Người chơi kéo thả các năm và sự kiện tương ứng để hoàn thiện dòng chảy lịch sử của Học viện.</p>
-          <ul>
-            <li>Tạo cảm giác chơi thật sự</li>
-            <li>Phù hợp truyền thông sự kiện</li>
-            <li>Rất đẹp nếu làm theo dạng thẻ nổi</li>
-          </ul>
-        </article>
-
-        <article class="game-card">
-          <div class="game-top">
-            <div class="game-icon">🏆</div>
-            <div class="level-badge">ẤN TƯỢNG</div>
-          </div>
-          <h3>Thử thách hiểu biết truyền thống</h3>
-          <p>Một mini game tổng hợp theo cấp độ, có bảng điểm, huy hiệu và thông điệp chúc mừng cuối trò chơi.</p>
-          <ul>
-            <li>Phù hợp cho thi đua nội bộ</li>
-            <li>Có thể gắn phần thưởng tượng trưng</li>
-            <li>Làm website sống động hơn hẳn</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section bg-soft-red" id="gallery">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-chip">THƯ VIỆN HÌNH ẢNH</div>
-        <h2 class="section-title">Những khoảnh khắc gợi nhớ và lan tỏa tự hào</h2>
-        <p class="section-desc">
-          Không gian lưu giữ hình ảnh hoạt động, dấu ấn truyền thống, sự kiện kỷ niệm và những khoảnh khắc đáng nhớ của Học viện.
-        </p>
-      </div>
-
-      <div class="gallery-grid">
-        <div class="gallery-item large">
-          <div class="gallery-caption">
-            <strong>Không gian kỷ niệm nổi bật</strong>
-            <span>Thiết kế dạng ảnh lớn giúp website sang và có chiều sâu thị giác hơn hẳn.</span>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <div class="gallery-caption">
-            <strong>Dấu ấn hoạt động</strong>
-            <span>Tôn vinh những hình ảnh mang tính biểu tượng.</span>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <div class="gallery-caption">
-            <strong>Gắn kết các thế hệ</strong>
-            <span>Không khí trang trọng, ấm áp và đầy tự hào.</span>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <div class="gallery-caption">
-            <strong>Hành trình 50 năm</strong>
-            <span>Một kho lưu trữ hình ảnh có thể cập nhật thường xuyên.</span>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <div class="gallery-caption">
-            <strong>Lan tỏa cảm hứng</strong>
-            <span>Phù hợp để làm thư viện ảnh, video hoặc album sự kiện.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="final-cta">
-        <div class="final-cta-grid">
-          <div>
-            <h3>Sẵn sàng để biến website này thành bản hoàn chỉnh thật sự?</h3>
-            <p>
-              Bản này đã là một khung thiết kế mạnh và sang. Chỉ cần bạn thay nội dung thật, ảnh thật, bài dự thi thật và dữ liệu trò chơi vào là có thể dùng để trình bày hoặc tiếp tục hoàn thiện ngay.
-            </p>
-          </div>
-          <div>
-            <a href="#top" class="btn btn-primary">Lên đầu trang</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div class="footer-box">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <div class="footer-brand-logo">
-              <img src="logo_hoc vien trong suot.png" alt="Logo Học viện Quốc phòng">
+            <div class="contest-intro">
+                <div class="contest-info">
+                    <h3>Chủ đề: "Phụ nữ Học viện Quốc phòng – 50 năm xây đắp truyền thống"</h3>
+                    <p>Các bài viết dự thi gửi về Ban tổ chức từ ngày 15/03 đến ngày 15/04/2026. Hình thức: Bài viết cảm nhận, thơ, truyện ngắn, kỷ niệm sâu sắc về Học viện.</p>
+                    <a href="#submit-contest" class="btn-submit" id="showSubmitForm">GỬI BÀI DỰ THI <i class="fas fa-pen-fancy"></i></a>
+                </div>
             </div>
-            <div>
-              <h4>Học viện Quốc phòng</h4>
-              <p>50 năm Ngày truyền thống • 1977 - 2027</p>
-              <p>Truyền thống vẻ vang • Bản lĩnh • Trí tuệ • Phát triển</p>
+            
+            <!-- Form gửi bài dự thi -->
+            <div class="contest-form" id="contestForm" style="display: none;">
+                <h3><i class="fas fa-edit"></i> Đăng ký dự thi</h3>
+                <form id="submitContestForm">
+                    <div class="form-group">
+                        <label>Họ và tên *</label>
+                        <input type="text" id="authorName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Đơn vị công tác *</label>
+                        <input type="text" id="authorUnit" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại</label>
+                        <input type="tel" id="authorPhone">
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" id="authorEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Thể loại *</label>
+                        <select id="articleType">
+                            <option value="cam-nhan">Bài cảm nhận</option>
+                            <option value="tho">Thơ</option>
+                            <option value="truyen">Truyện ngắn</option>
+                            <option value="ky-niem">Kỷ niệm</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tên bài viết *</label>
+                        <input type="text" id="articleTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nội dung bài viết *</label>
+                        <textarea id="articleContent" rows="8" required placeholder="Viết bài dự thi của bạn tại đây..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">GỬI BÀI DỰ THI</button>
+                </form>
             </div>
-          </div>
-
-          <div class="footer-col">
-            <h4>Chuyên mục</h4>
-            <p>Dấu mốc lịch sử</p>
-            <p>Dấu ấn nổi bật</p>
-            <p>Bài dự thi</p>
-          </div>
-
-          <div class="footer-col">
-            <h4>Tương tác</h4>
-            <p>Trò chơi trí tuệ</p>
-            <p>Thư viện hình ảnh</p>
-            <p>Khám phá truyền thống</p>
-          </div>
-
-          <div class="footer-col">
-            <h4>Liên hệ</h4>
-            <p>Học viện Quốc phòng</p>
-            <p>Email: info@hvqp.edu.vn</p>
-            <p>Điện thoại: 024.1234.5678</p>
-          </div>
+            
+            <!-- Danh sách bài dự thi -->
+            <div class="contest-list">
+                <h3><i class="fas fa-star"></i> Các bài dự thi tiêu biểu</h3>
+                <div class="contest-entries" id="contestEntries">
+                    <div class="contest-entry">
+                        <div class="entry-title">Tự hào phụ nữ Học viện Quốc phòng</div>
+                        <div class="entry-meta">Tác giả: Nguyễn Thị Hương - Khoa Chiến lược | Ngày gửi: 16/03/2026</div>
+                        <div class="entry-excerpt">50 năm - một chặng đường dài với biết bao thế hệ phụ nữ đã cống hiến hết mình cho sự nghiệp đào tạo...</div>
+                        <a href="#" class="read-more">Đọc tiếp</a>
+                    </div>
+                    <div class="contest-entry">
+                        <div class="entry-title">Mùa xuân và những kỷ niệm</div>
+                        <div class="entry-meta">Tác giả: Trần Thị Lan - Phòng Đào tạo | Ngày gửi: 15/03/2026</div>
+                        <div class="entry-excerpt">Những ngày tháng 4 lịch sử, lòng tôi lại nao nức nhớ về những kỷ niệm khó quên khi lần đầu đặt chân đến Học viện...</div>
+                        <a href="#" class="read-more">Đọc tiếp</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="copyright">
-        © 2027 Học viện Quốc phòng - Kỷ niệm 50 năm Ngày truyền thống
-      </div>
-    </div>
-  </footer>
+    <!-- Trò chơi -->
+    <section id="game" class="game">
+        <div class="container">
+            <div class="section-header">
+                <h2>TRÒ CHƠI TRUYỀN THỐNG</h2>
+                <div class="section-divider"></div>
+                <p>Vui học - Hiểu biết về Học viện Quốc phòng</p>
+            </div>
+            <div class="game-tabs">
+                <button class="game-tab active" data-game="quiz">TRẮC NGHIỆM</button>
+                <button class="game-tab" data-game="crossword">Ô CHỮ</button>
+                <button class="game-tab" data-game="puzzle">GHÉP HÌNH</button>
+            </div>
+            
+            <!-- Quiz Game -->
+            <div class="game-content active" id="quizGame">
+                <div class="quiz-container">
+                    <div class="quiz-header">
+                        <div class="quiz-score">Điểm: <span id="quizScore">0</span></div>
+                        <div class="quiz-question-count">Câu <span id="currentQuestion">1</span>/<span id="totalQuestions">5</span></div>
+                    </div>
+                    <div class="quiz-question" id="quizQuestion"></div>
+                    <div class="quiz-options" id="quizOptions"></div>
+                    <button class="btn-next" id="nextQuestion">Câu tiếp theo</button>
+                    <div class="quiz-result" id="quizResult" style="display: none;"></div>
+                </div>
+            </div>
+            
+            <!-- Crossword Game -->
+            <div class="game-content" id="crosswordGame">
+                <div class="crossword-container">
+                    <div class="crossword-grid" id="crosswordGrid"></div>
+                    <div class="crossword-clues">
+                        <div class="clues-horizontal">
+                            <h4>Hàng ngang</h4>
+                            <div class="clue">1. Năm thành lập Học viện Quốc phòng? (4 chữ)</div>
+                            <div class="clue">3. Tên gọi khác của Học viện Quốc phòng? (3 chữ)</div>
+                        </div>
+                        <div class="clues-vertical">
+                            <h4>Hàng dọc</h4>
+                            <div class="clue">2. Phẩm chất cao quý của phụ nữ Việt Nam? (4 chữ)</div>
+                            <div class="clue">4. Chủ tịch Hồ Chí Minh từng nói: "Phụ nữ ... anh hùng"? (4 chữ)</div>
+                        </div>
+                    </div>
+                    <button class="btn-check-crossword" id="checkCrossword">Kiểm tra</button>
+                </div>
+            </div>
+            
+            <!-- Puzzle Game -->
+            <div class="game-content" id="puzzleGame">
+                <div class="puzzle-container">
+                    <div class="puzzle-image">
+                        <img src="images/anh1.jpg" alt="Puzzle image" id="puzzleImage">
+                    </div>
+                    <div class="puzzle-controls">
+                        <button class="btn-puzzle" id="shufflePuzzle">Xáo trộn</button>
+                        <button class="btn-puzzle" id="checkPuzzle">Kiểm tra</button>
+                    </div>
+                    <div class="puzzle-grid" id="puzzleGrid"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thư viện ảnh -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>THƯ VIỆN HÌNH ẢNH</h2>
+                <div class="section-divider"></div>
+                <p>Những khoảnh khắc đẹp qua 50 năm xây dựng và phát triển</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/anh1.jpg" alt="Học viện Quốc phòng">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Học viện Quốc phòng hôm nay</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/anh1.jpg" alt="Hoạt động Hội Phụ nữ">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Hoạt động Hội Phụ nữ</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/anh1.jpg" alt="Lễ kỷ niệm">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Lễ kỷ niệm các thế hệ</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/anh1.jpg" alt="Phụ nữ học viện">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Phụ nữ Học viện hôm nay</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Liên hệ -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>LIÊN HỆ</h2>
+                <div class="section-divider"></div>
+                <p>Mọi thông tin chi tiết xin vui lòng liên hệ</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Địa chỉ</h4>
+                            <p>Học viện Quốc phòng, Xuân Mai, Chương Mỹ, Hà Nội</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Điện thoại</h4>
+                            <p>024.1234.5678</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>hoiphunu@hvqp.edu.vn</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Gửi thông tin liên hệ</h3>
+                    <form id="contactForm">
+                        <input type="text" placeholder="Họ tên" required>
+                        <input type="email" placeholder="Email" required>
+                        <textarea rows="4" placeholder="Nội dung"></textarea>
+                        <button type="submit" class="btn-primary">GỬI</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo_hoc_vien_trong_suat.png" alt="Logo">
+                    <p>HỘI PHỤ NỮ HỌC VIỆN QUỐC PHÒNG</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="#home">Trang chủ</a></li>
+                        <li><a href="#contest">Bài dự thi</a></li>
+                        <li><a href="#game">Trò chơi</a></li>
+                        <li><a href="#gallery">Thư viện</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Kết nối</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hội Phụ nữ Học viện Quốc phòng - 50 năm tự hào truyền thống</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
