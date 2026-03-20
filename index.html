@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hội Phụ nữ Học viện Quốc phòng - Kỷ niệm 70 năm ngày truyền thống Học viện</title>
-  <meta name="description" content="Chuyên trang kỷ niệm 80 năm Ngày thành lập Học viện Quốc phòng - Hội Phụ nữ Học viện Quốc phòng." />
+  <title>Học viện Quốc phòng - Kỷ niệm 50 năm ngày truyền thống</title>
+  <meta name="description" content="Chuyên trang kỷ niệm 50 năm ngày truyền thống Học viện Quốc phòng." />
   <style>
     :root {
       --primary: #a31717;
@@ -41,9 +41,19 @@
     .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
 
     .topbar {
+      position: relative;
       height: 130px;
       background: url('Hoc vien Quoc phong F2.jpg') center/cover no-repeat;
       border-bottom: 1px solid rgba(15,45,104,0.10);
+      overflow: hidden;
+    }
+
+    .topbar::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(11,44,112,0.18), rgba(163,23,23,0.08));
+      pointer-events: none;
     }
 
     .topbar-inner {
@@ -58,12 +68,11 @@
       position: relative;
       overflow: hidden;
       background:
-        linear-gradient(135deg, rgba(88,8,8,0.82) 0%, rgba(134,16,16,0.72) 52%, rgba(168,28,28,0.58) 100%),
-        radial-gradient(circle at 22% 30%, rgba(255,221,140,0.16), transparent 24%),
-        radial-gradient(circle at 78% 18%, rgba(255,221,140,0.12), transparent 22%),
-        url('Hoc vien Quoc phong F2.jpg') center/cover no-repeat;
-      color: white;
-      min-height: 430px;
+        linear-gradient(180deg, rgba(247,249,253,0.96) 0%, rgba(255,255,255,0.94) 100%),
+        url('Background5.png') center top/1200px auto no-repeat;
+      color: var(--text);
+      border-top: 1px solid rgba(214,188,126,0.28);
+      border-bottom: 1px solid rgba(214,188,126,0.24);
     }
 
     .hero::before {
@@ -71,8 +80,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 50% 50%, rgba(255,215,120,0.14), transparent 26%),
-        linear-gradient(180deg, rgba(70,7,7,0.10), rgba(70,7,7,0.24));
+        radial-gradient(circle at 50% 28%, rgba(221,177,74,0.10), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.22));
       pointer-events: none;
     }
 
@@ -80,207 +89,219 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(67,7,7,0.82) 0%, rgba(114,14,14,0.68) 40%, rgba(125,12,12,0.36) 100%);
+      background: transparent;
       pointer-events: none;
     }
 
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  backdrop-filter: blur(10px);
-  background: linear-gradient(90deg, rgba(244,247,252,0.96) 0%, rgba(255,252,245,0.98) 50%, rgba(242,247,255,0.96) 100%);
-  border-bottom: 1px solid rgba(212,184,113,0.35);
-  box-shadow: 0 8px 20px rgba(25,56,108,0.08);
-}
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(90deg, rgba(241,246,253,0.98) 0%, rgba(255,251,244,0.98) 50%, rgba(242,247,255,0.98) 100%);
+      border-bottom: 1px solid rgba(212,184,113,0.35);
+      box-shadow: 0 8px 20px rgba(25,56,108,0.08);
+    }
 
-.brand-badge {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: radial-gradient(circle at 30% 30%, #fff4bf 0%, #e7c25e 55%, #c69228 100%);
-  color: #a51919;
-  font-weight: 900;
-  font-size: 27px;
-  box-shadow: 0 6px 16px rgba(210,170,74,0.22);
-  flex: 0 0 auto;
-  border: 2px solid rgba(255,255,255,0.9);
-}
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+    }
 
-.brand-text {
-  font-weight: 800;
-  color: #183b82;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 18px;
-  letter-spacing: 0.2px;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
 
-.menu {
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  font-weight: 800;
-  color: #183b82;
-  font-size: 18px;
-}
+    .brand-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at 30% 30%, #fff4bf 0%, #e7c25e 55%, #c69228 100%);
+      color: #a51919;
+      font-weight: 900;
+      font-size: 26px;
+      box-shadow: 0 6px 16px rgba(210,170,74,0.22);
+      flex: 0 0 auto;
+      border: 2px solid rgba(255,255,255,0.9);
+    }
 
-.menu a {
-  position: relative;
-  padding: 8px 0;
-  color: #183b82;
-}
+    .brand-text {
+      font-weight: 800;
+      color: #183b82;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 18px;
+      letter-spacing: 0.2px;
+    }
 
-.menu a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #d9b55a, #f0d68b);
-  transition: width .25s ease;
-}
+    .menu {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-weight: 800;
+      color: #183b82;
+      font-size: 18px;
+    }
+
+    .menu a {
+      position: relative;
+      padding: 8px 0;
+      color: #183b82;
+    }
+
+    .menu a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #d9b55a, #f0d68b);
+      transition: width .25s ease;
+    }
 
     .menu a:hover::after { width: 100%; }
 
-  .hero {
-  position: relative;
-  overflow: hidden;
-  background:
-    linear-gradient(135deg, rgba(23,57,124,0.88) 0%, rgba(17,69,150,0.78) 58%, rgba(39,58,120,0.68) 100%),
-    radial-gradient(circle at 25% 22%, rgba(255,230,160,0.10), transparent 24%),
-    radial-gradient(circle at 80% 20%, rgba(255,230,160,0.08), transparent 20%),
-    url('Background5.png') center center/900px auto no-repeat;
-  color: white;
-  min-height: 390px;
-}
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: 26px 0 30px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      align-items: start;
+    }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 50% 58%, rgba(255,221,140,0.10), transparent 24%),
-    linear-gradient(180deg, rgba(12,35,86,0.10), rgba(10,30,72,0.24));
-  pointer-events: none;
-}
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.96);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(10,34,86,0.70) 0%, rgba(17,57,132,0.48) 42%, rgba(20,44,94,0.22) 100%);
-  pointer-events: none;
-}
+    .hero h1 {
+      margin: 0;
+      text-align: center;
+      font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.2;
+      letter-spacing: 0.2px;
+      color: #173a7a;
+      text-shadow: 0 2px 0 rgba(255,255,255,0.65);
+    }
 
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  padding: 26px 0 28px;
-  display: grid;
-  grid-template-columns: 1.06fr 0.94fr;
-  gap: 20px;
-  align-items: start;
-}
+    .hero h1 span {
+      display: block;
+      margin-top: 8px;
+      color: #c52828;
+      text-shadow: none;
+      font-size: 0.84em;
+      letter-spacing: 0.2px;
+    }
 
-.hero h1 {
-  margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(21px, 3vw, 34px);
-  line-height: 1.16;
-  color: #ffffff;
-  text-shadow: 0 3px 14px rgba(0,0,0,0.22);
-}
+    .hero p {
+      margin: 14px auto 0;
+      max-width: 900px;
+      text-align: center;
+      color: #30445f;
+      font-size: 18px;
+      line-height: 1.65;
+      text-shadow: none;
+    }
 
-.hero h1 span {
-  color: #ffe08a;
-  text-shadow: 0 3px 12px rgba(0,0,0,0.22);
-  font-size: 0.84em;
-  letter-spacing: 0.2px;
-}
+    .cta-row {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 28px 0 22px;
+    }
 
-.hero p {
-  margin: 10px 0 14px;
-  max-width: 620px;
-  color: rgba(255,255,255,0.94);
-  font-size: 15px;
-  line-height: 1.5;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.20);
-}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 11px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
 
-.cta-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 18px;
-}
+    .btn:hover { transform: translateY(-2px); }
 
-.btn-primary {
-  background: linear-gradient(135deg, #c92525, #a31717);
-  color: #fff;
-  box-shadow: 0 10px 22px rgba(163,23,23,0.22);
-}
+    .btn-primary {
+      background: linear-gradient(135deg, #c92525, var(--primary));
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(163,23,23,0.20);
+    }
 
-.btn-secondary {
-  background: rgba(255,255,255,0.10);
-  color: #fff;
-  border-color: rgba(255,255,255,0.22);
-}
+    .btn-secondary {
+      background: rgba(255,255,255,0.95);
+      color: #173a7a;
+      border-color: rgba(23,58,122,0.12);
+      box-shadow: 0 8px 20px rgba(15,45,104,0.08);
+    }
 
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 8px;
-}
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 6px;
+    }
 
-.stat {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 16px;
-  padding: 12px;
-}
+    .stat {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(23,58,122,0.08);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 10px 22px rgba(15,45,104,0.08);
+      text-align: center;
+    }
 
-.stat strong {
-  display: block;
-  font-size: 22px;
-  color: #ffe08a;
-  margin-bottom: 4px;
-}
+    .stat strong {
+      display: block;
+      font-size: 24px;
+      color: #c52828;
+      margin-bottom: 6px;
+    }
 
-.hero-panel {
-  position: relative;
-  background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 22px;
-  padding: 14px;
-}
+    .hero-panel {
+      display: none;
+    }
 
-.panel-card {
-  background: rgba(255,255,255,0.97);
-  color: var(--text);
-  border-radius: 18px;
-  padding: 14px 16px;
-  box-shadow: 0 12px 26px rgba(16,47,108,0.12);
-}
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      pointer-events: none;
+    }
 
-.panel-card h3 {
-  margin: 0 0 6px;
-  color: #183b82;
-  font-size: 17px;
-}
-
-.panel-card p {
-  color: #66758b;
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-}
+    .panel-card {
+      background: rgba(255,255,255,0.96);
+      color: var(--text);
+      border-radius: 18px;
+      padding: 14px 16px;
+      box-shadow: 0 14px 30px rgba(65,10,10,0.16);
+    }
 
     .panel-card + .panel-card { margin-top: 12px; }
 
@@ -672,9 +693,8 @@ nav {
 
     @media (max-width: 760px) {
       .topbar-inner, .nav-inner { flex-direction: column; align-items: flex-start; }
-      .menu { gap: 14px; }
-      .hero { min-height: auto; }
-      .hero-inner { padding: 52px 0 60px; }
+      .menu { gap: 14px; font-size: 16px; }
+      .hero-inner { padding: 34px 0 36px; }
       .hero-stats { grid-template-columns: 1fr; }
       .timeline { grid-template-columns: 1fr; }
       .timeline::before { display: none; }
@@ -692,13 +712,13 @@ nav {
   <nav>
     <div class="container nav-inner">
       <div class="brand">
-        <div class="brand-badge">70</div>
+        <div class="brand-badge">50</div>
         <div class="brand-text">Học viện Quốc phòng</div>
       </div>
       <div class="menu">
         <a href="#">Trang chủ</a>
         <a href="#gioi-thieu">Giới thiệu</a>
-        <a href="#timeline">Dấu mốc 70 năm</a>
+        <a href="#timeline">Dấu mốc 50 năm</a>
         <a href="#hoat-dong">Hoạt động</a>
         <a href="#bai-viet">Bài viết</a>
         <a href="#tro-choi">Trò chơi</a>
@@ -710,15 +730,15 @@ nav {
   <header class="hero">
     <div class="container hero-inner">
       <div class="reveal">
-        <h1>HỌC VIỆN QUỐC PHÒNG<br><span>Chuyên trang kỷ niệm 70 năm</span></h1>
-<p>Chuyên trang giới thiệu lịch sử hình thành và phát triển, các dấu mốc nổi bật, hoạt động tiêu biểu, tư liệu hình ảnh - video và những nội dung tương tác ý nghĩa hướng tới kỷ niệm 70 năm Ngày truyền thống.</p>
+        <h1>Kỷ niệm 50 năm ngày truyền thống<br/><span>Học viện Quốc phòng</span></h1>
+        <p>Chuyên trang giới thiệu lịch sử hình thành và phát triển, các dấu mốc nổi bật, hoạt động tiêu biểu, bài viết tìm hiểu, tư liệu hình ảnh - video và những nội dung tương tác ý nghĩa về Học viện Quốc phòng.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#timeline">Khám phá lịch sử</a>
-          <a class="btn btn-secondary" href="#tro-choi">Chơi thử quiz</a>
+          <a class="btn btn-primary" href="#timeline">Tìm hiểu truyền thống</a>
+          <a class="btn btn-secondary" href="#bai-viet">Xem bài viết</a>
         </div>
         <div class="hero-stats">
           <div class="stat">
-            <strong>70 năm</strong>
+            <strong>50 năm</strong>
             <span>Ngày truyền thống và hành trình phát triển</span>
           </div>
           <div class="stat">
@@ -726,22 +746,9 @@ nav {
             <span>Lịch sử, hoạt động, bài viết, thư viện và tương tác</span>
           </div>
           <div class="stat">
-            <strong>100%</strong>
-            <span>Phù hợp triển khai bằng GitHub Pages</span>
+            <strong>2026</strong>
+            <span>Hướng tới chuyên trang tư liệu số trang trọng, hiện đại</span>
           </div>
-        </div>
-      </div>
-
-      <div class="hero-panel reveal">
-        <div class="panel-card">
-          <div class="panel-label">Điểm nhấn nổi bật</div>
-          <h3>Dấu mốc 70 năm truyền thống</h3>
-          <p>Thiết kế timeline ngắn gọn, dễ đọc, giúp người xem theo dõi hành trình hình thành và phát triển qua các giai đoạn nổi bật.</p>
-        </div>
-        <div class="panel-card">
-          <div class="panel-label">Không gian thông tin số</div>
-          <h3>Thư viện tư liệu và nội dung tương tác</h3>
-          <p>Kết hợp bài viết, thư viện ảnh - video và nội dung tương tác phù hợp để tăng trải nghiệm mà vẫn giữ tinh thần trang trọng, lịch sự.</p>
         </div>
       </div>
     </div>
@@ -752,16 +759,16 @@ nav {
       <div class="container">
         <div class="section-title reveal">
           <div class="mini">Giới thiệu chuyên trang</div>
-          <h2>Thiết kế trang trọng, hiện đại, giàu cảm xúc</h2>
-          <p>Mẫu giao diện này tối ưu cho GitHub Pages: nhẹ, dễ triển khai, dễ mở rộng thêm nhiều trang con và rất hợp với chuyên đề kỷ niệm của đơn vị.</p>
+          <h2>Không gian số trang trọng dành cho Học viện Quốc phòng</h2>
+          <p>Mẫu giao diện này tối ưu cho GitHub Pages: nhẹ, dễ triển khai, dễ mở rộng thêm nhiều trang con và phù hợp với chuyên đề kỷ niệm ngày truyền thống của Học viện.</p>
         </div>
         <div class="intro-grid">
           <div class="image-card reveal"></div>
           <div class="content-card reveal">
-            <h3>Không chỉ là một website, mà là một không gian lưu giữ dấu ấn</h3>
-            <p>Chuyên trang hướng đến việc giới thiệu lịch sử hình thành, những dấu mốc nổi bật, các hoạt động tiêu biểu của Hội Phụ nữ và lan tỏa tinh thần tự hào về truyền thống Học viện Quốc phòng.</p>
-            <p>Bố cục được chia thành các khối rõ ràng để người xem dễ tiếp cận: mở đầu ấn tượng, timeline 80 năm, chuyên mục nổi bật, hoạt động, bài viết, trò chơi kiến thức và thư viện ảnh - video.</p>
-            <p>Màu sắc chủ đạo đỏ, vàng, xanh navy kết hợp nền trắng ngà giúp tổng thể vừa sang trọng, vừa mềm mại hơn so với kiểu cổng thông tin thông thường.</p>
+            <h3>Không chỉ là một website, mà là một không gian lưu giữ truyền thống</h3>
+            <p>Chuyên trang hướng đến việc giới thiệu lịch sử hình thành, các dấu mốc nổi bật, hoạt động tiêu biểu và những giá trị truyền thống tốt đẹp của Học viện Quốc phòng.</p>
+            <p>Bố cục được chia thành các khối rõ ràng để người xem dễ tiếp cận: phần mở đầu nổi bật, timeline 50 năm, chuyên mục hoạt động, bài viết, trò chơi kiến thức và thư viện ảnh - video.</p>
+            <p>Màu sắc chủ đạo xanh, đỏ và vàng được xử lý nhẹ nhàng để tổng thể vừa trang trọng, vừa hiện đại, phù hợp với một chuyên trang dùng chung cho toàn Học viện.</p>
             <div class="cta-row" style="margin-top:18px; margin-bottom:0;">
               <a class="btn btn-primary" href="#bai-viet">Xem cấu trúc nội dung</a>
             </div>
@@ -773,9 +780,9 @@ nav {
     <section class="section" id="timeline">
       <div class="container">
         <div class="section-title reveal">
-          <div class="mini">Dấu mốc 80 năm</div>
+          <div class="mini">Dấu mốc 50 năm</div>
           <h2>Hành trình truyền thống qua các giai đoạn</h2>
-          <p>Timeline là phần quan trọng nhất của chuyên trang, giúp tăng chiều sâu lịch sử và làm nổi bật tinh thần kỷ niệm 80 năm một cách trực quan, giàu cảm xúc.</p>
+          <p>Timeline là phần quan trọng của chuyên trang, giúp khái quát những mốc phát triển nổi bật và làm rõ chiều sâu truyền thống của Học viện Quốc phòng.</p>
         </div>
         <div class="timeline">
           <div class="timeline-item reveal">
@@ -814,8 +821,8 @@ nav {
             <div class="timeline-dot"></div>
             <div class="timeline-card">
               <div class="timeline-year">2026</div>
-              <h4>Kỷ niệm 80 năm</h4>
-              <p>Tôn vinh truyền thống, khẳng định vị thế và lan tỏa khát vọng cống hiến của các thế hệ hôm nay và mai sau.</p>
+              <h4>Kỷ niệm 50 năm</h4>
+              <p>Ôn lại truyền thống, khẳng định vị thế và lan tỏa niềm tự hào, trách nhiệm của các thế hệ cán bộ, giảng viên và học viên hôm nay.</p>
             </div>
           </div>
         </div>
@@ -835,9 +842,9 @@ nav {
             <p>Tập hợp bài viết lịch sử, truyền thống, thành tựu, dấu mốc phát triển và tư liệu giới thiệu tổng quan.</p>
           </div>
           <div class="feature-card reveal">
-            <div class="icon">🌸</div>
-            <h4>Hoạt động Hội Phụ nữ</h4>
-            <p>Cập nhật sinh hoạt chuyên đề, phong trào thi đua, hoạt động tri ân, giao lưu và lan tỏa hình ảnh đẹp.</p>
+            <div class="icon">🏛️</div>
+            <h4>Hoạt động của Học viện</h4>
+            <p>Cập nhật các chương trình, sinh hoạt chuyên đề, hoạt động thi đua, giao lưu và những dấu ấn tiêu biểu của Học viện.</p>
           </div>
           <div class="feature-card reveal">
             <div class="icon">✍️</div>
@@ -865,7 +872,7 @@ nav {
             <div class="news-cover cover-1"></div>
             <div class="news-body">
               <div class="meta"><span>Hoạt động chuyên đề</span><span>•</span><span>Tháng 3/2026</span></div>
-              <h4>Chương trình sinh hoạt truyền thống chào mừng kỷ niệm 80 năm</h4>
+              <h4>Chương trình sinh hoạt truyền thống chào mừng kỷ niệm 50 năm</h4>
               <p>Tổ chức các hoạt động ôn lại lịch sử, giao lưu, tọa đàm, văn nghệ và lan tỏa niềm tự hào về truyền thống Học viện Quốc phòng.</p>
             </div>
           </article>
@@ -874,8 +881,8 @@ nav {
               <div class="news-cover cover-2"></div>
               <div class="news-body">
                 <div class="meta"><span>Tin hoạt động</span><span>•</span><span>03/2026</span></div>
-                <h4>Phụ nữ Học viện với phong trào thi đua thiết thực</h4>
-                <p>Nhấn mạnh vai trò, trách nhiệm và sự sáng tạo trong các hoạt động tập thể.</p>
+                <h4>Các phong trào thi đua và hoạt động tiêu biểu</h4>
+                <p>Nhấn mạnh vai trò, trách nhiệm và sự sáng tạo của các tập thể, cá nhân trong những hoạt động nổi bật của Học viện.</p>
               </div>
             </article>
             <article class="news-card reveal">
@@ -920,7 +927,7 @@ nav {
             <div class="news-body">
               <div class="meta"><span>Cảm nhận</span><span>•</span><span>3 phút đọc</span></div>
               <h4>Tự hào tiếp bước truyền thống trong thời kỳ mới</h4>
-              <p>Rất phù hợp làm chuyên mục cho bài dự thi, bài cảm nghĩ, bài chia sẻ của hội viên.</p>
+              <p>Phù hợp làm chuyên mục cho bài dự thi, bài cảm nghĩ, bài chia sẻ của cán bộ, giảng viên và học viên về truyền thống Học viện.</p>
             </div>
           </article>
         </div>
@@ -980,7 +987,7 @@ nav {
               <div class="gallery-thumb g3"></div>
               <div class="gallery-body">
                 <h4>Ảnh phong trào, hội thi</h4>
-                <p>Phù hợp chuyên mục hoạt động nổi bật của Hội Phụ nữ.</p>
+                <p>Phù hợp chuyên mục hoạt động nổi bật, phong trào và sự kiện của Học viện.</p>
               </div>
             </article>
             <article class="gallery-card reveal">
@@ -1003,9 +1010,9 @@ nav {
 
         <div class="message-card reveal">
           <blockquote>
-            “Kỷ niệm 80 năm Ngày thành lập Học viện Quốc phòng là dịp để ôn lại truyền thống vẻ vang, bồi đắp niềm tự hào, trách nhiệm và khát vọng cống hiến của mỗi cán bộ, hội viên phụ nữ trong thời kỳ mới.”
+            “Kỷ niệm 50 năm ngày truyền thống Học viện Quốc phòng là dịp để ôn lại chặng đường xây dựng và phát triển, bồi đắp niềm tự hào, trách nhiệm và khát vọng cống hiến của các thế hệ cán bộ, giảng viên và học viên.”
           </blockquote>
-          <div class="sign">Hội Phụ nữ Học viện Quốc phòng</div>
+          <div class="sign">Học viện Quốc phòng</div>
         </div>
       </div>
     </section>
@@ -1014,19 +1021,19 @@ nav {
   <footer id="lien-he">
     <div class="container footer-inner">
       <div>
-        <div class="footer-title">Hội Phụ nữ Học viện Quốc phòng</div>
-        <p>Chuyên trang kỷ niệm 80 năm Ngày thành lập Học viện Quốc phòng. Thiết kế tối ưu cho GitHub Pages, dễ chỉnh sửa, dễ mở rộng và có thể phát triển thêm nhiều trang con.</p>
+        <div class="footer-title">Học viện Quốc phòng</div>
+        <p>Chuyên trang kỷ niệm 50 năm ngày truyền thống Học viện Quốc phòng. Thiết kế tối ưu cho GitHub Pages, dễ chỉnh sửa, dễ mở rộng và có thể phát triển thêm nhiều trang con.</p>
       </div>
       <div>
         <div class="footer-title">Chuyên mục</div>
-        <p>Giới thiệu<br/>Dấu mốc 80 năm<br/>Hoạt động nổi bật<br/>Bài viết tìm hiểu<br/>Trò chơi kiến thức</p>
+        <p>Giới thiệu<br/>Dấu mốc 50 năm<br/>Hoạt động nổi bật<br/>Bài viết tìm hiểu<br/>Trò chơi kiến thức</p>
       </div>
       <div>
         <div class="footer-title">Liên hệ</div>
         <p>Email: lienhe@example.com<br/>Fanpage: cập nhật sau<br/>GitHub Pages: cập nhật sau</p>
       </div>
     </div>
-    <div class="container footer-note">© 2026 Hội Phụ nữ Học viện Quốc phòng. All rights reserved.</div>
+    <div class="container footer-note">© 2026 Học viện Quốc phòng. All rights reserved.</div>
   </footer>
 
   <script>
