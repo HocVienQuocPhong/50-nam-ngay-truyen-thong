@@ -1,909 +1,1337 @@
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  :root {
-    --green-900: #0f3f38;
-    --green-800: #145046;
-    --green-700: #1d6a5c;
-    --green-100: #eefaf5;
-
-    --gold-700: #c9851f;
-    --gold-600: #d8972f;
-    --gold-100: #fff4de;
-
-    --blue-100: #eef6ff;
-    --mint-100: #edf9f3;
-    --rose-100: #fff0ee;
-    --violet-100: #f4efff;
-    --amber-100: #fff7e8;
-
-    --text-main: #17332d;
-    --text-soft: #647a73;
-    --white: #ffffff;
-
-    --shadow-sm: 0 10px 24px rgba(16, 55, 47, 0.08);
-    --shadow-md: 0 16px 34px rgba(16, 55, 47, 0.12);
-    --shadow-lg: 0 24px 50px rgba(16, 55, 47, 0.18);
-
-    --radius-xl: 28px;
-    --radius-lg: 22px;
-    --radius-md: 16px;
-  }
-
-  body {
-    font-family: 'Inter', 'Segoe UI', 'Poppins', system-ui, sans-serif;
-    color: var(--text-main);
-    line-height: 1.6;
-    overflow-x: hidden;
-    background:
-      radial-gradient(circle at top left, #fff7ea 0%, #fffdfa 35%, #f7fffb 100%);
-  }
-
-  .container {
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-
-  /* ===== HEADER TOP ===== */
-  .top-header {
-    background:
-      radial-gradient(circle at 10% 20%, rgba(255, 206, 112, 0.12), transparent 20%),
-      linear-gradient(135deg, #0f4038 0%, #145046 40%, #1d6a5c 100%);
-    padding: 20px 0 0;
-  }
-
-  .banner-wrapper {
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-
-  .banner-container {
-    position: relative;
-    height: 250px;
-    border-radius: 30px 30px 0 0;
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    background:
-      linear-gradient(120deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)),
-      #103e37;
-  }
-
-  .banner-image {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    transform: scale(1.01);
-  }
-
-  .banner-overlay {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(90deg, rgba(9, 39, 33, 0.7) 0%, rgba(9, 39, 33, 0.38) 38%, rgba(9, 39, 33, 0.12) 100%);
-  }
-
-  .banner-glow {
-    position: absolute;
-    width: 340px;
-    height: 340px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,215,130,0.22), transparent 70%);
-    top: -80px;
-    left: -60px;
-    pointer-events: none;
-  }
-
-  .logo-overlay {
-    position: absolute;
-    top: 24px;
-    left: 24px;
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 22px;
-    border-radius: 18px;
-    background: rgba(255,255,255,0.95);
-    border: 1px solid rgba(255,255,255,0.55);
-    box-shadow: var(--shadow-md);
-    backdrop-filter: blur(8px);
-  }
-
-  .logo-overlay img {
-    height: 58px;
-    width: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 10px rgba(255, 205, 108, 0.45));
-  }
-
-  .logo-text strong {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 900;
-    color: var(--green-800);
-    line-height: 1.2;
-  }
-
-  .logo-text span {
-    display: block;
-    font-size: 0.84rem;
-    color: #9a6d1f;
-    font-weight: 700;
-    margin-top: 2px;
-  }
-
-  .banner-title {
-    position: absolute;
-    left: 28px;
-    bottom: 28px;
-    z-index: 5;
-    color: white;
-    max-width: 620px;
-  }
-
-  .banner-title .mini-line {
-    display: inline-block;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.18);
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    margin-bottom: 14px;
-  }
-
-  .banner-title h1 {
-    font-size: clamp(1.9rem, 4vw, 3.1rem);
-    line-height: 1.12;
-    font-weight: 900;
-    letter-spacing: -0.8px;
-    text-shadow: 0 3px 12px rgba(0,0,0,0.25);
-  }
-
-  .banner-title p {
-    margin-top: 12px;
-    font-size: 1rem;
-    color: rgba(255,255,255,0.92);
-    max-width: 540px;
-  }
-
-  /* ===== NAV ===== */
-  .nav-bar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: linear-gradient(90deg, #c47b17, #d99832);
-    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
-  }
-
-  .nav-container {
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-
-  .nav-menu {
-    display: flex;
-    justify-content: center;
-    gap: 36px;
-    padding: 15px 0;
-    flex-wrap: wrap;
-  }
-
-  .nav-menu a {
-    text-decoration: none;
-    color: white;
-    font-size: 0.95rem;
-    font-weight: 800;
-    padding: 6px 4px;
-    letter-spacing: 0.3px;
-    position: relative;
-    transition: 0.25s ease;
-  }
-
-  .nav-menu a::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -3px;
-    width: 0;
-    height: 3px;
-    border-radius: 99px;
-    transform: translateX(-50%);
-    background: #fff3cb;
-    transition: 0.25s ease;
-  }
-
-  .nav-menu a:hover::after {
-    width: 80%;
-  }
-
-  .nav-menu a:hover {
-    color: #fff8de;
-  }
-
-  /* ===== HERO ===== */
-  .anniversary-section {
-    position: relative;
-    overflow: hidden;
-    padding: 64px 0 54px;
-    background:
-      radial-gradient(circle at right top, rgba(255, 224, 164, 0.28), transparent 22%),
-      radial-gradient(circle at left bottom, rgba(31, 106, 92, 0.09), transparent 22%),
-      linear-gradient(135deg, #fffaf0 0%, #f8fffb 100%);
-  }
-
-  .hero-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.72fr);
-    gap: 34px;
-    align-items: center;
-  }
-
-  .anniversary-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    padding: 11px 20px;
-    border-radius: 999px;
-    background: linear-gradient(135deg, #fff7ea, #ffffff);
-    border: 1px solid #f1dfbc;
-    box-shadow: var(--shadow-sm);
-    margin-bottom: 22px;
-  }
-
-  .anniversary-badge .year-label {
-    font-size: 0.82rem;
-    font-weight: 900;
-    color: var(--gold-700);
-    letter-spacing: 1px;
-  }
-
-  .anniversary-badge .year-number {
-    font-size: 1.05rem;
-    font-weight: 900;
-    color: var(--green-800);
-  }
-
-  .main-title h2 {
-    font-size: clamp(2.6rem, 5vw, 4.4rem);
-    line-height: 1.08;
-    font-weight: 900;
-    letter-spacing: -1.5px;
-    color: var(--green-800);
-    margin-bottom: 8px;
-  }
-
-  .main-title h2 span {
-    display: block;
-    color: var(--gold-700);
-    font-size: 0.76em;
-    margin-top: 8px;
-  }
-
-  .slogan {
-    display: inline-block;
-    margin-top: 18px;
-    padding: 14px 20px;
-    border-radius: 18px;
-    background: rgba(255,255,255,0.9);
-    border: 1px solid #efe2cb;
-    box-shadow: var(--shadow-sm);
-    font-size: 1rem;
-    color: var(--text-soft);
-    font-style: italic;
-  }
-
-  .action-buttons {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin: 28px 0 26px;
-  }
-
-  .btn-action {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 13px 22px;
-    border-radius: 16px;
-    text-decoration: none;
-    font-size: 0.94rem;
-    font-weight: 800;
-    transition: 0.25s ease;
-    background: rgba(255,255,255,0.92);
-    color: var(--green-800);
-    border: 1px solid #ecdab9;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .btn-action:hover {
-    transform: translateY(-3px);
-  }
-
-  .btn-primary-action {
-    background: linear-gradient(135deg, #c47b17, #da9a35);
-    color: white;
-    border-color: transparent;
-  }
-
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-  }
-
-  .stat-block {
-    background: rgba(255,255,255,0.92);
-    border: 1px solid #efe4d1;
-    border-radius: 22px;
-    padding: 18px 14px;
-    text-align: center;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .stat-number {
-    font-size: 1.9rem;
-    line-height: 1;
-    font-weight: 900;
-    color: var(--gold-700);
-  }
-
-  .stat-label {
-    margin-top: 8px;
-    font-size: 0.83rem;
-    color: var(--text-soft);
-    font-weight: 700;
-  }
-
-  .hero-side-box {
-    position: relative;
-    overflow: hidden;
-    min-height: 380px;
-    border-radius: 30px;
-    padding: 28px;
-    color: white;
-    background:
-      linear-gradient(145deg, #145046 0%, #1c6a5c 55%, #2b8b7a 100%);
-    box-shadow: 0 20px 45px rgba(21, 89, 76, 0.22);
-  }
-
-  .hero-side-box::before {
-    content: "";
-    position: absolute;
-    top: -40px;
-    right: -40px;
-    width: 180px;
-    height: 180px;
-    border-radius: 28px;
-    background: rgba(255,255,255,0.09);
-    transform: rotate(15deg);
-  }
-
-  .hero-side-box::after {
-    content: "";
-    position: absolute;
-    left: -35px;
-    bottom: -35px;
-    width: 140px;
-    height: 140px;
-    border-radius: 24px;
-    background: rgba(255,215,140,0.15);
-    transform: rotate(-18deg);
-  }
-
-  .hero-side-label {
-    position: relative;
-    z-index: 1;
-    display: inline-block;
-    padding: 8px 16px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.14);
-    border: 1px solid rgba(255,255,255,0.2);
-    font-size: 0.78rem;
-    font-weight: 900;
-    letter-spacing: 1px;
-    margin-bottom: 16px;
-  }
-
-  .hero-side-box h3 {
-    position: relative;
-    z-index: 1;
-    font-size: 1.8rem;
-    line-height: 1.25;
-    font-weight: 900;
-    margin-bottom: 14px;
-  }
-
-  .hero-side-box p {
-    position: relative;
-    z-index: 1;
-    font-size: 0.98rem;
-    color: rgba(255,255,255,0.9);
-  }
-
-  .value-list {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-top: 26px;
-  }
-
-  .value-item {
-    padding: 14px 12px;
-    text-align: center;
-    border-radius: 18px;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.18);
-    font-weight: 800;
-    backdrop-filter: blur(4px);
-  }
-
-  /* ===== SECTION CHUNG ===== */
-  .section {
-    padding: 82px 0;
-    opacity: 0;
-    transform: translateY(28px);
-    transition: 0.7s ease;
-  }
-
-  .section.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .section-history { background: linear-gradient(135deg, #fff7ea 0%, #fffdf8 100%); }
-  .section-activity { background: linear-gradient(135deg, #effaf4 0%, #fbfffd 100%); }
-  .section-leaders { background: linear-gradient(135deg, #eef5ff 0%, #fbfdff 100%); }
-  .section-posts { background: linear-gradient(135deg, #fff1ee 0%, #fffaf9 100%); }
-  .section-games { background: linear-gradient(135deg, #f5efff 0%, #fcfbff 100%); }
-  .section-gallery { background: linear-gradient(135deg, #fff5e7 0%, #fffdfa 100%); }
-
-  .section-header {
-    text-align: center;
-    max-width: 820px;
-    margin: 0 auto 46px;
-  }
-
-  .section-tag {
-    display: inline-block;
-    padding: 8px 18px;
-    border-radius: 999px;
-    font-size: 0.72rem; /* nhỏ hơn nội dung chính nhưng nổi hơn */
-    font-weight: 900;
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .tag-history { background: #ffe7bf; color: #b06d10; }
-  .tag-activity { background: #daf4e7; color: #15674f; }
-  .tag-leaders { background: #dceaff; color: #2f5ca3; }
-  .tag-posts { background: #ffdcd5; color: #b55231; }
-  .tag-games { background: #e7dbff; color: #7343b4; }
-  .tag-gallery { background: #ffe8c7; color: #b87618; }
-
-  .section-header h2 {
-    font-size: clamp(2rem, 3.5vw, 2.9rem);
-    line-height: 1.2;
-    font-weight: 900;
-    color: var(--green-800);
-    margin-bottom: 10px;
-  }
-
-  .section-header p {
-    font-size: 1rem;
-    color: var(--text-soft);
-  }
-
-  /* timeline */
-  .timeline {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 22px;
-  }
-
-  .timeline-card {
-    background: rgba(255,255,255,0.94);
-    border-radius: 26px;
-    padding: 26px 18px;
-    text-align: center;
-    border: 1px solid #f0dfbf;
-    box-shadow: var(--shadow-sm);
-    transition: 0.28s ease;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .timeline-card::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 6px;
-    background: linear-gradient(90deg, #c47b17, #e4b25c);
-  }
-
-  .timeline-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .year {
-    font-size: 1.7rem;
-    font-weight: 900;
-    color: var(--gold-700);
-    margin-bottom: 10px;
-  }
-
-  .timeline-card p {
-    font-size: 0.95rem;
-    color: var(--text-soft);
-    font-weight: 700;
-  }
-
-  /* content grid */
-  .content-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-  }
-
-  .content-card {
-    border-radius: 28px;
-    padding: 30px 22px;
-    text-align: center;
-    box-shadow: var(--shadow-sm);
-    transition: 0.28s ease;
-    border: 1px solid rgba(0,0,0,0.04);
-  }
-
-  .content-card:nth-child(1) { background: linear-gradient(135deg, #fff3d9, #fffdf5); }
-  .content-card:nth-child(2) { background: linear-gradient(135deg, #e8f8f0, #fbfffd); }
-  .content-card:nth-child(3) { background: linear-gradient(135deg, #edf5ff, #fcfdff); }
-  .content-card:nth-child(4) { background: linear-gradient(135deg, #fff0ea, #fffaf7); }
-
-  .content-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .card-icon {
-    width: 74px;
-    height: 74px;
-    margin: 0 auto 16px;
-    border-radius: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    background: rgba(255,255,255,0.75);
-  }
-
-  .content-card h3 {
-    font-size: 1.18rem;
-    font-weight: 900;
-    color: var(--green-800);
-    margin-bottom: 10px;
-  }
-
-  .content-card p {
-    font-size: 0.95rem;
-    color: var(--text-soft);
-    font-weight: 600;
-  }
-
-  /* special cards */
-  .special-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-  }
-
-  .special-card {
-    background: rgba(255,255,255,0.94);
-    border-radius: 30px;
-    padding: 34px 30px;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(0,0,0,0.05);
-    transition: 0.28s ease;
-  }
-
-  .special-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .special-icon {
-    width: 72px;
-    height: 72px;
-    border-radius: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    margin-bottom: 16px;
-    background: linear-gradient(135deg, #fff0d5, #fff8eb);
-  }
-
-  .special-card h3 {
-    font-size: 1.28rem;
-    font-weight: 900;
-    color: var(--green-800);
-    margin-bottom: 10px;
-  }
-
-  .special-card p {
-    color: var(--text-soft);
-    font-size: 0.96rem;
-  }
-
-  .btn-special {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 11px 20px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #c47b17, #db9a34);
-    color: white;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 0.9rem;
-    box-shadow: 0 10px 22px rgba(196,123,23,0.2);
-  }
-
-  /* leaders */
-  .leader-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-  }
-
-  .leader-card {
-    background: rgba(255,255,255,0.94);
-    border-radius: 26px;
-    padding: 22px 16px;
-    text-align: center;
-    box-shadow: var(--shadow-sm);
-    transition: 0.28s ease;
-  }
-
-  .leader-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .leader-avatar {
-    width: 86px;
-    height: 86px;
-    margin: 0 auto 14px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    background: linear-gradient(135deg, #deebff, #eff5ff);
-    color: #305da2;
-  }
-
-  .leader-card h4 {
-    font-size: 1rem;
-    font-weight: 900;
-    color: var(--green-800);
-    margin-bottom: 6px;
-  }
-
-  .leader-card p {
-    color: var(--text-soft);
-    font-size: 0.9rem;
-    font-weight: 700;
-  }
-
-  /* gallery */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
-  }
-
-  .gallery-card {
-    background: rgba(255,255,255,0.96);
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: 0.28s ease;
-  }
-
-  .gallery-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .gallery-img {
-    height: 190px;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .gallery-caption {
-    padding: 14px;
-    text-align: center;
-    font-size: 0.92rem;
-    color: var(--text-soft);
-    font-weight: 700;
-  }
-
-  .img1 { background: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80') center/cover; }
-  .img2 { background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80') center/cover; }
-  .img3 { background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80') center/cover; }
-  .img4 { background: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=800&q=80') center/cover; }
-
-  /* footer */
-  footer {
-    background: linear-gradient(135deg, #103f38 0%, #165348 100%);
-    color: #eef7f4;
-    padding: 56px 0 20px;
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.2fr;
-    gap: 40px;
-  }
-
-  .footer-logo img {
-    width: 72px;
-    margin-bottom: 14px;
-  }
-
-  .footer-links h4 {
-    color: #ffd88d;
-    margin-bottom: 16px;
-    font-weight: 800;
-  }
-
-  .footer-links p,
-  .footer-logo p {
-    font-size: 0.9rem;
-    opacity: 0.92;
-    margin-bottom: 8px;
-  }
-
-  .social-links {
-    display: flex;
-    gap: 14px;
-    margin-top: 18px;
-  }
-
-  .social-links a {
-    width: 40px;
-    height: 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.12);
-    color: white;
-    text-decoration: none;
-    transition: 0.2s;
-  }
-
-  .social-links a:hover {
-    background: #d8972f;
-    transform: translateY(-2px);
-  }
-
-  .copyright {
-    text-align: center;
-    padding-top: 24px;
-    margin-top: 34px;
-    border-top: 1px solid rgba(255,255,255,0.14);
-    font-size: 0.8rem;
-    opacity: 0.85;
-  }
-
-  @media (max-width: 1100px) {
-    .hero-layout,
-    .special-grid {
-      grid-template-columns: 1fr;
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>50 năm Học viện Quốc phòng | Kỷ niệm ngày truyền thống 1977 - 2027</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .content-grid,
-    .timeline {
-      grid-template-columns: repeat(2, 1fr);
+    :root {
+      --green-900: #0f3f38;
+      --green-800: #145046;
+      --green-700: #1d6a5c;
+      --green-100: #eefaf5;
+
+      --gold-700: #c9851f;
+      --gold-600: #d8972f;
+      --gold-100: #fff4de;
+
+      --blue-100: #eef6ff;
+      --mint-100: #edf9f3;
+      --rose-100: #fff0ee;
+      --violet-100: #f4efff;
+      --amber-100: #fff7e8;
+
+      --text-main: #17332d;
+      --text-soft: #647a73;
+      --white: #ffffff;
+
+      --shadow-sm: 0 10px 24px rgba(16, 55, 47, 0.08);
+      --shadow-md: 0 16px 34px rgba(16, 55, 47, 0.12);
+      --shadow-lg: 0 24px 50px rgba(16, 55, 47, 0.18);
+
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
     }
 
-    .leader-grid {
-      grid-template-columns: repeat(3, 1fr);
+    html {
+      scroll-behavior: smooth;
     }
 
-    .gallery,
-    .footer-grid {
-      grid-template-columns: repeat(2, 1fr);
+    body {
+      font-family: 'Inter', 'Segoe UI', 'Poppins', system-ui, sans-serif;
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at top left, #fff7ea 0%, #fffdfa 35%, #f7fffb 100%);
     }
 
-    .stats-row {
-      grid-template-columns: repeat(2, 1fr);
+    img {
+      max-width: 100%;
+      display: block;
     }
-  }
 
-  @media (max-width: 768px) {
-    .container,
-    .banner-wrapper,
-    .nav-container {
-      padding: 0 18px;
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ===== HEADER TOP ===== */
+    .top-header {
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255, 206, 112, 0.12), transparent 20%),
+        linear-gradient(135deg, #0f4038 0%, #145046 40%, #1d6a5c 100%);
+      padding: 20px 0 0;
+    }
+
+    .banner-wrapper {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 32px;
     }
 
     .banner-container {
-      height: 200px;
-      border-radius: 22px 22px 0 0;
+      position: relative;
+      height: 265px;
+      border-radius: 30px 30px 0 0;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background:
+        linear-gradient(120deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)),
+        #103e37;
+    }
+
+    .banner-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      transform: scale(1.01);
+    }
+
+    .banner-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(9, 39, 33, 0.7) 0%, rgba(9, 39, 33, 0.38) 38%, rgba(9, 39, 33, 0.12) 100%);
+    }
+
+    .banner-glow {
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,215,130,0.22), transparent 70%);
+      top: -80px;
+      left: -60px;
+      pointer-events: none;
     }
 
     .logo-overlay {
-      top: 12px;
-      left: 12px;
-      padding: 10px 14px;
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 22px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid rgba(255,255,255,0.55);
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(8px);
     }
 
     .logo-overlay img {
-      height: 42px;
+      height: 58px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(255, 205, 108, 0.45));
+    }
+
+    .logo-text strong {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--green-800);
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: 0.84rem;
+      color: #9a6d1f;
+      font-weight: 700;
+      margin-top: 2px;
     }
 
     .banner-title {
-      left: 16px;
-      right: 16px;
-      bottom: 16px;
+      position: absolute;
+      left: 28px;
+      bottom: 28px;
+      z-index: 5;
+      color: white;
+      max-width: 650px;
+    }
+
+    .banner-title .mini-line {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
     }
 
     .banner-title h1 {
-      font-size: 1.55rem;
+      font-size: clamp(1.9rem, 4vw, 3.1rem);
+      line-height: 1.12;
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      text-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    }
+
+    .banner-title p {
+      margin-top: 12px;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.92);
+      max-width: 560px;
+    }
+
+    /* ===== NAV ===== */
+    .nav-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(90deg, #c47b17, #d99832);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+    }
+
+    .nav-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 32px;
     }
 
     .nav-menu {
-      gap: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      padding: 15px 0;
+      flex-wrap: wrap;
     }
 
     .nav-menu a {
-      font-size: 0.84rem;
+      text-decoration: none;
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 800;
+      padding: 6px 4px;
+      letter-spacing: 0.3px;
+      position: relative;
+      transition: 0.25s ease;
     }
 
-    .content-grid,
-    .timeline,
-    .gallery,
-    .footer-grid {
-      grid-template-columns: 1fr;
+    .nav-menu a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -3px;
+      width: 0;
+      height: 3px;
+      border-radius: 99px;
+      transform: translateX(-50%);
+      background: #fff3cb;
+      transition: 0.25s ease;
     }
 
-    .leader-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .nav-menu a:hover::after {
+      width: 80%;
     }
 
-    .stats-row {
-      grid-template-columns: 1fr;
+    .nav-menu a:hover {
+      color: #fff8de;
     }
-  }
 
-  @media (max-width: 520px) {
-    .leader-grid,
-    .value-list {
-      grid-template-columns: 1fr;
+    /* ===== HERO ===== */
+    .anniversary-section {
+      position: relative;
+      overflow: hidden;
+      padding: 64px 0 54px;
+      background:
+        radial-gradient(circle at right top, rgba(255, 224, 164, 0.28), transparent 22%),
+        radial-gradient(circle at left bottom, rgba(31, 106, 92, 0.09), transparent 22%),
+        linear-gradient(135deg, #fffaf0 0%, #f8fffb 100%);
+    }
+
+    .anniversary-section::before {
+      content: "✦";
+      position: absolute;
+      right: 54px;
+      top: 70px;
+      font-size: 78px;
+      color: rgba(217, 152, 50, 0.12);
+      pointer-events: none;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.72fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .anniversary-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 11px 20px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #fff7ea, #ffffff);
+      border: 1px solid #f1dfbc;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 22px;
+    }
+
+    .anniversary-badge .year-label {
+      font-size: 0.82rem;
+      font-weight: 900;
+      color: var(--gold-700);
+      letter-spacing: 1px;
+    }
+
+    .anniversary-badge .year-number {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--green-800);
     }
 
     .main-title h2 {
-      font-size: 2.2rem;
+      font-size: clamp(2.6rem, 5vw, 4.4rem);
+      line-height: 1.08;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      color: var(--green-800);
+      margin-bottom: 8px;
     }
-  }
-</style>
+
+    .main-title h2 span {
+      display: block;
+      color: var(--gold-700);
+      font-size: 0.76em;
+      margin-top: 8px;
+    }
+
+    .slogan {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 14px 20px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid #efe2cb;
+      box-shadow: var(--shadow-sm);
+      font-size: 1rem;
+      color: var(--text-soft);
+      font-style: italic;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 28px 0 26px;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-size: 0.94rem;
+      font-weight: 800;
+      transition: 0.25s ease;
+      background: rgba(255,255,255,0.92);
+      color: var(--green-800);
+      border: 1px solid #ecdab9;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-action:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary-action {
+      background: linear-gradient(135deg, #c47b17, #da9a35);
+      color: white;
+      border-color: transparent;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .stat-block {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid #efe4d1;
+      border-radius: 22px;
+      padding: 18px 14px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-number {
+      font-size: 1.9rem;
+      line-height: 1;
+      font-weight: 900;
+      color: var(--gold-700);
+    }
+
+    .stat-label {
+      margin-top: 8px;
+      font-size: 0.83rem;
+      color: var(--text-soft);
+      font-weight: 700;
+    }
+
+    .hero-side-box {
+      position: relative;
+      overflow: hidden;
+      min-height: 380px;
+      border-radius: 30px;
+      padding: 28px;
+      color: white;
+      background:
+        linear-gradient(145deg, #145046 0%, #1c6a5c 55%, #2b8b7a 100%);
+      box-shadow: 0 20px 45px rgba(21, 89, 76, 0.22);
+    }
+
+    .hero-side-box::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 180px;
+      height: 180px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.09);
+      transform: rotate(15deg);
+    }
+
+    .hero-side-box::after {
+      content: "";
+      position: absolute;
+      left: -35px;
+      bottom: -35px;
+      width: 140px;
+      height: 140px;
+      border-radius: 24px;
+      background: rgba(255,215,140,0.15);
+      transform: rotate(-18deg);
+    }
+
+    .hero-side-label {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .hero-side-box h3 {
+      position: relative;
+      z-index: 1;
+      font-size: 1.8rem;
+      line-height: 1.25;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .hero-side-box p {
+      position: relative;
+      z-index: 1;
+      font-size: 0.98rem;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .value-list {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .value-item {
+      padding: 14px 12px;
+      text-align: center;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-weight: 800;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ===== SECTION CHUNG ===== */
+    .section {
+      padding: 82px 0;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: 0.7s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-history { background: linear-gradient(135deg, #fff7ea 0%, #fffdf8 100%); }
+    .section-activity { background: linear-gradient(135deg, #effaf4 0%, #fbfffd 100%); }
+    .section-leaders { background: linear-gradient(135deg, #eef5ff 0%, #fbfdff 100%); }
+    .section-posts { background: linear-gradient(135deg, #fff1ee 0%, #fffaf9 100%); }
+    .section-games { background: linear-gradient(135deg, #f5efff 0%, #fcfbff 100%); }
+    .section-gallery { background: linear-gradient(135deg, #fff5e7 0%, #fffdfa 100%); }
+
+    .section-header {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 46px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tag-history { background: #ffe7bf; color: #b06d10; }
+    .tag-activity { background: #daf4e7; color: #15674f; }
+    .tag-leaders { background: #dceaff; color: #2f5ca3; }
+    .tag-posts { background: #ffdcd5; color: #b55231; }
+    .tag-games { background: #e7dbff; color: #7343b4; }
+    .tag-gallery { background: #ffe8c7; color: #b87618; }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 3.5vw, 2.9rem);
+      line-height: 1.2;
+      font-weight: 900;
+      color: var(--green-800);
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      font-size: 1rem;
+      color: var(--text-soft);
+    }
+
+    /* timeline */
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 22px;
+    }
+
+    .timeline-card {
+      background: rgba(255,255,255,0.94);
+      border-radius: 26px;
+      padding: 26px 18px;
+      text-align: center;
+      border: 1px solid #f0dfbf;
+      box-shadow: var(--shadow-sm);
+      transition: 0.28s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, #c47b17, #e4b25c);
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .year {
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: var(--gold-700);
+      margin-bottom: 10px;
+    }
+
+    .timeline-card p {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      font-weight: 700;
+    }
+
+    /* content grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .content-card {
+      border-radius: 28px;
+      padding: 30px 22px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: 0.28s ease;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .content-card:nth-child(1) { background: linear-gradient(135deg, #fff3d9, #fffdf5); }
+    .content-card:nth-child(2) { background: linear-gradient(135deg, #e8f8f0, #fbfffd); }
+    .content-card:nth-child(3) { background: linear-gradient(135deg, #edf5ff, #fcfdff); }
+    .content-card:nth-child(4) { background: linear-gradient(135deg, #fff0ea, #fffaf7); }
+
+    .content-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-icon {
+      width: 74px;
+      height: 74px;
+      margin: 0 auto 16px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      background: rgba(255,255,255,0.75);
+    }
+
+    .content-card h3 {
+      font-size: 1.18rem;
+      font-weight: 900;
+      color: var(--green-800);
+      margin-bottom: 10px;
+    }
+
+    .content-card p {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      font-weight: 600;
+    }
+
+    /* special cards */
+    .special-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .special-card {
+      background: rgba(255,255,255,0.94);
+      border-radius: 30px;
+      padding: 34px 30px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: 0.28s ease;
+    }
+
+    .special-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .special-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #fff0d5, #fff8eb);
+    }
+
+    .special-card h3 {
+      font-size: 1.28rem;
+      font-weight: 900;
+      color: var(--green-800);
+      margin-bottom: 10px;
+    }
+
+    .special-card p {
+      color: var(--text-soft);
+      font-size: 0.96rem;
+    }
+
+    .btn-special {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 11px 20px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #c47b17, #db9a34);
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 22px rgba(196,123,23,0.2);
+      transition: 0.25s ease;
+    }
+
+    .btn-special:hover {
+      transform: translateY(-2px);
+    }
+
+    /* leaders */
+    .leader-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .leader-card {
+      background: rgba(255,255,255,0.94);
+      border-radius: 26px;
+      padding: 22px 16px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: 0.28s ease;
+    }
+
+    .leader-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .leader-avatar {
+      width: 86px;
+      height: 86px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      background: linear-gradient(135deg, #deebff, #eff5ff);
+      color: #305da2;
+    }
+
+    .leader-card h4 {
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--green-800);
+      margin-bottom: 6px;
+    }
+
+    .leader-card p {
+      color: var(--text-soft);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    /* gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .gallery-card {
+      background: rgba(255,255,255,0.96);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: 0.28s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .gallery-img {
+      height: 190px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .gallery-caption {
+      padding: 14px;
+      text-align: center;
+      font-size: 0.92rem;
+      color: var(--text-soft);
+      font-weight: 700;
+    }
+
+    .img1 { background: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80') center/cover; }
+    .img2 { background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80') center/cover; }
+    .img3 { background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80') center/cover; }
+    .img4 { background: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=800&q=80') center/cover; }
+
+    /* footer */
+    footer {
+      background: linear-gradient(135deg, #103f38 0%, #165348 100%);
+      color: #eef7f4;
+      padding: 56px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 40px;
+    }
+
+    .footer-logo img {
+      width: 72px;
+      margin-bottom: 14px;
+    }
+
+    .footer-links h4 {
+      color: #ffd88d;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+
+    .footer-links p,
+    .footer-logo p {
+      font-size: 0.9rem;
+      opacity: 0.92;
+      margin-bottom: 8px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      color: white;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .social-links a:hover {
+      background: #d8972f;
+      transform: translateY(-2px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 24px;
+      margin-top: 34px;
+      border-top: 1px solid rgba(255,255,255,0.14);
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
+      .hero-layout,
+      .special-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .content-grid,
+      .timeline {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .leader-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .gallery,
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container,
+      .banner-wrapper,
+      .nav-container {
+        padding: 0 18px;
+      }
+
+      .banner-container {
+        height: 210px;
+        border-radius: 22px 22px 0 0;
+      }
+
+      .logo-overlay {
+        top: 12px;
+        left: 12px;
+        padding: 10px 14px;
+      }
+
+      .logo-overlay img {
+        height: 42px;
+      }
+
+      .logo-text strong {
+        font-size: 0.92rem;
+      }
+
+      .logo-text span {
+        font-size: 0.72rem;
+      }
+
+      .banner-title {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+      }
+
+      .banner-title h1 {
+        font-size: 1.55rem;
+      }
+
+      .banner-title p {
+        font-size: 0.88rem;
+      }
+
+      .nav-menu {
+        gap: 18px;
+      }
+
+      .nav-menu a {
+        font-size: 0.84rem;
+      }
+
+      .content-grid,
+      .timeline,
+      .gallery,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .leader-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .leader-grid,
+      .value-list {
+        grid-template-columns: 1fr;
+      }
+
+      .main-title h2 {
+        font-size: 2.2rem;
+      }
+
+      .slogan {
+        font-size: 0.92rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-header">
+    <div class="banner-wrapper">
+      <div class="banner-container">
+        <img src="anh 1.jpg" alt="Học viện Quốc phòng" class="banner-image">
+        <div class="banner-overlay"></div>
+        <div class="banner-glow"></div>
+
+        <div class="logo-overlay">
+          <img src="logo_hoc vien trong suot.png" alt="Logo Học viện">
+          <div class="logo-text">
+            <strong>Học viện Quốc phòng</strong>
+            <span>National Defence Academy</span>
+          </div>
+        </div>
+
+        <div class="banner-title">
+          <div class="mini-line">KỶ NIỆM 50 NĂM NGÀY TRUYỀN THỐNG</div>
+          <h1>Học viện Quốc phòng 1977 - 2027</h1>
+          <p>Nơi hội tụ truyền thống, trí tuệ, bản lĩnh và khát vọng phát triển trong thời kỳ mới.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-bar">
+    <div class="nav-container">
+      <div class="nav-menu">
+        <a href="#">TRANG CHỦ</a>
+        <a href="#timeline">LỊCH SỬ</a>
+        <a href="#hoatdong">HOẠT ĐỘNG</a>
+        <a href="#bai-viet">BÀI VIẾT</a>
+        <a href="#tro-choi">TRÒ CHƠI</a>
+        <a href="#gallery">THƯ VIỆN</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="anniversary-section">
+    <div class="container">
+      <div class="hero-layout">
+        <div class="hero-left">
+          <div class="anniversary-badge">
+            <span class="year-label">KỶ NIỆM</span>
+            <span class="year-number">1977</span>
+            <span style="color:#c9851f;font-weight:900;">—</span>
+            <span class="year-number">2027</span>
+          </div>
+
+          <div class="main-title">
+            <h2>
+              50 NĂM NGÀY TRUYỀN THỐNG
+              <span>HỌC VIỆN QUỐC PHÒNG</span>
+            </h2>
+            <div class="slogan">"Phát huy truyền thống, cống hiến tài năng, xứng danh Bộ đội Cụ Hồ"</div>
+          </div>
+
+          <div class="action-buttons">
+            <a href="#timeline" class="btn-action btn-primary-action">🗓️ Hành trình 50 năm</a>
+            <a href="#bai-viet" class="btn-action">✍️ Bài viết cảm nhận</a>
+            <a href="#tro-choi" class="btn-action">🎮 Trò chơi trí tuệ</a>
+            <a href="#gallery" class="btn-action">📸 Thư viện ảnh</a>
+          </div>
+
+          <div class="stats-row" id="stats-container">
+            <div class="stat-block">
+              <div class="stat-number" data-target="1977">0</div>
+              <div class="stat-label">Năm thành lập</div>
+            </div>
+            <div class="stat-block">
+              <div class="stat-number" data-target="50">0</div>
+              <div class="stat-label">Năm phát triển</div>
+            </div>
+            <div class="stat-block">
+              <div class="stat-number" data-target="2027">0</div>
+              <div class="stat-label">Mốc kỷ niệm</div>
+            </div>
+            <div class="stat-block">
+              <div class="stat-number" data-target="15">0</div>
+              <div class="stat-label">Thế hệ cán bộ</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-side-box">
+          <div class="hero-side-label">GIÁ TRỊ CỐT LÕI</div>
+          <h3>Trung thành - Tận tụy - Đoàn kết - Sáng tạo</h3>
+          <p>
+            Những phẩm chất làm nên bản sắc, uy tín và sức mạnh phát triển bền vững của Học viện Quốc phòng trong suốt chặng đường 50 năm xây dựng và trưởng thành.
+          </p>
+
+          <div class="value-list">
+            <div class="value-item">Trung thành</div>
+            <div class="value-item">Tận tụy</div>
+            <div class="value-item">Đoàn kết</div>
+            <div class="value-item">Sáng tạo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section section-history" id="timeline">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag tag-history">DẤU MỐC LỊCH SỬ</div>
+        <h2>50 năm - Những cột mốc vàng</h2>
+        <p>Hành trình xây dựng, trưởng thành và phát triển của Học viện Quốc phòng qua các thời kỳ.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-card">
+          <div class="year">1977</div>
+          <p>Thành lập Học viện Quốc phòng</p>
+        </div>
+        <div class="timeline-card">
+          <div class="year">1987</div>
+          <p>Phát triển đào tạo chiến lược</p>
+        </div>
+        <div class="timeline-card">
+          <div class="year">1997</div>
+          <p>Mở rộng hợp tác quốc tế</p>
+        </div>
+        <div class="timeline-card">
+          <div class="year">2012</div>
+          <p>Hiện đại hóa toàn diện</p>
+        </div>
+        <div class="timeline-card">
+          <div class="year">2027</div>
+          <p>Kỷ niệm 50 năm truyền thống</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-activity" id="hoatdong">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag tag-activity">HOẠT ĐỘNG TIÊU BIỂU</div>
+        <h2>Dấu ấn qua các thời kỳ</h2>
+        <p>Những thành quả nổi bật góp phần khẳng định vị thế, uy tín và truyền thống vẻ vang của Học viện.</p>
+      </div>
+
+      <div class="content-grid">
+        <div class="content-card">
+          <div class="card-icon">🎓</div>
+          <h3>Đào tạo cán bộ</h3>
+          <p>Đào tạo nhiều thế hệ cán bộ lãnh đạo, chỉ huy cấp chiến dịch, chiến lược cho quân đội.</p>
+        </div>
+        <div class="content-card">
+          <div class="card-icon">📖</div>
+          <h3>Nghiên cứu KHQS</h3>
+          <p>Thực hiện nhiều công trình nghiên cứu khoa học quân sự có giá trị lý luận và thực tiễn cao.</p>
+        </div>
+        <div class="content-card">
+          <div class="card-icon">🌏</div>
+          <h3>Hợp tác quốc tế</h3>
+          <p>Mở rộng hợp tác đào tạo, trao đổi học thuật với các học viện, nhà trường quân sự quốc tế.</p>
+        </div>
+        <div class="content-card">
+          <div class="card-icon">🏅</div>
+          <h3>Thành tựu nổi bật</h3>
+          <p>Đạt nhiều phần thưởng, danh hiệu cao quý, khẳng định truyền thống và vị thế của Học viện.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-leaders" id="leaders">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag tag-leaders">LÃNH ĐẠO QUA CÁC THỜI KỲ</div>
+        <h2>Những người đặt nền móng</h2>
+        <p>Các thế hệ lãnh đạo đã góp phần xây dựng và phát triển Học viện Quốc phòng vững mạnh.</p>
+      </div>
+
+      <div class="leader-grid">
+        <div class="leader-card">
+          <div class="leader-avatar">⭐</div>
+          <h4>Trung tướng A</h4>
+          <p>1977 - 1985</p>
+        </div>
+        <div class="leader-card">
+          <div class="leader-avatar">⭐</div>
+          <h4>Thượng tướng B</h4>
+          <p>1985 - 1995</p>
+        </div>
+        <div class="leader-card">
+          <div class="leader-avatar">⭐</div>
+          <h4>Đại tướng C</h4>
+          <p>1995 - 2005</p>
+        </div>
+        <div class="leader-card">
+          <div class="leader-avatar">⭐</div>
+          <h4>Thượng tướng D</h4>
+          <p>2005 - 2015</p>
+        </div>
+        <div class="leader-card">
+          <div class="leader-avatar">⭐</div>
+          <h4>Trung tướng E</h4>
+          <p>2015 - 2027</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-posts" id="bai-viet">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag tag-posts">CẢM XÚC TỰ HÀO</div>
+        <h2>Bài viết của cán bộ, nhân viên</h2>
+        <p>Những dòng cảm xúc chân thành, sâu sắc về chặng đường truyền thống 50 năm của Học viện.</p>
+      </div>
+
+      <div class="special-grid">
+        <div class="special-card">
+          <div class="special-icon">✍️</div>
+          <h3>Ký ức người lính</h3>
+          <p>"50 năm là một hành trình đáng tự hào với biết bao kỷ niệm, dấu ấn và cống hiến. Tôi vinh dự được là một phần trong truyền thống vẻ vang ấy..."</p>
+          <a href="#" class="btn-special">Đọc tiếp →</a>
+        </div>
+        <div class="special-card">
+          <div class="special-icon">💬</div>
+          <h3>Phụ nữ với truyền thống</h3>
+          <p>"Phát huy phẩm chất tốt đẹp của phụ nữ Việt Nam, phụ nữ Học viện luôn tận tụy, trách nhiệm, sáng tạo và đóng góp tích cực vào sự phát triển chung..."</p>
+          <a href="#" class="btn-special">Đọc tiếp →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-games" id="tro-choi">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag tag-games">THỬ THÁCH TRÍ TUỆ</div>
+        <h2>Trò chơi tìm hiểu truyền thống</h2>
+        <p>Không gian tương tác sinh động giúp cán bộ, học viên, nhân viên ôn lại chặng đường 50 năm vẻ vang.</p>
+      </div>
+
+      <div class="special-grid">
+        <div class="special-card">
+          <div class="special-icon">🧩</div>
+          <h3>Ô chữ truyền thống</h3>
+          <p>Giải mã các ô chữ về lịch sử, sự kiện, nhân vật tiêu biểu gắn liền với quá trình xây dựng và phát triển của Học viện.</p>
+          <a href="#" class="btn-special">Chơi ngay →</a>
+        </div>
+        <div class="special-card">
+          <div class="special-icon">🎯</div>
+          <h3>Quiz 50 năm</h3>
+          <p>Trắc nghiệm nhanh về các dấu mốc, thành tựu, giá trị truyền thống và định hướng phát triển của Học viện Quốc phòng.</p>
+          <a href="#" class="btn-special">Bắt đầu quiz →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-gallery" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag tag-gallery">THƯ VIỆN HÌNH ẢNH</div>
+        <h2>Khoảnh khắc 50 năm</h2>
+        <p>Những hình ảnh tư liệu và hoạt động tiêu biểu ghi dấu chặng đường phát triển của Học viện.</p>
+      </div>
+
+      <div class="gallery">
+        <div class="gallery-card">
+          <div class="gallery-img img1"></div>
+          <div class="gallery-caption">Học viện trong những năm đầu xây dựng</div>
+        </div>
+        <div class="gallery-card">
+          <div class="gallery-img img2"></div>
+          <div class="gallery-caption">Lễ kỷ niệm và gặp mặt các thế hệ</div>
+        </div>
+        <div class="gallery-card">
+          <div class="gallery-img img3"></div>
+          <div class="gallery-caption">Hoạt động đào tạo, nghiên cứu</div>
+        </div>
+        <div class="gallery-card">
+          <div class="gallery-img img4"></div>
+          <div class="gallery-caption">Hợp tác, giao lưu quốc tế</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-logo">
+          <img src="logo_hoc vien trong suot.png" alt="Học viện Quốc phòng">
+          <p>Học viện Quốc phòng<br>50 năm xây dựng và phát triển</p>
+          <div class="social-links">
+            <a href="#">📘</a>
+            <a href="#">📷</a>
+            <a href="#">▶️</a>
+            <a href="#">💬</a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Về chúng tôi</h4>
+          <p>Lịch sử hình thành</p>
+          <p>Sứ mệnh và tầm nhìn</p>
+          <p>Thành tựu nổi bật</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Chuyên mục</h4>
+          <p>Dấu mốc 50 năm</p>
+          <p>Bài viết cảm nhận</p>
+          <p>Trò chơi trí tuệ</p>
+          <p>Thư viện ảnh</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Liên hệ</h4>
+          <p>Học viện Quốc phòng</p>
+          <p>Email: info@hvqp.edu.vn</p>
+          <p>Điện thoại: 024.1234.5678</p>
+          <p>📍 Số 1, Đường X, Quận Y</p>
+        </div>
+      </div>
+
+      <div class="copyright">
+        © 2027 Học viện Quốc phòng - Kỷ niệm 50 năm ngày truyền thống (1977 - 2027)
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hiệu ứng xuất hiện khi cuộn
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    sections.forEach(section => observer.observe(section));
+
+    // Hiệu ứng đếm số
+    const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+    const statsContainer = document.getElementById('stats-container');
+    let counted = false;
+
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !counted) {
+          counted = true;
+          statNumbers.forEach(el => {
+            const target = parseInt(el.getAttribute('data-target'));
+            let current = 0;
+            const increment = Math.max(1, target / 60);
+
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                el.innerText = target;
+                clearInterval(timer);
+              } else {
+                el.innerText = Math.floor(current);
+              }
+            }, 22);
+          });
+        }
+      });
+    }, { threshold: 0.35 });
+
+    if (statsContainer) countObserver.observe(statsContainer);
+  </script>
+
+</body>
+</html>
