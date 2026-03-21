@@ -159,52 +159,44 @@
 }
 
     /* ===== NAV ===== */
-    .nav-wrap{
-      position:sticky;
-      top:0;
-      z-index:100;
-      padding:12px 0;
-      background:rgba(238,244,240,0.72);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(26,62,58,0.05);
-    }
+.nav-wrap {
+  padding: 0;                     /* bỏ padding trên/dưới */
+  background: rgba(238,244,240,0.85);
+  border-bottom: none;           /* bỏ viền dưới để trông liền mạch */
+  backdrop-filter: blur(16px);
+}
 
-    .nav-shell{
-      background:rgba(255,255,252,0.92);
-      border:1px solid rgba(26,62,58,0.06);
-      border-radius:18px;
-      box-shadow:0 10px 24px rgba(18,32,28,0.04);
-      padding:8px;
-    }
+.nav-shell {
+  border-radius: 0;              /* vuông góc với header */
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  box-shadow: none;
+  background: rgba(255,255,252,0.96);
+  padding: 6px 0;                /* giảm padding trong */
+}
 
-    .nav-links{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:8px;
-    }
+.nav-links a {
+  font-weight: 700;
+  color: #2a5a54;
+  transition: 0.2s;
+  padding: 10px 20px;
+}
 
-    .nav-links a{
-      padding:11px 16px;
-      border-radius:12px;
-      font-size:0.88rem;
-      font-weight:800;
-      color:var(--deep);
-      transition:all .2s ease;
-      letter-spacing:0.2px;
-    }
+.nav-links a:hover {
+  background: rgba(219,164,90,0.18);
+  color: #b87a2e;
+}
 
-    .nav-links a:hover{
-      background:rgba(219,164,90,0.12);
-      color:#b87a2e;
-    }
-
-    .nav-links a.active-like{
-      background:linear-gradient(135deg, rgba(219,164,90,0.14), rgba(219,164,90,0.08));
-      color:#b87a2e;
-    }
-
+.nav-links a.active-like {
+  background: linear-gradient(135deg, rgba(219,164,90,0.18), rgba(219,164,90,0.08));
+  color: #c28632;
+}
+/* Section giá trị cốt lõi sát menu hơn */
+#giatri {
+  padding-top: 24px !important;  /* giảm khoảng cách so với menu */
+}
+    
     /* ===== SECTION SHARED ===== */
     .section{
       padding:100px 0;
@@ -759,6 +751,16 @@
       .timeline-panel{
         min-height:auto;
       }
+        .nav-shell {
+    padding: 4px 0;
+  }
+  .nav-links a {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+  #giatri {
+    padding-top: 20px !important;
+  }
     }
 
     @media (max-width: 640px){
@@ -793,10 +795,13 @@
         gap:6px;
       }
 
-      .nav-links a{
-        font-size:0.75rem;
-        padding:8px 10px;
-      }
+    .nav-links a {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+  }
+       #giatri {
+    padding-top: 16px !important;
+  }
 
       .core-grid,
       .stats-row,
@@ -855,7 +860,7 @@
 
   <main>
     <!-- GIÁ TRỊ CỐT LÕI -->
-    <section class="section show" id="giatri" style="padding-top:56px;">
+    <section class="section show" id="giatri" style="padding-top:24px;">
       <div class="container">
         <div class="section-card theme-1">
           <div class="section-title">
