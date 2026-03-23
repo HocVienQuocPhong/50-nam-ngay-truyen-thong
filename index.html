@@ -1527,6 +1527,274 @@ body {
     font-size: 0.88rem;
   }
 }
+
+    /* =========================
+   CẢM XÚC TỰ HÀO - ARTICLE UI
+========================= */
+.pride-section-shell{
+  position: relative;
+}
+
+.pride-highlight{
+  display:grid;
+  grid-template-columns:1.25fr .95fr;
+  gap:22px;
+  margin-bottom:34px;
+}
+
+.pride-feature-main,
+.pride-feature-side{
+  background:rgba(255,255,255,0.94);
+  border:1px solid rgba(26,62,58,0.08);
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:var(--shadow-card);
+}
+
+.pride-feature-main{
+  display:grid;
+  grid-template-columns:1.05fr 1fr;
+  min-height:320px;
+}
+
+.pride-feature-image,
+.article-thumb{
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+.pride-feature-image{
+  min-height:320px;
+}
+
+.pride-feature-content{
+  padding:26px 24px 24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.article-badge{
+  display:inline-flex;
+  width:max-content;
+  padding:7px 14px;
+  border-radius:999px;
+  background:rgba(219,164,90,0.14);
+  color:#a36a20;
+  font-size:.74rem;
+  font-weight:800;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+
+.pride-feature-content h3,
+.article-card h3{
+  color:var(--deep);
+  font-weight:800;
+  line-height:1.35;
+}
+
+.pride-feature-content h3{
+  font-size:1.55rem;
+  margin-bottom:10px;
+}
+
+.article-meta{
+  font-size:.86rem;
+  color:#7d8c87;
+  margin-bottom:10px;
+}
+
+.pride-feature-content p,
+.article-card p{
+  color:var(--muted);
+}
+
+.pride-feature-content p{
+  font-size:.96rem;
+  line-height:1.8;
+  margin-bottom:18px;
+}
+
+.pride-side-list{
+  display:grid;
+  gap:16px;
+  padding:16px;
+}
+
+.pride-mini-card{
+  display:grid;
+  grid-template-columns:112px 1fr;
+  gap:14px;
+  align-items:stretch;
+  background:#fff;
+  border:1px solid rgba(26,62,58,0.08);
+  border-radius:18px;
+  overflow:hidden;
+  transition:.25s ease;
+}
+
+.pride-mini-card:hover,
+.article-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 30px rgba(26,62,58,0.08);
+}
+
+.pride-mini-thumb{
+  min-height:106px;
+  background-size:cover;
+  background-position:center;
+}
+
+.pride-mini-body{
+  padding:14px 14px 14px 0;
+}
+
+.pride-mini-body h4{
+  font-size:1rem;
+  line-height:1.45;
+  font-weight:800;
+  color:var(--deep);
+  margin-bottom:8px;
+}
+
+.pride-list-head{
+  margin:12px 0 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+
+.pride-list-head h3{
+  color:var(--deep);
+  font-size:1.2rem;
+  font-weight:800;
+}
+
+.article-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:22px;
+}
+
+.article-grid.compact .article-card:nth-child(n+7){
+  display:none;
+}
+
+.article-card{
+  overflow:hidden;
+  background:rgba(255,255,255,0.96);
+  border:1px solid rgba(26,62,58,0.07);
+  border-radius:24px;
+  box-shadow:var(--shadow-card);
+  transition:.25s ease;
+}
+
+.article-thumb{
+  aspect-ratio: 16 / 10;
+}
+
+.article-body{
+  padding:18px 18px 20px;
+}
+
+.article-card h3{
+  font-size:1.04rem;
+  margin-bottom:10px;
+  min-height:2.8em;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.article-card p{
+  font-size:.93rem;
+  line-height:1.72;
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  min-height:4.9em;
+  margin-bottom:16px;
+}
+
+.btn-gold,
+.btn-gold-outline{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:44px;
+  padding:0 18px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:.92rem;
+  transition:.22s ease;
+}
+
+.btn-gold{
+  background:linear-gradient(135deg, var(--gold), var(--gold-2));
+  color:#fff;
+  box-shadow:0 12px 24px rgba(194,134,50,.22);
+}
+
+.btn-gold:hover{
+  transform:translateY(-2px);
+}
+
+.btn-gold-outline{
+  background:#fff;
+  border:1px solid rgba(194,134,50,.28);
+  color:#a56c22;
+}
+
+.btn-gold-outline:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 24px rgba(194,134,50,.12);
+}
+
+@media (max-width: 1100px){
+  .pride-highlight{
+    grid-template-columns:1fr;
+  }
+
+  .pride-feature-main{
+    grid-template-columns:1fr;
+  }
+
+  .article-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px){
+  .pride-list-head{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .pride-mini-card{
+    grid-template-columns:96px 1fr;
+  }
+}
+
+@media (max-width: 640px){
+  .article-grid{
+    grid-template-columns:1fr;
+  }
+
+  .pride-mini-card{
+    grid-template-columns:90px 1fr;
+  }
+
+  .pride-feature-content{
+    padding:20px 18px;
+  }
+}
   </style>
 </head>
   
@@ -1848,34 +2116,30 @@ body {
     </section>
 
     <!-- BÀI VIẾT -->
-    <section class="section" id="bai-viet">
-      <div class="container">
-        <div class="section-card theme-5">
-          <div class="section-title">
-            <div class="kicker">CẢM XÚC TỰ HÀO</div>
-            <h2>Bài viết của cán bộ, học viên</h2>
-            <p>Những dòng cảm xúc chân thành, sâu sắc về chặng đường 50 năm của Học viện Quốc phòng, nơi hun đúc bản lĩnh, trí tuệ và niềm tự hào của nhiều thế hệ.</p>
-            <div class="curator-line"></div>
-          </div>
-
-          <div class="testimonial-duo">
-            <div class="card testimonial">
-              <div class="quote-icon">✍️</div>
-              <h3>Ký ức người lính</h3>
-              <p>“50 năm là hành trình đáng tự hào với biết bao kỷ niệm, dấu ấn và cống hiến. Tôi vinh dự được là một phần trong truyền thống vẻ vang ấy. Từ những lớp học đầu tiên đến hôm nay, tinh thần ‘Trung thành, tận tụy, đoàn kết, sáng tạo’ vẫn luôn hiện hữu trong từng bước trưởng thành của Học viện và trong mỗi cán bộ, học viên.”</p>
-              <a href="#" class="btn-gold">Đọc tiếp →</a>
-            </div>
-
-            <div class="card testimonial">
-              <div class="quote-icon">🌸</div>
-              <h3>Phụ nữ với truyền thống Học viện</h3>
-              <p>“Phát huy phẩm chất tốt đẹp của phụ nữ Việt Nam, phụ nữ Học viện Quốc phòng luôn tận tụy, trách nhiệm, sáng tạo trong công tác, giảng dạy, phục vụ và xây dựng môi trường học thuật kỷ cương, nhân văn. Chúng tôi tự hào được đóng góp trí tuệ và nhiệt huyết của mình vào chặng đường phát triển chung của Học viện.”</p>
-              <a href="#" class="btn-gold">Đọc tiếp →</a>
-            </div>
-          </div>
-        </div>
+  <section class="section" id="bai-viet">
+  <div class="container">
+    <div class="section-card theme-5 pride-section-shell">
+      <div class="section-title">
+        <div class="kicker">CẢM XÚC TỰ HÀO</div>
+        <h2>Những chia sẻ từ cán bộ, giảng viên, học viên</h2>
+        <p>
+          Nơi lưu giữ những cảm xúc chân thành, những ký ức đẹp và niềm tự hào
+          về chặng đường 50 năm xây dựng, trưởng thành của Học viện Quốc phòng.
+        </p>
+        <div class="curator-line"></div>
       </div>
-    </section>
+
+      <div class="pride-highlight" id="prideHighlight"></div>
+
+      <div class="pride-list-head">
+        <h3>Bài viết mới</h3>
+        <a href="cam-xuc-tu-hao.html" class="btn-gold-outline">Xem tất cả</a>
+      </div>
+
+      <div class="article-grid compact" id="homeArticleList"></div>
+    </div>
+  </div>
+</section>
 
     <!-- TRÒ CHƠI -->
     <section class="section" id="trochoi">
@@ -2016,5 +2280,80 @@ body {
       });
     });
   </script>
+  <script src="assets/data/articles.js"></script>
+<script>
+  function formatVietnameseDate(dateString) {
+    const d = new Date(dateString);
+    if (Number.isNaN(d.getTime())) return dateString;
+    return d.toLocaleDateString("vi-VN");
+  }
+
+  function sortArticles(items) {
+    return [...items].sort((a, b) => {
+      if ((b.featured ? 1 : 0) !== (a.featured ? 1 : 0)) {
+        return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
+      }
+      return new Date(b.date) - new Date(a.date);
+    });
+  }
+
+  function renderHomeArticles() {
+    const data = Array.isArray(window.ARTICLE_DATA) ? sortArticles(window.ARTICLE_DATA) : [];
+    const featured = data.filter(item => item.featured).slice(0, 3);
+    const latest = [...data].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 6);
+
+    const highlight = document.getElementById("prideHighlight");
+    const homeList = document.getElementById("homeArticleList");
+
+    if (!highlight || !homeList || !data.length) return;
+
+    const main = featured[0] || data[0];
+    const side = featured.slice(1, 3);
+
+    highlight.innerHTML = `
+      <div class="pride-feature-main">
+        <div class="pride-feature-image" style="background-image:url('${main.thumbnail}')"></div>
+        <div class="pride-feature-content">
+          <span class="article-badge">${main.category || "Cảm xúc tự hào"}</span>
+          <div class="article-meta">${main.author} • ${main.unit || ""} • ${formatVietnameseDate(main.date)}</div>
+          <h3>${main.title}</h3>
+          <p>${main.excerpt}</p>
+          <div>
+            <a href="bai-viet.html?id=${main.id}" class="btn-gold">Đọc bài viết</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pride-feature-side">
+        <div class="pride-side-list">
+          ${side.map(item => `
+            <a class="pride-mini-card" href="bai-viet.html?id=${item.id}">
+              <div class="pride-mini-thumb" style="background-image:url('${item.thumbnail}')"></div>
+              <div class="pride-mini-body">
+                <div class="article-meta">${item.author} • ${formatVietnameseDate(item.date)}</div>
+                <h4>${item.title}</h4>
+              </div>
+            </a>
+          `).join("")}
+        </div>
+      </div>
+    `;
+
+    homeList.innerHTML = latest.map(item => `
+      <article class="article-card">
+        <div class="article-thumb" style="background-image:url('${item.thumbnail}')"></div>
+        <div class="article-body">
+          <span class="article-badge">${item.category || "Bài viết"}</span>
+          <div class="article-meta">${item.author} • ${item.unit || ""} • ${formatVietnameseDate(item.date)}</div>
+          <h3>${item.title}</h3>
+          <p>${item.excerpt}</p>
+          <a href="bai-viet.html?id=${item.id}" class="btn-gold">Xem chi tiết</a>
+        </div>
+      </article>
+    `).join("");
+  }
+
+  document.addEventListener("DOMContentLoaded", renderHomeArticles);
+</script>
 </body>
 </html>
