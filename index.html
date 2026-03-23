@@ -1221,120 +1221,82 @@
   }
 }
 /* ===== MENU NGANG + KHỐI HỘI PHỤ NỮ ===== */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  background: rgba(15, 25, 35, 0.75);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
 .nav-shell {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  background: rgba(255, 255, 252, 0.96);
-  border-radius: 0;
-  border: none;
-  box-shadow: none;
-  padding: 8px 20px;
-  gap: 16px;
+  padding: 10px 0;
 }
 
+/* LEFT BRAND */
+.nav-brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-main {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  color: #f5d27a; /* vàng quân đội */
+}
+
+.brand-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* MENU */
 .nav-links {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  flex: 1;
+  gap: 26px;
 }
 
-/* Khối Hội Phụ nữ trong menu */
-.women-menu {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(219, 164, 90, 0.08);
-  border-radius: 40px;
-  padding: 6px 14px 6px 10px;
-  transition: all 0.2s ease;
-  border: 1px solid rgba(219, 164, 90, 0.2);
-  white-space: nowrap;
+.nav-links a {
+  position: relative;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: rgba(255,255,255,0.75);
+  transition: all 0.3s ease;
 }
 
-.women-menu:hover {
-  background: rgba(219, 164, 90, 0.15);
-  transform: translateY(-1px);
+.nav-links a:hover {
+  color: #f5d27a;
 }
 
-.women-menu-icon {
-  font-size: 1.3rem;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
+/* underline effect xịn */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #f5d27a, #b88945);
+  transition: 0.3s;
 }
 
-.women-menu-text {
-  line-height: 1.2;
-  text-align: left;
+.nav-links a:hover::after,
+.nav-links .active-like::after {
+  width: 100%;
 }
 
-.women-menu-title {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #1a3e3a;
-  letter-spacing: 0.2px;
-  text-transform: uppercase;
+.active-like {
+  color: #ffffff;
 }
-
-.women-menu-slogan {
-  display: block;
-  margin-top: 1px;
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: #c28632;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-/* Responsive */
-@media (max-width: 860px) {
-  .nav-shell {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 12px 16px;
-  }
-  .nav-links {
-    justify-content: center;
-  }
-  .women-menu {
-    align-self: center;
-    white-space: normal;        /* cho phép xuống dòng */
-    text-align: center;
-    padding: 8px 16px;
-  }
-  .women-menu-text {
-    text-align: center;
-  }
-  .women-menu-title {
-    font-size: 0.7rem;
-  }
-  .women-menu-slogan {
-    font-size: 0.6rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .nav-shell {
-    padding: 10px 12px;
-  }
-  .women-menu {
-    padding: 6px 12px;
-  }
-  .women-menu-icon {
-    font-size: 1.1rem;
-  }
-  .women-menu-title {
-    font-size: 0.65rem;
-  }
-  .women-menu-slogan {
-    font-size: 0.55rem;
-  }
-}
-    
   </style>
 </head>
 <body>
@@ -1357,6 +1319,14 @@
  <div class="nav-wrap">
   <div class="container">
     <div class="nav-shell">
+
+      <!-- LEFT: Identity -->
+      <div class="nav-brand">
+        <span class="brand-main">HỘI PHỤ NỮ HVQP</span>
+        <span class="brand-sub">Tự hào tiếp bước</span>
+      </div>
+
+      <!-- RIGHT: Menu -->
       <nav class="nav-links">
         <a href="#" class="active-like">TRANG CHỦ</a>
         <a href="#giatri">GIÁ TRỊ CỐT LÕI</a>
@@ -1366,13 +1336,7 @@
         <a href="#trochoi">TRÒ CHƠI</a>
         <a href="#gallery">THƯ VIỆN</a>
       </nav>
-      <div class="women-menu">
-        <span class="women-menu-icon">🌸</span>
-        <div class="women-menu-text">
-          <span class="women-menu-title">HỘI PHỤ NỮ HỌC VIỆN QUỐC PHÒNG</span>
-          <span class="women-menu-slogan">TỰ HÀO TIẾP BƯỚC</span>
-        </div>
-      </div>
+
     </div>
   </div>
 </div>
