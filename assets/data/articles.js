@@ -11,6 +11,10 @@ window.ARTICLE_DATA = [
     excerpt: "Chặng đường 50 năm xây dựng và trưởng thành của Học viện Quốc phòng là niềm tự hào sâu sắc đối với mỗi cán bộ, giảng viên, học viên.",
     content: `
       <p>Trong dòng chảy 50 năm xây dựng, chiến đấu và trưởng thành, Học viện Quốc phòng đã khẳng định vị thế là trung tâm đào tạo, bồi dưỡng cán bộ cấp chiến dịch, chiến lược của Quân đội nhân dân Việt Nam.</p>
+       <figure class="article-figure">
+        <img src="assets/images/articles/bai-001-01.jpg" alt="Hoạt động tại Học viện Quốc phòng">
+        <figcaption>Khoảnh khắc ghi dấu niềm tự hào trong các hoạt động kỷ niệm tại Học viện.</figcaption>
+      </figure>
       <p>Mỗi dấu mốc phát triển của Học viện là kết tinh của trí tuệ, bản lĩnh, tinh thần đoàn kết và sự cống hiến bền bỉ của nhiều thế hệ cán bộ, giảng viên, học viên.</p>
       <p>Đối với chúng tôi, niềm tự hào không chỉ đến từ bề dày truyền thống mà còn từ trách nhiệm tiếp bước, giữ gìn và phát huy những giá trị tốt đẹp ấy trong giai đoạn mới.</p>
     `
