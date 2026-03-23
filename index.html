@@ -603,13 +603,23 @@
       gap:26px;
     }
 
-    .footer-logo img{
-      height:62px;
-      margin-bottom:14px;
-      object-fit:contain;
-      filter:brightness(0) invert(1);
-      opacity:0.9;
-    }
+ .footer-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.footer-logo img {
+  height: 58px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.18));
+  opacity: 1;
+}
 
     .footer-logo strong{
       display:block;
@@ -718,7 +728,7 @@
       .nav-links {
     gap: 6px;
   }
-  . .nav-links a {
+  .nav-links a {
     padding: 8px 14px;
     font-size: 0.82rem;
   }
@@ -1167,69 +1177,68 @@
   }
 }
 /* ===== NAV PREMIUM - HỘI PHỤ NỮ HVQP ===== */
-/* ===== MENU NGANG - TÔNG MÀU NỔI BẬT, HÀI HÒA VỚI HEADER ===== */
+/* ===== MENU NGANG TỐI ƯU DESKTOP + MOBILE ===== */
 .nav-wrap {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(238, 244, 240, 0.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(26, 62, 58, 0.12);
+  background: rgba(238, 244, 240, 0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(26, 62, 58, 0.10);
+  box-shadow: 0 6px 18px rgba(17, 39, 33, 0.05);
 }
 
 .nav-shell {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
+  gap: 18px;
   padding: 8px 0;
   max-width: 1280px;
   margin: 0 auto;
 }
 
-/* Khối Hội Phụ nữ bên trái - hoa sen hồng */
+/* Khối Hội Phụ nữ */
 .nav-brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, rgba(219, 164, 90, 0.2), rgba(219, 164, 90, 0.1));
-  border-radius: 60px;
-  padding: 6px 16px 6px 12px;
-  transition: all 0.25s ease;
-  border: 1px solid rgba(219, 164, 90, 0.4);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-}
-
-.nav-brand:hover {
-  background: linear-gradient(135deg, rgba(219, 164, 90, 0.28), rgba(219, 164, 90, 0.16));
-  border-color: rgba(219, 164, 90, 0.6);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  background: linear-gradient(135deg, rgba(219, 164, 90, 0.18), rgba(219, 164, 90, 0.08));
+  border-radius: 999px;
+  padding: 7px 14px 7px 10px;
+  border: 1px solid rgba(219, 164, 90, 0.32);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  min-width: 0;
 }
 
 .nav-brand-icon {
-  font-size: 1.8rem;
-  line-height: 1;
-  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.08));
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
   color: #c28632;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.55);
 }
 
 .nav-brand-text {
-  line-height: 1.2;
+  line-height: 1.12;
 }
 
 .brand-main {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 800;
   color: #1e4a42;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
 .brand-sub {
-  font-size: 0.7rem;
+  font-size: 0.64rem;
   font-weight: 700;
   color: #b87a2e;
   letter-spacing: 1px;
@@ -1237,74 +1246,285 @@
   margin-top: 2px;
 }
 
-/* Menu bên phải - chữ đậm, màu xanh đậm */
+/* Menu */
 .nav-links {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
+  justify-content: flex-end;
+  gap: 6px;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 2px;
+}
+
+.nav-links::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-links a {
-  padding: 8px 18px;
-  border-radius: 40px;
-  font-size: 0.88rem;
+  flex: 0 0 auto;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
   font-weight: 700;
   color: #1e5a50;
   transition: all 0.2s ease;
-  text-transform: capitalize;
-  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  line-height: 1.1;
 }
 
 .nav-links a:hover {
-  background: rgba(219, 164, 90, 0.2);
+  background: rgba(219, 164, 90, 0.18);
   color: #b87a2e;
 }
 
 .nav-links a.active-like {
-  background: linear-gradient(135deg, rgba(219, 164, 90, 0.22), rgba(219, 164, 90, 0.12));
+  background: linear-gradient(135deg, rgba(219, 164, 90, 0.22), rgba(219, 164, 90, 0.10));
   color: #c28632;
   font-weight: 800;
 }
 
-/* Responsive */
-@media (max-width: 960px) {
+/* Tablet */
+@media (max-width: 980px) {
   .nav-shell {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 12px 20px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px 0;
   }
+
   .nav-brand {
-    align-self: flex-start;
+    width: fit-content;
+    max-width: 100%;
   }
+
   .nav-links {
-    justify-content: center;
-    gap: 8px;
-  }
-  .nav-links a {
-    padding: 6px 14px;
-    font-size: 0.82rem;
+    justify-content: flex-start;
   }
 }
 
+/* Mobile */
 @media (max-width: 640px) {
+  .nav-wrap {
+    background: rgba(238, 244, 240, 0.97);
+  }
+
+  .nav-shell {
+    gap: 8px;
+    padding: 8px 0;
+  }
+
   .nav-brand {
-    padding: 6px 16px 6px 12px;
-    gap: 10px;
+    padding: 6px 12px 6px 8px;
+    gap: 8px;
+    border-radius: 18px;
   }
+
   .nav-brand-icon {
-    font-size: 1.5rem;
+    width: 26px;
+    height: 26px;
+    flex-basis: 26px;
+    font-size: 0.95rem;
   }
+
   .brand-main {
-    font-size: 0.72rem;
-    white-space: normal;
+    font-size: 0.68rem;
+    white-space: nowrap;
   }
+
   .brand-sub {
-    font-size: 0.62rem;
+    font-size: 0.56rem;
+    letter-spacing: 0.9px;
   }
+
+  .nav-links {
+    gap: 5px;
+  }
+
   .nav-links a {
-    padding: 5px 12px;
-    font-size: 0.75rem;
+    padding: 6px 10px;
+    font-size: 0.68rem;
+    letter-spacing: 0.1px;
+  }
+}
+
+    /* ===== GIẢM CỠ CHỮ TOÀN TRANG CHO GỌN HƠN ===== */
+body {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.section {
+  padding: 72px 0;
+}
+
+.section-card {
+  padding: 42px 30px;
+}
+
+.section-title {
+  margin-bottom: 40px;
+}
+
+.section-title .kicker {
+  font-size: 0.68rem;
+  padding: 7px 15px;
+  margin-bottom: 14px;
+}
+
+.section-title h2 {
+  font-size: clamp(1.75rem, 3.2vw, 2.55rem);
+  line-height: 1.16;
+}
+
+.section-title p {
+  font-size: 0.96rem;
+  max-width: 760px;
+  margin-top: 10px;
+}
+
+.core-card h4,
+.feature-card h3,
+.game-card h3,
+.testimonial h3 {
+  font-size: 1.06rem;
+}
+
+.core-card p,
+.feature-card p,
+.game-card p,
+.testimonial p,
+.timeline-panel p,
+.premium-core-card p {
+  font-size: 0.92rem;
+  line-height: 1.68;
+}
+
+.year {
+  font-size: 1.55rem;
+}
+
+.timeline-panel {
+  min-height: 172px;
+  padding: 18px 14px;
+}
+
+.stat-box strong {
+  font-size: 2rem;
+}
+
+.stat-box span {
+  font-size: 0.88rem;
+}
+
+.premium-core-title {
+  font-size: clamp(28px, 4vw, 46px);
+}
+
+.premium-core-desc {
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.premium-core-card h3 {
+  font-size: 21px;
+}
+
+.gallery-caption {
+  font-size: 0.9rem;
+}
+
+/* Desktop vừa phải hơn */
+@media (max-width: 1200px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .section-card {
+    padding: 34px 24px;
+  }
+}
+
+/* Mobile gọn hơn rõ rệt */
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .section {
+    padding: 42px 0;
+  }
+
+  .section-card {
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+
+  .section-title {
+    margin-bottom: 26px;
+  }
+
+  .section-title h2 {
+    font-size: 1.45rem;
+  }
+
+  .section-title p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .core-card,
+  .feature-card,
+  .game-card,
+  .testimonial,
+  .leader-item {
+    padding: 20px 16px;
+  }
+
+  .core-card h4,
+  .feature-card h3,
+  .game-card h3,
+  .testimonial h3 {
+    font-size: 0.98rem;
+  }
+
+  .core-card p,
+  .feature-card p,
+  .game-card p,
+  .testimonial p,
+  .timeline-panel p,
+  .leader-item p {
+    font-size: 0.86rem;
+    line-height: 1.58;
+  }
+
+  .timeline-panel {
+    padding: 16px 14px;
+  }
+
+  .year {
+    font-size: 1.35rem;
+  }
+
+  .premium-core-title {
+    font-size: 26px;
+  }
+
+  .premium-core-desc {
+    font-size: 14px;
+  }
+
+  .premium-core-card h3 {
+    font-size: 18px;
+  }
+
+  .premium-core-card p {
+    font-size: 0.88rem;
   }
 }
   </style>
